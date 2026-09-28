@@ -174,7 +174,10 @@ export default function App() {
         {/* VIEW 1: HOME (Full-Screen Immersive Command Center) */}
         {activeTab === 'home' && (
           <div style={{ width: '100%', margin: 0, padding: 0 }}>
-            <PolarCommandCenter onNavigate={handleNavigate} />
+            <PolarCommandCenter 
+              onNavigate={handleNavigate} 
+              onOpenGapMatrix={() => setIsGapMatrixOpen(true)}
+            />
           </div>
         )}
 
