@@ -27,11 +27,11 @@ export function GapMatrixModal({ isOpen, onClose }) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '20px'
+        padding: '16px'
       }}
     >
       <div 
-        className="glass-panel"
+        className="glass-panel modal-dialog-responsive"
         style={{
           maxWidth: '1080px',
           width: '100%',
@@ -49,7 +49,7 @@ export function GapMatrixModal({ isOpen, onClose }) {
               <ShieldAlert size={14} color="var(--accent-orange)" aria-hidden="true" />
               <span>SIH Pitch Defense · The Core Hackathon Differentiator</span>
             </div>
-            <h2 id="gap-matrix-title" style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a' }}>
+            <h2 id="gap-matrix-title" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.6rem)', fontWeight: 800, color: '#0f172a' }}>
               NCPOR Current Systems vs. Polaris Innovation Matrix
             </h2>
             <p style={{ maxWidth: 850, marginTop: '6px', fontSize: '0.9rem', color: '#475569' }}>

@@ -308,14 +308,7 @@ export default function App() {
         color: '#94a3b8'
       }}>
         {/* Main footer grid */}
-        <div style={{
-          maxWidth: 1360,
-          margin: '0 auto',
-          padding: '52px 40px 40px',
-          display: 'grid',
-          gridTemplateColumns: '2fr 1fr 1fr 1fr',
-          gap: '48px',
-        }}>
+        <div className="footer-grid">
           {/* Brand column */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
@@ -443,17 +436,7 @@ export default function App() {
         </div>
 
         {/* Bottom copyright bar */}
-        <div style={{
-          maxWidth: 1360,
-          margin: '0 auto',
-          padding: '18px 40px',
-          borderTop: '1px solid rgba(255,255,255,0.06)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '10px'
-        }}>
+        <div className="footer-bottom-bar">
           <span style={{ fontSize: '0.76rem', color: '#334155' }}>
             © 2025–2026 National Centre for Polar and Ocean Research (NCPOR), Ministry of Earth Sciences, Government of India.
           </span>

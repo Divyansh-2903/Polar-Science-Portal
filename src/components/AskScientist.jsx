@@ -80,12 +80,7 @@ export function AskScientist() {
       </div>
 
       {/* Main Grid: Directory on Left, Q&A on Right */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'minmax(380px, 1fr) minmax(440px, 1.2fr)',
-        gap: '26px',
-        alignItems: 'start'
-      }}>
+      <div className="ask-scientist-grid">
         
         {/* Researchers Directory */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>

@@ -246,12 +246,7 @@ export function PolarExplorerMap({ onNavigate }) {
       </div>
 
       {/* Main Map Workspace (Screen 2 Layout: Map on Left, Detail Dossier on Right) */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'minmax(0, 1fr) 380px',
-        gap: '20px',
-        minHeight: '520px'
-      }}>
+      <div className="map-workspace-grid">
         
         {/* Interactive Polar Projection Map Canvas */}
         <div style={{
@@ -263,7 +258,8 @@ export function PolarExplorerMap({ onNavigate }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          boxShadow: '0 8px 30px rgba(9, 21, 43, 0.3)'
+          boxShadow: '0 8px 30px rgba(9, 21, 43, 0.3)',
+          minHeight: 'clamp(320px, 50vh, 560px)'
         }}>
           
           {/* Coordinate Grid Overlay */}

@@ -140,26 +140,10 @@ export function ExpeditionReplay({ onNavigate }) {
     <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '20px' }}>
       
       {/* 3-Column Expedition Replay Layout (Matches Reference Screen 5) */}
-      <div style={{
-        background: '#ffffff',
-        border: '1px solid #e2e8f0',
-        borderRadius: '20px',
-        padding: '24px 28px',
-        boxShadow: '0 4px 16px rgba(15, 23, 42, 0.05)',
-        display: 'grid',
-        gridTemplateColumns: '290px 1fr 350px',
-        gap: '24px',
-        minHeight: '480px'
-      }}>
+      <div className="expedition-replay-grid">
         
         {/* Left Column: Stage Timeline */}
-        <div style={{
-          borderRight: '1px solid #e2e8f0',
-          paddingRight: '20px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between'
-        }}>
+        <div className="expedition-col-left">
           <div>
             <div style={{ marginBottom: '16px' }}>
               <label style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', display: 'block', marginBottom: '6px' }}>

@@ -137,10 +137,12 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
               aria-label="Target Audience Tier"
               style={{
                 display: 'flex',
+                flexWrap: 'wrap',
                 background: 'var(--bg-surface)',
                 borderRadius: 'var(--radius-sm)',
                 border: '1px solid var(--border-subtle)',
-                padding: '3px'
+                padding: '3px',
+                gap: '2px'
               }}
             >
               {[
@@ -209,12 +211,7 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
       )}
 
       {/* THE GOLDEN DEMO: Side-by-Side Dual-Pane Inspector */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'minmax(420px, 1fr) minmax(480px, 1.15fr)',
-        gap: '24px',
-        alignItems: 'start'
-      }}>
+      <div className="outreach-studio-grid">
         
         {/* LEFT PANE: Grounded Outreach Post */}
         <div className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '18px' }}>

@@ -180,7 +180,7 @@ export function MediaVault() {
       {/* Media Grid */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
         gap: '24px'
       }}>
         {filteredAssets.map((asset) => {
@@ -348,7 +348,7 @@ export function MediaVault() {
           zIndex: 100,
           padding: '20px'
         }}>
-          <div className="glass-panel" style={{
+          <div className="glass-panel modal-dialog-responsive" style={{
             maxWidth: '620px',
             width: '100%',
             padding: '28px',
@@ -373,7 +373,7 @@ export function MediaVault() {
 
             <div style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
               gap: '12px',
               background: '#f8fafc',
               padding: '16px',

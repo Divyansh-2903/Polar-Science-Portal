@@ -259,17 +259,7 @@ export function ExplainResearch({ onNavigate, preselectedReportId }) {
         </div>
 
         {/* Dynamic Card (Matches Reference Screen 6 layout: text on left, image on right) */}
-        <div style={{
-          border: '1px solid #e2e8f0',
-          borderRadius: '16px',
-          padding: '24px 28px',
-          background: '#f8fafc',
-          display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1fr) 260px',
-          gap: '24px',
-          alignItems: 'center',
-          marginBottom: '20px'
-        }}>
+        <div className="explain-card-grid">
           <div>
             <div style={{
               display: 'inline-block',

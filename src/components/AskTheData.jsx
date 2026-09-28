@@ -175,12 +175,7 @@ export function AskTheData({ preselectedDatasetId }) {
       </div>
 
       {/* Main Visualizer Container */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 340px',
-        gap: '24px',
-        alignItems: 'start'
-      }}>
+      <div className="ask-data-grid">
         {/* Dynamic Interactive Chart Canvas */}
         <div className="glass-panel" style={{ padding: '24px', minHeight: '480px', display: 'flex', flexDirection: 'column' }}>
           

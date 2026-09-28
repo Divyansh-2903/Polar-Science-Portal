@@ -91,12 +91,7 @@ export function EditorialQueue({ queueItems, onUpdateQueueItem }) {
       </div>
 
       {/* 4-Stage Kanban Board */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(4, minmax(280px, 1fr))',
-        gap: '18px',
-        alignItems: 'start'
-      }}>
+      <div className="editorial-kanban-grid">
         {columns.map((col) => {
           const colItems = activeItems.filter(item => item.status === col.id);
           const ColIcon = col.icon;
@@ -104,16 +99,7 @@ export function EditorialQueue({ queueItems, onUpdateQueueItem }) {
           return (
             <div
               key={col.id}
-              style={{
-                background: '#f8fafc',
-                border: '1px solid #e2e8f0',
-                borderRadius: '16px',
-                padding: '16px',
-                minHeight: '520px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '14px'
-              }}
+              className="editorial-kanban-col"
             >
               {/* Column Header */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '10px', borderBottom: '1px solid #e2e8f0' }}>

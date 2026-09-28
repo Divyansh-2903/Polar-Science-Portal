@@ -179,18 +179,7 @@ export function PolarCommandCenter({ onNavigate }) {
         }} />
 
         {/* Hero Content — anchored to bottom-left */}
-        <div style={{
-          position: 'relative',
-          zIndex: 2,
-          flex: 1,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-end',
-          maxWidth: '1440px',
-          width: '100%',
-          margin: '0 auto',
-          padding: '0 52px 52px',
-        }}>
+        <div className="hero-content-wrapper">
 
           {/* Headline block */}
           <div style={{ maxWidth: '720px' }}>
@@ -284,12 +273,7 @@ export function PolarCommandCenter({ onNavigate }) {
           </div>
 
           {/* Quick-action bento row */}
-          <div style={{
-            marginTop: '36px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(5, 1fr)',
-            gap: '10px'
-          }}>
+          <div className="hero-bento-grid">
             {quickActions.map((qa) => (
               <div
                 key={qa.id}
@@ -385,12 +369,7 @@ export function PolarCommandCenter({ onNavigate }) {
           </div>
 
           {/* Three Poles overview strip */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '16px',
-            marginBottom: '72px'
-          }}>
+          <div className="poles-overview-grid">
             {poles.map((pole) => (
               <div
                 key={pole.region}
@@ -459,11 +438,7 @@ export function PolarCommandCenter({ onNavigate }) {
             </p>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '20px'
-          }}>
+          <div className="capabilities-grid">
             {features.map((f, i) => (
               <div
                 key={i}
@@ -511,17 +486,7 @@ export function PolarCommandCenter({ onNavigate }) {
           </div>
 
           {/* CTA strip */}
-          <div style={{
-            marginTop: '60px',
-            background: 'linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%)',
-            borderRadius: '20px',
-            padding: '44px 48px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '32px',
-            flexWrap: 'wrap'
-          }}>
+          <div className="cta-strip-container">
             <div>
               <h3 style={{
                 fontSize: '1.45rem', fontWeight: 800,
