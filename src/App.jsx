@@ -36,12 +36,12 @@ export default function App() {
   const handleNavigate = (target, metadata = {}) => {
     let tabKey = target;
     if (target === 'map') tabKey = 'explore';
-    else if (target === 'data' || target === 'charts') tabKey = 'data';
-    else if (target === 'papers' || target === 'repository') tabKey = 'papers';
+    else if (target === 'data' || target === 'charts' || target === 'datasets') tabKey = 'data';
+    else if (target === 'papers' || target === 'repository' || target === 'reports') tabKey = 'papers';
     else if (target === 'ai') tabKey = 'ai';
-    else if (target === 'replay' || target === 'voyages' || target === 'expeditions') tabKey = 'expeditions';
-    else if (target === 'explain' || target === 'explainer' || target === 'research') tabKey = 'research';
-    else if (target === 'studio' || target === 'outreach' || target === 'drafts') tabKey = 'outreach';
+    else if (target === 'replay' || target === 'voyages' || target === 'expeditions' || target === 'activities') tabKey = 'expeditions';
+    else if (target === 'explain' || target === 'explainer' || target === 'research' || target === 'publications') tabKey = 'research';
+    else if (target === 'studio' || target === 'outreach' || target === 'drafts' || target === 'content_studio') tabKey = 'outreach';
     else if (target === 'insight' || target === 'anomalies' || target === 'alerts') tabKey = 'anomalies';
     else if (target === 'home' || target === 'overview') tabKey = 'home';
     else if (target === 'review' || target === 'approvals' || target === 'editorial_queue') tabKey = 'review';

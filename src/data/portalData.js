@@ -6,11 +6,12 @@ export const stationTemperatures = [
 ];
 
 export const quickActions = [
-  { id: 'map', title: 'Station Map', desc: 'Stations, sea ice & polar research locations', icon: 'MapPin', screen: 'map' },
-  { id: 'data', title: 'Data & Charts', desc: 'Interactive plots & sensor telemetry', icon: 'BarChart3', screen: 'data' },
-  { id: 'papers', title: 'Research Papers', desc: '40+ years of official expedition reports', icon: 'BookOpen', screen: 'papers' },
-  { id: 'media', title: 'Photos & Videos', desc: '4K field photography & drone footage', icon: 'Film', screen: 'media' },
-  { id: 'studio', title: 'Draft Posts', desc: 'Create verified news & social media stories', icon: 'Share2', screen: 'studio' },
+  { id: 'reports', title: 'Expedition Reports', desc: 'Official monographs & 40+ years of mission archives', icon: 'FileText', screen: 'papers' },
+  { id: 'datasets', title: 'Scientific Datasets', desc: '700+ verified polar datasets & sensor telemetry', icon: 'Database', screen: 'data' },
+  { id: 'publications', title: 'Publications', desc: 'Peer-reviewed papers & simplified research explainers', icon: 'BookOpen', screen: 'research' },
+  { id: 'media', title: 'Photos & Videos', desc: '4K field photography, drone footage & EXIF telemetry', icon: 'Film', screen: 'media' },
+  { id: 'activities', title: 'Institutional Activities', desc: 'NCPOR expeditions, voyages & field operations', icon: 'Compass', screen: 'expeditions' },
+  { id: 'studio', title: 'Content Studio', desc: 'Turn reports into news articles & social threads', icon: 'Share2', screen: 'studio' },
 ];
 
 export const expeditionStages = [

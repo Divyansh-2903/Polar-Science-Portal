@@ -17,7 +17,8 @@ import {
   Shield,
   Zap,
   Navigation,
-  Activity
+  Activity,
+  FileText
 } from 'lucide-react';
 import { quickActions } from '../data/portalData';
 import { PolarWeatherWidget } from './PolarWeatherWidget';
@@ -27,28 +28,38 @@ export function PolarCommandCenter({ onNavigate }) {
 
   const getActionIcon = (id) => {
     const icons = {
+      reports: <FileText size={20} color="#a78bfa" />,
+      datasets: <Database size={20} color="#38bdf8" />,
+      publications: <BookOpen size={20} color="#60a5fa" />,
+      media: <Film size={20} color="#f472b6" />,
+      activities: <Compass size={20} color="#34d399" />,
+      studio: <Share2 size={20} color="#fb923c" />,
+      // Backwards compatibility
       map: <MapPin size={20} color="#1e6ef5" />,
       data: <BarChart3 size={20} color="#0ea5e9" />,
       papers: <BookOpen size={20} color="#8b5cf6" />,
-      media: <Film size={20} color="#ec4899" />,
-      studio: <Share2 size={20} color="#f97316" />,
       ai: <Sparkles size={20} color="#10b981" />,
       replay: <Compass size={20} color="#10b981" />,
     };
-    return icons[id] || <Sparkles size={20} color="#1e6ef5" />;
+    return icons[id] || <Sparkles size={20} color="#38bdf8" />;
   };
 
   const getActionColor = (id) => {
     const colors = {
+      reports: 'rgba(167,139,250,0.18)',
+      datasets: 'rgba(56,189,248,0.18)',
+      publications: 'rgba(96,165,250,0.18)',
+      media: 'rgba(244,114,182,0.18)',
+      activities: 'rgba(52,211,153,0.18)',
+      studio: 'rgba(251,146,60,0.18)',
+      // Backwards compatibility
       map: 'rgba(30,110,245,0.14)',
       data: 'rgba(14,165,233,0.14)',
       papers: 'rgba(139,92,246,0.14)',
-      media: 'rgba(236,72,153,0.14)',
-      studio: 'rgba(249,115,22,0.14)',
       ai: 'rgba(16,185,129,0.14)',
       replay: 'rgba(16,185,129,0.14)',
     };
-    return colors[id] || 'rgba(30,110,245,0.14)';
+    return colors[id] || 'rgba(56,189,248,0.18)';
   };
 
   // ── About / feature data ──────────────────────────────────────────────────

@@ -529,7 +529,7 @@ button:focus-visible, input:focus-visible, select:focus-visible {
 .hero-bento-grid {
   margin-top: 36px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 10px;
 }
 
@@ -725,6 +725,9 @@ button:focus-visible, input:focus-visible, select:focus-visible {
 
 /* ── Medium Tablet Breakpoint (max-width: 1200px) ── */
 @media (max-width: 1200px) {
+  .hero-bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
   .editorial-kanban-grid {
     display: flex;
     overflow-x: auto;
