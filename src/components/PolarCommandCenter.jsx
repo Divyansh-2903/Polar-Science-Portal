@@ -648,23 +648,15 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
                   zIndex: 0
                 }} />
 
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', zIndex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'center', zIndex: 1 }}>
                   <div style={{
-                    width: '38px', height: '38px',
+                    width: '40px', height: '40px',
                     borderRadius: '10px',
                     background: km.bg,
                     display: 'flex', alignItems: 'center', justifyContent: 'center'
                   }}>
                     {km.icon}
                   </div>
-                  <span style={{
-                    fontSize: '0.68rem', fontWeight: 800,
-                    color: km.color, background: km.bg,
-                    padding: '3px 8px', borderRadius: '5px',
-                    textTransform: 'uppercase', letterSpacing: '0.04em'
-                  }}>
-                    Verified SIH Metric
-                  </span>
                 </div>
 
                 <div style={{ zIndex: 1 }}>
