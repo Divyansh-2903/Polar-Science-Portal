@@ -194,12 +194,8 @@ export function PolarCommandCenter({ onNavigate }) {
               }}>
                 Ready to Explore<br />
                 <span style={{
-                  background: 'linear-gradient(90deg, #38bdf8 0%, #0284c7 50%, #1e6ef5 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  display: 'inline-block',
-                  filter: 'drop-shadow(0 2px 10px rgba(0, 0, 0, 0.95)) drop-shadow(0 4px 24px rgba(0, 0, 0, 0.85))'
+                  color: '#38bdf8',
+                  textShadow: '0 2px 16px rgba(0,0,0,0.9), 0 4px 30px rgba(0,0,0,0.85)'
                 }}>
                   Polar Science?
                 </span>
