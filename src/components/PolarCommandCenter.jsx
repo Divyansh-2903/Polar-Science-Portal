@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { 
-  Search, 
-  ArrowRight, 
-  MapPin, 
-  Sparkles, 
-  BarChart3, 
-  Compass, 
+import {
+  Search,
+  ArrowRight,
+  MapPin,
+  Sparkles,
+  BarChart3,
+  Compass,
   Share2,
   ChevronRight,
   Database,
@@ -40,12 +40,12 @@ export function PolarCommandCenter({ onNavigate }) {
 
   const getActionColor = (id) => {
     const colors = {
-      map:    'rgba(30,110,245,0.14)',
-      data:   'rgba(14,165,233,0.14)',
+      map: 'rgba(30,110,245,0.14)',
+      data: 'rgba(14,165,233,0.14)',
       papers: 'rgba(139,92,246,0.14)',
-      media:  'rgba(236,72,153,0.14)',
+      media: 'rgba(236,72,153,0.14)',
       studio: 'rgba(249,115,22,0.14)',
-      ai:     'rgba(16,185,129,0.14)',
+      ai: 'rgba(16,185,129,0.14)',
       replay: 'rgba(16,185,129,0.14)',
     };
     return colors[id] || 'rgba(30,110,245,0.14)';
@@ -150,7 +150,7 @@ export function PolarCommandCenter({ onNavigate }) {
         minHeight: 'calc(100vh - 60px)',
         color: '#ffffff'
       }}>
-        
+
         {/* Hero background — user's polar station photograph */}
         <img
           src="/hero-polar-station.jpg"
@@ -170,7 +170,7 @@ export function PolarCommandCenter({ onNavigate }) {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(to bottom, rgba(4,12,28,0.18) 0%, rgba(4,12,28,0.08) 35%, rgba(4,12,28,0.58) 68%, rgba(4,12,28,0.93) 100%)',
+          background: 'linear-gradient(to bottom, rgba(4,12,28,0.22) 0%, rgba(4,12,28,0.12) 30%, rgba(4,12,28,0.65) 60%, rgba(4,12,28,0.95) 100%)',
           zIndex: 1
         }} />
 
@@ -190,14 +190,16 @@ export function PolarCommandCenter({ onNavigate }) {
                 lineHeight: 1.1,
                 letterSpacing: '-0.03em',
                 marginBottom: '14px',
-                textShadow: '0 3px 24px rgba(0,0,0,0.55)'
+                textShadow: '0 2px 16px rgba(0,0,0,0.9), 0 4px 30px rgba(0,0,0,0.85)'
               }}>
                 Ready to Explore<br />
                 <span style={{
-                  background: 'linear-gradient(90deg, #7dd3fc 0%, #38bdf8 60%, #bae6fd 100%)',
+                  background: 'linear-gradient(90deg, #38bdf8 0%, #0284c7 50%, #1e6ef5 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
+                  backgroundClip: 'text',
+                  display: 'inline-block',
+                  filter: 'drop-shadow(0 2px 10px rgba(0, 0, 0, 0.95)) drop-shadow(0 4px 24px rgba(0, 0, 0, 0.85))'
                 }}>
                   Polar Science?
                 </span>
@@ -429,10 +431,10 @@ export function PolarCommandCenter({ onNavigate }) {
               color: '#475569',
               lineHeight: 1.7
             }}>
-              <strong style={{ color: '#0f172a' }}>Polaris</strong> is an integrated science dissemination portal built for the 
-              National Centre for Polar and Ocean Research (NCPOR), Ministry of Earth Sciences, 
-              Government of India. It bridges the gap between field research and public understanding — 
-              making decades of polar data discoverable, understandable, and shareable for scientists, 
+              <strong style={{ color: '#0f172a' }}>Polaris</strong> is an integrated science dissemination portal built for the
+              National Centre for Polar and Ocean Research (NCPOR), Ministry of Earth Sciences,
+              Government of India. It bridges the gap between field research and public understanding —
+              making decades of polar data discoverable, understandable, and shareable for scientists,
               students, journalists, and citizens alike.
             </p>
           </div>
