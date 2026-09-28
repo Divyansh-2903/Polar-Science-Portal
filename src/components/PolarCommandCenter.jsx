@@ -180,40 +180,38 @@ export function PolarCommandCenter({ onNavigate }) {
           {/* Upper Hero Split: Left Headline + Right Live Weather Widget */}
           <div className="hero-split-row">
 
-            {/* Headline block */}
+            {/* Headline block — Ready to Explore Polar Science */}
             <div className="hero-headline-block">
 
               <h1 style={{
-                fontSize: 'clamp(2.4rem, 4.2vw, 3.8rem)',
+                fontSize: 'clamp(2.5rem, 4.4vw, 3.8rem)',
                 fontWeight: 800,
                 color: '#ffffff',
-                lineHeight: 1.08,
+                lineHeight: 1.1,
                 letterSpacing: '-0.03em',
-                marginBottom: '16px',
+                marginBottom: '14px',
                 textShadow: '0 3px 24px rgba(0,0,0,0.55)'
               }}>
-                Exploring Today<br />
+                Ready to Explore<br />
                 <span style={{
                   background: 'linear-gradient(90deg, #7dd3fc 0%, #38bdf8 60%, #bae6fd 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text'
                 }}>
-                  for a Greener Tomorrow
+                  Polar Science?
                 </span>
               </h1>
 
               <p style={{
-                fontSize: '1.02rem',
+                fontSize: '1.04rem',
                 color: '#cbd5e1',
                 lineHeight: 1.62,
-                marginBottom: '26px',
+                marginBottom: '22px',
                 maxWidth: '560px',
                 textShadow: '0 1px 8px rgba(0,0,0,0.45)'
               }}>
-                India's integrated gateway to polar science — connecting research, datasets,
-                expeditions, and outreach across{' '}
-                <strong style={{ color: '#f0f9ff' }}>Antarctica, the Arctic, and the Himalayas</strong>.
+                Dive into datasets, track live expeditions, and ask our AI anything about India's polar research.
               </p>
 
               {/* Search bar */}
@@ -231,6 +229,7 @@ export function PolarCommandCenter({ onNavigate }) {
                   boxShadow: '0 20px 60px rgba(0,0,0,0.45)',
                   maxWidth: '540px',
                   width: '100%',
+                  marginBottom: '16px'
                 }}
               >
                 <Search size={18} color="#64748b" style={{ marginRight: '10px', flexShrink: 0 }} />
@@ -269,6 +268,70 @@ export function PolarCommandCenter({ onNavigate }) {
                   <ArrowRight size={16} />
                 </button>
               </form>
+
+              {/* Quick Action Buttons */}
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <button
+                  onClick={() => onNavigate('explore')}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    background: '#ffffff',
+                    color: '#0f172a',
+                    padding: '10px 20px',
+                    borderRadius: '10px',
+                    fontSize: '0.86rem',
+                    fontWeight: 700,
+                    boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
+                    border: 'none',
+                    cursor: 'pointer',
+                    transition: 'all 0.16s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 6px 18px rgba(0,0,0,0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
+                  }}
+                >
+                  <Globe size={16} />
+                  Explore Polar Map
+                </button>
+
+                <button
+                  onClick={() => onNavigate('ai')}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    background: '#1e6ef5',
+                    color: '#ffffff',
+                    padding: '10px 20px',
+                    borderRadius: '10px',
+                    fontSize: '0.86rem',
+                    fontWeight: 700,
+                    boxShadow: '0 4px 16px rgba(30,110,245,0.4)',
+                    border: 'none',
+                    cursor: 'pointer',
+                    transition: 'all 0.16s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.background = '#1656c7';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.background = '#1e6ef5';
+                  }}
+                >
+                  <Sparkles size={16} />
+                  Ask Polar AI
+                </button>
+              </div>
+
             </div>
 
             {/* Right Side: Live Weather at Indian Polar Stations Widget */}
@@ -490,53 +553,6 @@ export function PolarCommandCenter({ onNavigate }) {
               </div>
             ))}
           </div>
-
-          {/* CTA strip */}
-          <div className="cta-strip-container">
-            <div>
-              <h3 style={{
-                fontSize: '1.45rem', fontWeight: 800,
-                color: '#ffffff', margin: '0 0 8px',
-                letterSpacing: '-0.02em'
-              }}>
-                Ready to Explore Polar Science?
-              </h3>
-              <p style={{ fontSize: '0.9rem', color: '#94a3b8', margin: 0 }}>
-                Dive into datasets, track live expeditions, and ask our AI anything about India's polar research.
-              </p>
-            </div>
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-              <button
-                onClick={() => onNavigate('explore')}
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '8px',
-                  background: '#ffffff', color: '#0f172a',
-                  padding: '11px 22px', borderRadius: '10px',
-                  fontSize: '0.88rem', fontWeight: 700,
-                  boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
-                  border: 'none', cursor: 'pointer'
-                }}
-              >
-                <Globe size={16} />
-                Explore Polar Map
-              </button>
-              <button
-                onClick={() => onNavigate('ai')}
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '8px',
-                  background: '#1e6ef5', color: '#ffffff',
-                  padding: '11px 22px', borderRadius: '10px',
-                  fontSize: '0.88rem', fontWeight: 700,
-                  boxShadow: '0 4px 16px rgba(30,110,245,0.4)',
-                  border: 'none', cursor: 'pointer'
-                }}
-              >
-                <Sparkles size={16} />
-                Ask Polar AI
-              </button>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
