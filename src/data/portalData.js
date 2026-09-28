@@ -6,12 +6,12 @@ export const stationTemperatures = [
 ];
 
 export const quickActions = [
-  { id: 'reports', title: 'Expedition Reports', desc: 'Official monographs & 40+ years of mission archives', icon: 'FileText', screen: 'papers' },
-  { id: 'datasets', title: 'Scientific Datasets', desc: '700+ verified polar datasets & sensor telemetry', icon: 'Database', screen: 'data' },
-  { id: 'publications', title: 'Publications', desc: 'Peer-reviewed papers & simplified research explainers', icon: 'BookOpen', screen: 'research' },
-  { id: 'media', title: 'Photos & Videos', desc: '4K field photography, drone footage & EXIF telemetry', icon: 'Film', screen: 'media' },
-  { id: 'activities', title: 'Institutional Activities', desc: 'NCPOR expeditions, voyages & field operations', icon: 'Compass', screen: 'expeditions' },
-  { id: 'studio', title: 'Content Studio', desc: 'Turn reports into news articles & social threads', icon: 'Share2', screen: 'studio' },
+  { id: 'reports', title: 'Expedition Reports', desc: 'Read 40+ years of official voyage stories and mission logs', icon: 'FileText', screen: 'papers' },
+  { id: 'datasets', title: 'Scientific Datasets', desc: 'Explore 700+ free polar datasets on weather, ice, and oceans', icon: 'Database', screen: 'data' },
+  { id: 'publications', title: 'Publications', desc: 'Scientific discoveries explained in plain, simple English', icon: 'BookOpen', screen: 'research' },
+  { id: 'media', title: 'Photos & Videos', desc: '4K field photos, drone videos, and wildlife recordings', icon: 'Film', screen: 'media' },
+  { id: 'activities', title: 'Institutional Activities', desc: 'Follow Indian ship journeys, polar stations, and missions', icon: 'Compass', screen: 'expeditions' },
+  { id: 'studio', title: 'Content Studio', desc: 'Turn research into easy news stories and social media posts', icon: 'Share2', screen: 'studio' },
 ];
 
 export const expeditionStages = [

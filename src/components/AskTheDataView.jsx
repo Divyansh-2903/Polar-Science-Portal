@@ -72,9 +72,9 @@ export function AskTheDataView() {
       ],
       insights: {
         avg: '976 hPa',
-        coldest: 'July (965 hPa Low Cyclone)',
-        warmest: 'January (988 hPa Stable High)',
-        source: 'Barometric Sensor Model PTB330',
+        coldest: 'July (965 hPa Storm System)',
+        warmest: 'January (988 hPa Clear Sky)',
+        source: 'Barometric Air Pressure Sensor',
         resolution: '10-minute automated logging'
       }
     },
@@ -99,10 +99,10 @@ export function AskTheDataView() {
       ],
       insights: {
         avg: '48.8 km/h',
-        coldest: 'July (Max Gust 148 km/h Katabatic)',
+        coldest: 'July (Max Gust 148 km/h Winter Blizzard)',
         warmest: 'January (Calm 24 km/h)',
-        source: 'Ultrasonic Anemometer Array',
-        resolution: 'Continuous 1 Hz sampling'
+        source: 'Wind Speed Sensor Station',
+        resolution: 'Continuous live recordings'
       }
     },
     humidity: {
@@ -126,9 +126,9 @@ export function AskTheDataView() {
       ],
       insights: {
         avg: '55.2%',
-        coldest: 'July (44% Extreme Polar Aridity)',
-        warmest: 'January (68% Coastal Inflow)',
-        source: 'Heated Hygrometer Probe',
+        coldest: 'July (44% Dry Polar Air)',
+        warmest: 'January (68% Ocean Breeze)',
+        source: 'Automated Humidity Sensor',
         resolution: 'Hourly average'
       }
     }
@@ -490,7 +490,7 @@ export function AskTheDataView() {
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span style={{ color: '#8b5cf6' }}>◆</span>
-                <span><strong>Temporal resolution:</strong> {currentMetricData.insights.resolution}</span>
+                <span><strong>Recording frequency:</strong> {currentMetricData.insights.resolution}</span>
               </li>
             </ul>
           </div>
@@ -498,7 +498,7 @@ export function AskTheDataView() {
           {/* Download Data Button (Matches Reference Image 4) */}
           <button
             onClick={() => {
-              alert(`Downloading authenticated CSV time series for ${station} station (${activeMetric}). Minted with DataCite DOI.`);
+              alert(`Downloading verified CSV dataset for ${station} station (${activeMetric}).`);
             }}
             style={{
               padding: '10px 18px',

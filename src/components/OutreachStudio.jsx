@@ -65,7 +65,7 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
         sourceCitationsCount: postData.claims.length,
         headline: postData.headline
       });
-      setSubmissionFeedback('Dispatched to Editorial Review Queue for Scientist Fact-Check!');
+      setSubmissionFeedback('Sent to Scientist Review Gate for fact-checking!');
       setTimeout(() => setSubmissionFeedback(null), 4000);
     }
   };
@@ -86,11 +86,11 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
         <div>
           <div className="glass-pill" style={{ marginBottom: '10px' }}>
             <ShieldCheck size={14} color="var(--accent-aurora)" aria-hidden="true" />
-            <span>Strict Evidence Grounding · Zero Hallucination Guarantee</span>
+            <span>100% Fact-Checked · Backed by Real Expedition Reports</span>
           </div>
-          <h1>Grounded Science Outreach Studio</h1>
+          <h1>Polar Content Studio</h1>
           <p style={{ maxWidth: 880, marginTop: '8px', fontSize: '1.02rem' }}>
-            Transform dense 50-page polar expedition reports into verified school curricula, PIB press releases, and social campaigns. Every generated statement is locked to exact source passages with interactive side-by-side inspection.
+            Turn heavy 50-page scientific expedition reports into friendly school lessons, news updates, and social media posts. Every single sentence is locked directly to real report pages so there is zero false information.
           </p>
         </div>
 
@@ -183,7 +183,7 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
             aria-label="Re-generate and verify grounded claims"
           >
             <Sparkles size={16} aria-hidden="true" />
-            <span>{isGenerating ? 'Grounding Claims…' : 'Generate & Cite'}</span>
+            <span>{isGenerating ? 'Checking Report…' : 'Create Story'}</span>
           </button>
         </div>
       </div>
@@ -227,7 +227,7 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
             </div>
 
             <span style={{ fontSize: '0.75rem', color: '#64748b', fontFamily: 'var(--font-mono)' }}>
-              Provenance: ISO 19115 Verified
+              Data Source: Verified NCPOR Report
             </span>
           </div>
 
@@ -248,7 +248,7 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
             fontWeight: 500
           }}>
             <Eye size={16} aria-hidden="true" />
-            <span>Interactive Demo: Click any claim below to inspect its exact source span in the right pane.</span>
+            <span>Click any sentence below to see the exact report paragraph on the right.</span>
           </div>
 
           {/* Interactive Claims Stack */}
@@ -339,7 +339,7 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
               aria-label="Submit this grounded outreach post to the editorial review queue"
             >
               <Send size={15} aria-hidden="true" />
-              <span>Send to Editorial Review Queue</span>
+              <span>Send to Scientist Fact-Check Gate</span>
             </button>
           </div>
         </div>
@@ -358,7 +358,7 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
           }}>
             <div>
               <span className="badge-status badge-scheduled" style={{ marginBottom: '6px' }}>
-                PRIMARY SOURCE ARCHIVE · NCPOR DSPACE
+                OFFICIAL EXPEDITION REPORT ARCHIVE
               </span>
               <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0f172a' }}>{report.title}</h3>
               <div style={{ fontSize: '0.78rem', color: '#64748b', marginTop: '4px' }}>
@@ -444,7 +444,7 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
                       gap: '5px'
                     }}>
                       <CheckCircle2 size={13} aria-hidden="true" />
-                      <span>Actively verifying Claim #{activeClaimIndex + 1}</span>
+                      <span>Evidence for Sentence #{activeClaimIndex + 1}</span>
                     </div>
                   )}
                 </div>
@@ -463,8 +463,8 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
             justifyContent: 'space-between',
             alignItems: 'center'
           }}>
-            <span>Dublin Core Spatial Bounds: {report.dublinCore.coverageSpatial}</span>
-            <span style={{ color: 'var(--accent-aurora)' }}>DataCite Metadata Valid</span>
+            <span>Region: {report.dublinCore.coverageSpatial}</span>
+            <span style={{ color: 'var(--accent-aurora)' }}>Official Report Verified</span>
           </div>
         </div>
 

@@ -83,13 +83,13 @@ export function KnowledgeRepository({ onExploreDataset, onNavigate }) {
             marginBottom: '8px'
           }}>
             <Database size={13} />
-            <span>ISO 19115 & DataCite Metadata Standard // 40+ Years Polar Archive</span>
+            <span>Official Indian Polar Archive · 40+ Years of Expeditions</span>
           </div>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#0f172a', margin: '0 0 6px 0', letterSpacing: '-0.02em' }}>
-            Official Expedition Reports & Research Publications
+            Expedition Reports & Scientific Papers
           </h2>
           <p style={{ maxWidth: 840, margin: 0, fontSize: '0.86rem', color: '#64748b', lineHeight: 1.55 }}>
-            Search verified Indian Antarctic, Arctic, and Himalayan monographs. Convert complex papers into simplified explainers or grounded news drafts with one click.
+            Explore 40+ years of Indian Antarctic, Arctic, and Himalayan mission reports. Read simplified summaries in plain English, preview datasets, or create news posts with one click.
           </p>
         </div>
 

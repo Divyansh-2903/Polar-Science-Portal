@@ -41,8 +41,8 @@ export function PolarExplorerMap({ onNavigate }) {
       currentTemp: '-9.6°C',
       windSpeed: '28 km/h ENE',
       pressure: '988 hPa',
-      description: 'Bharati is India\'s newest research station in Antarctica, supporting multidisciplinary research in earth sciences, atmosphere, biology and more.',
-      tags: ['Satellite Ground Station', 'Oceanography', 'Clean Fuel Cogeneration', 'Atmospheric Physics'],
+      description: 'Bharati is India\'s newest polar base in Antarctica. Scientists live here year-round to study coastal weather, marine life, and global climate changes.',
+      tags: ['Satellite Station', 'Ocean Studies', 'Eco-Friendly Power', 'Weather Physics'],
       color: '#0ea5e9',
       image: 'https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=800&q=80',
       x: 640,
@@ -59,10 +59,10 @@ export function PolarExplorerMap({ onNavigate }) {
       operatedBy: 'NCPOR / MoES',
       altitude: '117 m above sea level',
       currentTemp: '-11.8°C',
-      windSpeed: '42 km/h S (Katabatic)',
+      windSpeed: '42 km/h S (Polar Wind)',
       pressure: '976 hPa',
-      description: 'Maitri is India\'s second permanent Antarctic research base, situated in an ice-free rocky oasis. It hosts year-round meteorological, geological and paleoclimatic studies.',
-      tags: ['Lake Priyadarshini Monitoring', 'Geomagnetism', 'Seismology', 'Aerosol Observatory'],
+      description: 'Maitri is India\'s second permanent Antarctic base, built on an ice-free rocky oasis. Scientists study changing weather, ancient ice cores, and lake ecosystems here year-round.',
+      tags: ['Freshwater Lake Study', 'Earth Magnetic Fields', 'Earthquake Sensors', 'Air Quality'],
       color: '#8b5cf6',
       image: 'https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=800&q=80',
       x: 380,
@@ -81,8 +81,8 @@ export function PolarExplorerMap({ onNavigate }) {
       currentTemp: '-14.2°C',
       windSpeed: '36 km/h',
       pressure: '980 hPa',
-      description: 'India\'s historic first permanent Antarctic station established during the 3rd Indian Antarctic Expedition. Submerged by continental ice in 1990 and designated as an Antarctic Treaty Historic Site.',
-      tags: ['Historic Monument No. 44', 'First Overwintering', 'Antarctic Treaty Heritage'],
+      description: 'India\'s historic first permanent Antarctic station, built in 1983. Naturally buried by polar ice in 1990, it is now protected as an official historic heritage site.',
+      tags: ['Historic Monument 44', 'First Polar Winter Team', 'Protected World Heritage'],
       color: '#f97316',
       image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80',
       x: 350,
@@ -101,8 +101,8 @@ export function PolarExplorerMap({ onNavigate }) {
       currentTemp: '-1.2°C',
       windSpeed: '18 km/h NW',
       pressure: '1004 hPa',
-      description: 'India\'s permanent Arctic research base in the world\'s northernmost permanent civilian settlement. Focuses on aerosol radiative forcing, fjord dynamics, and Arctic microbial ecology.',
-      tags: ['IndARC Underwater Observatory', 'Kongsfjorden Monitoring', 'Arctic Atmospheric Physics'],
+      description: 'India\'s research base in the high Arctic, located in northern Norway. Scientists study how melting Arctic ice directly impacts India\'s monsoon rainfall.',
+      tags: ['Underwater Ocean Sensors', 'Fjord Water Tracking', 'Arctic Weather Studies'],
       color: '#10b981',
       image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
       x: 480,
@@ -694,9 +694,9 @@ export function PolarExplorerMap({ onNavigate }) {
               <div style={{ fontSize: '0.8rem', color: '#475569', lineHeight: 1.5 }}>
                 <p>Ongoing Indian Polar Research Projects at {currentStation.name.split(' ')[0]}:</p>
                 <ul style={{ paddingLeft: '18px', marginTop: '6px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                  <li>Continuous GPS geodetic mapping of ice shelf velocities</li>
-                  <li>Basal ice core isotope profiling for paleoclimatic reconstitution</li>
-                  <li>Deep geomagnetic pulsation recording with SQUID magnetometers</li>
+                  <li>Satellite tracking of moving glaciers and coastal ice shelves</li>
+                  <li>Drilling deep ice cores to study ancient Earth climates and weather</li>
+                  <li>Measuring Earth's magnetic fields and high-altitude space weather</li>
                 </ul>
               </div>
             )}

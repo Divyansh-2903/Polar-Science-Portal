@@ -52,11 +52,11 @@ export function StationOverview({ onNavigateToStudio, onNavigateToDataset }) {
         <div>
           <div className="glass-pill" style={{ marginBottom: '10px' }}>
             <Activity size={14} color="var(--accent-aurora)" />
-            Real-Time Observational Stations across the Three Poles
+            India's 4 Permanent Polar Bases
           </div>
-          <h1>India's Polar Observatories & Research Stations</h1>
+          <h1>India's Research Stations in the Polar Regions</h1>
           <p style={{ maxWidth: 780, marginTop: '8px', fontSize: '1.02rem' }}>
-            Continuous telemetry and synchronized environmental monitoring across Antarctica, the high Arctic at 79°N, and the high-altitude Himalayan cryosphere at 4,080m.
+            Live weather updates and continuous environmental tracking from Antarctica, the high Arctic, and Himalayan mountain glaciers.
           </p>
         </div>
 
@@ -253,9 +253,9 @@ export function StationOverview({ onNavigateToStudio, onNavigateToDataset }) {
           <div>
             <div className="glass-pill" style={{ marginBottom: '8px' }}>
               <Layers size={13} color="var(--accent-cyan)" />
-              Unified Knowledge Graph Node
+              Connected Science Hub
             </div>
-            <h2>Connected Polar Entity: {activeStation.name}</h2>
+            <h2>What We've Learned at {activeStation.name}</h2>
             <p style={{ maxWidth: 850, marginTop: '4px' }}>
               {activeStation.description}
             </p>
@@ -267,7 +267,7 @@ export function StationOverview({ onNavigateToStudio, onNavigateToDataset }) {
             style={{ fontSize: '0.85rem' }}
           >
             <FileText size={16} />
-            <span>Generate Grounded Post for this Station</span>
+            <span>Create News Story for this Station</span>
           </button>
         </div>
 
@@ -287,7 +287,7 @@ export function StationOverview({ onNavigateToStudio, onNavigateToDataset }) {
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#0284c7', marginBottom: '10px' }}>
               <FileText size={18} />
-              <span style={{ fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase' }}>Linked Technical Report</span>
+              <span style={{ fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase' }}>Expedition Report</span>
             </div>
             {linkedReport ? (
               <>
@@ -310,7 +310,7 @@ export function StationOverview({ onNavigateToStudio, onNavigateToDataset }) {
                     cursor: 'pointer'
                   }}
                 >
-                  Open in Grounded Outreach Studio <ArrowRight size={14} />
+                  Create News Story <ArrowRight size={14} />
                 </button>
               </>
             ) : (
@@ -328,7 +328,7 @@ export function StationOverview({ onNavigateToStudio, onNavigateToDataset }) {
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#059669', marginBottom: '10px' }}>
               <Database size={18} />
-              <span style={{ fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase' }}>Linked Live Dataset (ISO 19115)</span>
+              <span style={{ fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase' }}>Related Science Dataset</span>
             </div>
             {linkedDataset ? (
               <>
@@ -352,15 +352,15 @@ export function StationOverview({ onNavigateToStudio, onNavigateToDataset }) {
                     cursor: 'pointer'
                   }}
                 >
-                  Explore Dataset in Visualizer <ArrowRight size={14} />
+                  View Interactive Dataset <ArrowRight size={14} />
                 </button>
               </>
             ) : (
-              <p style={{ fontSize: '0.85rem', color: '#64748b' }}>Automated telemetry ingested continuously.</p>
+              <p style={{ fontSize: '0.85rem', color: '#64748b' }}>Live weather reports updated round the clock.</p>
             )}
           </div>
 
-          {/* Linked Multimodal Media Asset */}
+          {/* Linked Media Asset */}
           <div style={{
             background: '#f8fafc',
             border: '1px solid #e2e8f0',
@@ -370,7 +370,7 @@ export function StationOverview({ onNavigateToStudio, onNavigateToDataset }) {
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#ea580c', marginBottom: '10px' }}>
               <Film size={18} />
-              <span style={{ fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase' }}>Verified 4K Media Asset</span>
+              <span style={{ fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase' }}>Photos & Videos</span>
             </div>
             {linkedMedia ? (
               <>

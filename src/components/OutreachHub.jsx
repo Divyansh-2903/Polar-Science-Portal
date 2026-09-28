@@ -44,13 +44,13 @@ export function OutreachHub({ initialReportId, onSendToQueue, onNavigate }) {
             marginBottom: '8px'
           }}>
             <ShieldCheck size={13} />
-            <span>Strict Evidence Grounding · Verified Against Raw Expedition Reports</span>
+            <span>100% Fact-Checked · Backed by Real Expedition Reports</span>
           </div>
           <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a', margin: '0 0 6px 0', letterSpacing: '-0.02em' }}>
-            AI-Assisted Polar Outreach Studio
+            Polar Content Studio
           </h2>
           <p style={{ fontSize: '0.88rem', color: '#64748b', margin: 0, maxWidth: 840, lineHeight: 1.55 }}>
-            Transform dense academic PDFs into calibrated school curricula, PIB press releases, and engaging social posts. Every sentence is locked to exact source paragraphs with side-by-side inspection before passing to the Editorial Review Queue.
+            Turn heavy polar research reports into simple school lessons, easy news updates, and social media posts. Every statement points back to the exact report page, and real scientists review everything before it gets published.
           </p>
         </div>
 

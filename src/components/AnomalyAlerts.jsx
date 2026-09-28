@@ -24,14 +24,14 @@ export function AnomalyAlerts({ onNavigate }) {
       id: 'maitri_temp',
       station: 'Maitri Research Station',
       region: 'Antarctica (Schirmacher Oasis)',
-      title: 'Unusual Temperature Rise Detected at Maitri',
+      title: 'Unusual Warm Weather Spike at Maitri',
       deviation: '+4.2°C',
       observedVal: '-11.8°C',
       baselineVal: '-16.0°C',
       timestamp: '12 Jan 2025, 14:30 IST',
       severity: 'high',
       isNew: true,
-      description: 'Current temperature is 4.2°C higher than the 10-year average for this date. Albedo sensors indicate localized surface firn warming and katabatic wind subsidence.',
+      description: 'The temperature is 4.2°C warmer than normal for this time of year. Ice sensors show sunlight warming the snow faster than usual, with warm ocean winds blowing inland across the Antarctic ice shelf.',
       chart: {
         baseline: 'M30,80 Q120,76 210,72 T310,68',
         current: 'M30,80 Q120,76 210,38 T310,26',
@@ -41,23 +41,23 @@ export function AnomalyAlerts({ onNavigate }) {
         labels: ['1 Jan', '5 Jan', '10 Jan']
       },
       mechanisms: [
-        'Blocking high-pressure system positioned over Queen Maud Land',
-        'Sub-surface firn pack albedo drop from 0.84 to 0.76',
-        'Warm maritime air mass advection from the Southern Ocean'
+        'Warm weather system held steady over the Antarctic coast',
+        'Snow surface is darker than usual and absorbing extra sunlight',
+        'Warm ocean air blowing inland from the Southern Ocean'
       ]
     },
     {
       id: 'bharati_wind',
       station: 'Bharati Research Station',
       region: 'Antarctica (Larsemann Hills)',
-      title: 'Severe Katabatic Wind Storm at Prydz Bay',
+      title: 'High-Speed Polar Blizzard at Bharati',
       deviation: '+38 km/h',
       observedVal: '112 km/h',
       baselineVal: '74 km/h',
       timestamp: '12 Jan 2025, 11:15 IST',
       severity: 'medium',
       isNew: false,
-      description: 'Sustained gust speeds exceeding 112 km/h detected by ultrasonic anemometers. Satellite ground station dish radomes switched to emergency lock configuration.',
+      description: 'Violent blizzard wind gusts over 112 km/h detected at Bharati station. Outdoor equipment and satellite dishes have been safely locked down to prevent storm damage.',
       chart: {
         baseline: 'M30,85 Q120,78 210,70 T310,75',
         current: 'M30,85 Q120,60 210,30 T310,20',
@@ -67,23 +67,23 @@ export function AnomalyAlerts({ onNavigate }) {
         labels: ['1 Jan', '5 Jan', '10 Jan']
       },
       mechanisms: [
-        'Steep pressure gradient between continental ice dome and Prydz Bay',
-        'Gravity-driven drainage flow off the polar plateau',
-        'Zero precipitation blizzard (whiteout firn drift)'
+        'Heavy cold air rushing down rapidly from high ice plateaus toward the sea',
+        'Sudden drop in coastal air pressure creating powerful storm winds',
+        'Blowing snow creating near-zero visibility around station buildings'
       ]
     },
     {
       id: 'indarc_salinity',
       station: 'IndARC Moored Observatory',
       region: 'Arctic (Kongsfjorden, Svalbard)',
-      title: 'Warm Atlantic Water Inflow Pulse into Fjord',
+      title: 'Warm Atlantic Ocean Current Reaches Arctic Fjord',
       deviation: '+1.8°C',
       observedVal: '2.4°C (at 100m depth)',
       baselineVal: '0.6°C',
       timestamp: '11 Jan 2025, 19:45 IST',
       severity: 'medium',
       isNew: false,
-      description: 'Underwater CTD sensors at 100m depth recorded an anomalous influx of warm, saline West Spitsbergen Current water displacing cold Arctic fjord bottom water.',
+      description: 'Underwater ocean sensors 100 meters deep recorded an unusual surge of warm, salty Atlantic ocean water pushing into the Arctic fjord, pushing out colder Arctic waters.',
       chart: {
         baseline: 'M30,80 Q120,82 210,78 T310,76',
         current: 'M30,80 Q120,70 210,45 T310,30',
@@ -93,9 +93,9 @@ export function AnomalyAlerts({ onNavigate }) {
         labels: ['1 Jan', '5 Jan', '10 Jan']
       },
       mechanisms: [
-        'Enhanced northward transport along the West Spitsbergen branch',
-        'Shoaling of the halocline layer in outer Kongsfjorden',
-        'Impact on Calanus finmarchicus zooplankton overwintering depth'
+        'Stronger warm ocean current flowing north from the Atlantic',
+        'Warm, salty water rising closer to the surface inside the bay',
+        'Shifting where Arctic sea life and polar fish feed during winter'
       ]
     }
   ];
@@ -165,7 +165,7 @@ export function AnomalyAlerts({ onNavigate }) {
             }}
           >
             <Bell size={13} />
-            <span>{isSubscribed ? 'Subscribed to Telegram Alerts' : 'Subscribe to AWS Anomaly Alerts'}</span>
+            <span>{isSubscribed ? 'Subscribed to Weather Alerts' : 'Get Live Weather Alerts'}</span>
           </button>
         </div>
 
@@ -225,7 +225,7 @@ export function AnomalyAlerts({ onNavigate }) {
             gap: '10px'
           }}>
             <strong style={{ color: '#0f172a', fontWeight: 700 }}>
-              {currentAlert.station} – Sensor Baseline Comparison
+              {currentAlert.station} – Weather Comparison vs 10-Year Average
             </strong>
 
             <div style={{ display: 'flex', gap: '16px', fontSize: '0.76rem', fontWeight: 600 }}>
@@ -299,10 +299,10 @@ export function AnomalyAlerts({ onNavigate }) {
         }}>
           <div>
             <div style={{ color: '#0f172a' }}>
-              Observed Value: <strong>{currentAlert.observedVal}</strong> | Deviation: <strong style={{ color: '#dc2626' }}>{currentAlert.deviation}</strong> (vs {currentAlert.baselineVal})
+              Recorded Value: <strong>{currentAlert.observedVal}</strong> | Difference: <strong style={{ color: '#dc2626' }}>{currentAlert.deviation}</strong> (vs normal {currentAlert.baselineVal})
             </div>
             <div style={{ fontSize: '0.74rem', color: '#64748b', marginTop: '2px' }}>
-              Timestamp: {currentAlert.timestamp} · Validated by AWS QC Filter v2.1
+              Recorded on: {currentAlert.timestamp} · Checked by Weather Quality Control
             </div>
           </div>
 
@@ -324,7 +324,7 @@ export function AnomalyAlerts({ onNavigate }) {
                 boxShadow: '0 2px 6px rgba(30, 110, 245, 0.25)'
               }}
             >
-              <span>{showDetailedAnalysis ? 'Hide Analysis' : 'View Detailed Analysis'}</span>
+              <span>{showDetailedAnalysis ? 'Hide Details' : 'Why Did This Happen?'}</span>
               <ChevronRight size={14} />
             </button>
 
@@ -342,7 +342,7 @@ export function AnomalyAlerts({ onNavigate }) {
                   cursor: 'pointer'
                 }}
               >
-                Inspect Raw Sensor Data
+                View Full Weather Dataset
               </button>
             )}
           </div>
@@ -358,16 +358,16 @@ export function AnomalyAlerts({ onNavigate }) {
             boxShadow: '0 4px 12px rgba(30, 110, 245, 0.08)'
           }}>
             <h5 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0f172a', marginBottom: '8px' }}>
-              Scientific Root Cause Assessment (NCPOR Cryospheric Division)
+              What Caused This Weather Change?
             </h5>
             <p style={{ fontSize: '0.82rem', color: '#475569', lineHeight: 1.6, marginBottom: '12px' }}>
-              Automated anomaly detection pipeline flagged a 3.8-sigma outlier in the 10-minute average series. Synoptic re-analysis confirms positive geopotential height anomaly over the Astrid Ridge forcing downward vertical velocity and adiabatic warming.
+              Our weather monitors detected a sudden jump that differs sharply from historical averages. Satellite maps confirm a high-pressure air pocket pushed warm ocean air across the coastal ridge, warming the ice surface faster than usual.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '10px' }}>
               {currentAlert.mechanisms.map((mech, idx) => (
                 <div key={idx} style={{ background: '#f8fafc', padding: '10px 12px', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '0.78rem' }}>
-                  <div style={{ color: '#1e6ef5', fontWeight: 700, marginBottom: '2px' }}>Factor 0{idx + 1}</div>
+                  <div style={{ color: '#1e6ef5', fontWeight: 700, marginBottom: '2px' }}>Key Reason {idx + 1}</div>
                   <div style={{ color: '#334155' }}>{mech}</div>
                 </div>
               ))}

@@ -137,7 +137,7 @@ export function AskPolarAI({ onNavigate }) {
               Ask Polar AI
             </h2>
             <div style={{ fontSize: '0.78rem', color: '#64748b' }}>
-              Get answers from India's polar research with verified peer-reviewed scientific sources
+              Ask questions in plain English and get answers verified by official polar expedition reports
             </div>
           </div>
         </div>

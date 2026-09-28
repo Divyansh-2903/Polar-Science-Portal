@@ -201,12 +201,12 @@ export default function App() {
                 Research Papers & Expedition Reports
               </h2>
               <p style={{ fontSize: '0.85rem', color: '#64748b', margin: 0 }}>
-                Explore official monographs, peer-reviewed publications, and expedition archives from 40+ years of Indian polar missions.
+                Explore 40+ years of mission stories, field logs, and research papers from Indian polar expeditions.
               </p>
             </div>
             <KnowledgeRepository 
               onExploreDataset={(id) => handleNavigate('data', { datasetId: id })} 
-              onNavigate={handleNavigate}
+              onNavigate={handleNavigate} 
             />
           </div>
         )}
@@ -226,7 +226,7 @@ export default function App() {
                 Ship Journey Tracker: 45th Indian Antarctic Expedition
               </h2>
               <p style={{ fontSize: '0.85rem', color: '#64748b', margin: 0 }}>
-                Follow MV Vasiliy Golovnin's voyage from Mormugao Port Goa to the Southern Ocean and Antarctic research bases.
+                Track the expedition ship's journey from Goa across the Southern Ocean to India's Antarctic stations.
               </p>
             </div>
             <ExpeditionReplay onNavigate={handleNavigate} />
@@ -238,10 +238,10 @@ export default function App() {
           <div className="main-wrapper" style={{ padding: '0 24px', margin: '28px auto 0' }}>
             <div style={{ marginBottom: '20px' }}>
               <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0f172a', margin: '0 0 6px 0' }}>
-                Simplified Research Explainer
+                Simple Research Explainer
               </h2>
               <p style={{ fontSize: '0.85rem', color: '#64748b', margin: 0 }}>
-                Read complex peer-reviewed glaciological and climate publications simplified for Researchers, College Students, School Curricula, and the Public.
+                Read polar science translated into plain, simple English — choose from 4 easy reading levels.
               </p>
             </div>
             <ExplainResearch onNavigate={handleNavigate} preselectedReportId={preselectedReportId} />
@@ -289,7 +289,7 @@ export default function App() {
                 Weather & Station Alerts
               </h2>
               <p style={{ fontSize: '0.85rem', color: '#64748b', margin: 0 }}>
-                Real-time automated detection of statistical outliers and extreme weather storms across Maitri, Bharati, Himadri, and IndARC.
+                Live alerts for severe blizzards, high winds, and extreme cold at India's polar stations.
               </p>
             </div>
             <AnomalyAlerts onNavigate={handleNavigate} />

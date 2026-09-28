@@ -70,11 +70,11 @@ export function AskScientist() {
         <div>
           <div className="glass-pill" style={{ marginBottom: '10px' }}>
             <Users size={14} color="var(--accent-aurora)" aria-hidden="true" />
-            <span>NCPOR Polar Directory & Citizen Science Engagement (Solving Gap F)</span>
+            <span>Connect Directly with Indian Polar Researchers</span>
           </div>
-          <h1>Ask a Polar Scientist · Researcher Expertise Gateway</h1>
+          <h1>Talk to Polar Scientists</h1>
           <p style={{ maxWidth: 880, marginTop: '8px', fontSize: '1.02rem' }}>
-            Reviving NCPOR's historic public outreach mandate: connect students, educators, and science enthusiasts directly with active Indian expedition leaders, glaciologists, and polar oceanographers.
+            Got questions about polar blizzards, glacier melt, or life on Antarctic ice? Ask real Indian expedition scientists directly and read answers verified from the field.
           </p>
         </div>
       </div>
@@ -84,7 +84,7 @@ export function AskScientist() {
         
         {/* Researchers Directory */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a' }}>NCPOR Principal Investigators</h2>
+          <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a' }}>Meet the Scientists</h2>
 
           {researchersDirectory.map((scientist) => {
             const isSelected = selectedScientist.id === scientist.id;
@@ -208,7 +208,7 @@ export function AskScientist() {
 
           {/* Verified Answers Feed */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a' }}>Verified Public Q&A Archive</h3>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a' }}>Recent Questions & Verified Answers</h3>
 
             {submittedAnswers.map((qa) => (
               <div

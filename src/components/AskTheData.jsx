@@ -20,38 +20,38 @@ export function AskTheData({ preselectedDatasetId }) {
   const queryPresets = [
     {
       id: 'q1',
-      query: 'Show hourly temperature & wind dynamics at Bharati Station AWS',
+      query: 'Show Bharati Station temperature & wind speeds',
       datasetId: 'ds-01-bharati-aws',
       chartType: 'weather_timeseries',
-      title: 'Bharati Station (Larsemann Hills) Diurnal Temperature & Wind Telemetry',
-      explanation: 'Analysis of 8,760 hourly readings demonstrates sustained sub-zero temperatures (mean -24.6°C) punctuated by severe katabatic drainage events where southeasterly wind gusts peaked above 48 km/h during pressure drops.',
+      title: 'Bharati Station Hourly Temperature & Wind Records',
+      explanation: 'Based on 8,760 hourly readings, Bharati station stays deeply frozen year-round (average -24.6°C). Sudden blizzards and strong mountain winds frequently cause gusts above 48 km/h when air pressure drops.',
       stats: { mean: '-24.6 °C', peakMin: '-26.1 °C', peakGust: '48.6 km/h', pressureMean: '981.2 hPa' }
     },
     {
       id: 'q2',
-      query: 'Show Kongsfjorden underwater CTD depth-temperature profile from IndARC',
+      query: 'Show Arctic ocean temperature by depth from IndARC',
       datasetId: 'ds-03-indarc-ctd',
       chartType: 'ocean_depth',
-      title: 'IndARC Subsurface Hydrographic Profile: Kongsfjorden Fjord (Svalbard)',
-      explanation: 'Continuous vertical CTD casting across the 35m–180m water column reveals an intermediate Atlantic water intrusion at 55m depth with temperature peaking at +3.4°C and salinity reaching 34.82 PSU, preventing seasonal sea ice formation.',
+      title: 'IndARC Ocean Water Temperatures by Depth: Kongsfjorden (Svalbard)',
+      explanation: 'Underwater sensors between 35 and 180 meters deep reveal a stream of warm Atlantic water pushing in at 55 meters depth (reaching +3.4°C). This warmer salty water prevents sea ice from freezing over the bay.',
       stats: { surfaceTemp: '+2.1 °C', atlanticCoreTemp: '+3.4 °C', deepSalinity: '34.98 PSU', maxDepth: '192 m' }
     },
     {
       id: 'q3',
-      query: 'Show Himalayan glacier runoff discharge at Himansh Station',
+      query: 'Show Himalayan glacier meltwater flow at Himansh Station',
       datasetId: 'ds-04-himansh-discharge',
       chartType: 'glacier_discharge',
-      title: 'Chhota Shigri Proglacial Summer Meltwater Discharge (Himansh Station, 4,080m)',
-      explanation: 'High-altitude pressure transducer logs document an exponential surge in proglacial discharge from 3.2 m³/s in May to a peak of 16.4 m³/s in July, strongly correlated with high solar insolation and positive degree-day ablation.',
+      title: 'Glacier Summer Meltwater Flow (Himansh Station, 4,080m)',
+      explanation: 'Water gauges reveal summer meltwater flow jumps from 3.2 cubic meters per second in May to a high of 16.4 cubic meters in July as warm summer sunshine melts mountain ice.',
       stats: { peakDischarge: '16.4 m³/s', ablationLoss: '74 cm w.e.', meanSummerTemp: '+8.2 °C', altitude: '4,080 m' }
     },
     {
       id: 'q4',
-      query: 'Show total column ozone depletion cycle at Maitri Station',
+      query: 'Show South Pole ozone layer changes at Maitri Station',
       datasetId: 'ds-02-maitri-radiation',
       chartType: 'ozone_depletion',
-      title: 'Maitri Station Annual Total Column Ozone & Surface Albedo Trend',
-      explanation: 'Dobson spectrophotometer measurements capture the severe austral spring ozone hole depletion in October (165 Dobson Units), followed by rapid polar vortex breakup and atmospheric recovery to 288 DU by December.',
+      title: 'Maitri Station Annual Ozone Layer & Sunlight Reflection',
+      explanation: 'Atmospheric sensors record the lowest ozone levels in October during the Antarctic spring (165 Dobson Units), followed by rapid natural recovery back to healthy levels (288 DU) by December.',
       stats: { springMinimum: '165 DU', summerBaseline: '295 DU', meanAlbedo: '0.82', uvbPeak: '2.1 W/m²' }
     }
   ];
@@ -103,11 +103,11 @@ export function AskTheData({ preselectedDatasetId }) {
       <div>
         <div className="glass-pill" style={{ marginBottom: '10px' }}>
           <Sparkles size={14} color="var(--accent-cyan)" />
-          Ask-the-Data: Natural Language Telemetry & Visualizer (Solving Gap D)
+          Instant Chart Maker · Turn Questions into Live Graphs
         </div>
-        <h1>Instant Polar Telemetry & Multi-Parameter Visualizer</h1>
+        <h1>Instant Polar Charts & Data Explorer</h1>
         <p style={{ maxWidth: 850, marginTop: '8px' }}>
-          Query live and historical datasets across Antarctica, the Arctic, and the Himalayas without downloading complex NetCDF binary viewers. Get instant interactive charts, verified statistical summaries, and direct ISO 19115 citations.
+          Explore real scientific records across Antarctica, the Arctic, and the Himalayas without needing difficult software or coding skills. Type a question in plain English to get interactive charts and simple summaries instantly.
         </p>
 
         {/* Search Input */}
@@ -403,15 +403,15 @@ export function AskTheData({ preselectedDatasetId }) {
               <div style={{ display: 'flex', gap: '14px' }}>
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                   <span style={{ width: 12, height: 3, background: 'var(--accent-cyan)', display: 'inline-block' }}></span>
-                  Primary Telemetry Line
+                  Main Measurement Line
                 </span>
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                   <span style={{ width: 10, height: 10, background: 'rgba(16, 185, 129, 0.4)', borderRadius: 2, display: 'inline-block' }}></span>
-                  Secondary Sensor Readings
+                  Wind Speed Readings
                 </span>
               </div>
               <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-aurora)' }}>
-                QA/QC Level: Automated ISO 19115 Check Passed
+                Data Quality: Verified & Checked
               </span>
             </div>
           </div>
@@ -430,7 +430,7 @@ export function AskTheData({ preselectedDatasetId }) {
             <Sparkles size={20} color="var(--accent-cyan)" style={{ flexShrink: 0, marginTop: '2px' }} />
             <div>
               <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--accent-cyan)', marginBottom: '4px' }}>
-                Evidence-Grounded Interpretation
+                What This Chart Means (Plain English)
               </div>
               <p style={{ fontSize: '0.88rem', color: '#e2e8f0', lineHeight: 1.55 }}>
                 {activeQuery.explanation}
@@ -446,7 +446,7 @@ export function AskTheData({ preselectedDatasetId }) {
           <div className="glass-panel" style={{ padding: '20px' }}>
             <h3 style={{ fontSize: '1rem', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <BarChart3 size={16} color="var(--accent-cyan)" />
-              Observed Parameters
+              Key Numbers at a Glance
             </h3>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -475,7 +475,7 @@ export function AskTheData({ preselectedDatasetId }) {
           <div className="glass-panel" style={{ padding: '20px' }}>
             <h3 style={{ fontSize: '1rem', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Layers size={16} color="var(--accent-aurora)" />
-              Dataset Metadata (DataCite)
+              Dataset Details & Source
             </h3>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.8rem' }}>
@@ -499,7 +499,7 @@ export function AskTheData({ preselectedDatasetId }) {
               <div>
                 <span style={{ color: '#64748b' }}>Standard:</span>
                 <div style={{ color: '#059669', fontWeight: 700 }}>
-                  ISO 19115 Geographic Metadata
+                  Official Global Scientific Standard
                 </div>
               </div>
 
@@ -522,7 +522,7 @@ export function AskTheData({ preselectedDatasetId }) {
                   }}
                 >
                   <FileSpreadsheet size={15} />
-                  <span>Export Authenticated CSV</span>
+                  <span>Download Data (Spreadsheet CSV)</span>
                 </button>
               </div>
             </div>

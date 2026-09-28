@@ -80,12 +80,12 @@ export function ExplainResearch({ onNavigate, preselectedReportId }) {
           body: "What happens at the South Pole does not stay at the South Pole. India's polar expeditions conducted by the National Centre for Polar and Ocean Research (NCPOR) monitor how changes in polar ice directly drive the intensity of the Indian Monsoon and global sea level stability. By understanding these distant ice sheets, Indian scientists can better forecast monsoon rain patterns that feed hundreds of millions of farmers.",
           img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
           takeaways: [
-            "Direct teleconnection between Antarctic warming and Indian monsoon rainfall stability.",
-            "MoES and NCPOR maintain 24/7 scientific observations across Antarctica, the Arctic, and the Himalayas.",
-            "Open data dissemination ensures transparent policy-making for climate resilience."
+            "Changes in Antarctic ocean waters directly influence rainfall and monsoon seasons across India.",
+            "MoES and NCPOR keep around-the-clock research active across Antarctica, the Arctic, and the Himalayas.",
+            "Open research files help cities and farms plan ahead for changing weather patterns."
           ],
           terms: [
-            { term: "Teleconnection", def: "A causal connection between climate anomalies in widely separated regions of the globe." },
+            { term: "Climate Connection", def: "A natural weather chain reaction connecting distant parts of the planet — like how melting polar ice affects India's rainfall." },
             { term: "NCPOR", def: "National Centre for Polar and Ocean Research, Goa — India's premier polar research institute under MoES." },
             { term: "The Three Poles", def: "The Earth's three major ice reservoirs: South Pole (Antarctica), North Pole (Arctic), and Third Pole (Himalayas)." }
           ]

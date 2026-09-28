@@ -61,11 +61,11 @@ export function MediaVault() {
         <div>
           <div className="glass-pill" style={{ marginBottom: '10px' }}>
             <Sparkles size={14} color="var(--accent-orange)" aria-hidden="true" />
-            <span>CLIP-Indexed Multimodal Media Asset Management (MAM)</span>
+            <span>High-Resolution Photo & Video Vault</span>
           </div>
-          <h1>Polar Media Vault & Press Dissemination Hub</h1>
+          <h1>Photo & Video Vault</h1>
           <p style={{ maxWidth: 880, marginTop: '8px', fontSize: '1.02rem' }}>
-            High-resolution 4K video b-roll, aerial drone passes, and verified expedition photography indexed with automated EXIF metadata, GPS geotags, and open Creative Commons licensing for science journalists and educators.
+            Explore high-resolution photographs, drone videos, and expedition recordings captured by Indian polar scientists. Free to download and use for schools, news reports, and curious learners.
           </p>
         </div>
 
@@ -82,9 +82,9 @@ export function MediaVault() {
         }}>
           <Package size={22} color="var(--accent-orange)" aria-hidden="true" />
           <div>
-            <div style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 600 }}>Media Press Kit Cart</div>
+            <div style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 600 }}>Selected Downloads</div>
             <div style={{ fontSize: '0.94rem', fontWeight: 800, color: '#0f172a', fontFamily: 'var(--font-mono)' }}>
-              {pressKitCart.length} Assets Selected
+              {pressKitCart.length} Files Selected
             </div>
           </div>
           <button
@@ -113,7 +113,7 @@ export function MediaVault() {
           gap: '8px'
         }}>
           <CheckCircle2 size={16} aria-hidden="true" />
-          <span>Asset added to Press Kit Cart with high-res 4K master files and caption metadata sheet.</span>
+          <span>Added to your download list with full high-resolution files.</span>
         </div>
       )}
 
@@ -135,7 +135,7 @@ export function MediaVault() {
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search by meaning: e.g. 'convoy traverse', 'piston coring on pack ice', 'penguin'…"
+            placeholder="Search photos & videos: e.g. 'penguins', 'research base', 'ship', 'glacier'…"
             style={{
               width: '100%',
               padding: '10px 14px 10px 42px',
@@ -358,7 +358,7 @@ export function MediaVault() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
               <div>
                 <span className="badge-status badge-scheduled" style={{ marginBottom: '6px' }}>
-                  RAW EXIF CAMERA & GEOTAG TELEMETRY
+                  CAMERA & LOCATION DETAILS
                 </span>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a' }}>{activeMediaModal.title}</h3>
               </div>
@@ -428,7 +428,7 @@ export function MediaVault() {
               lineHeight: 1.5,
               marginBottom: '18px'
             }}>
-              <strong style={{ color: '#c2410c' }}>Permitted Usage:</strong> {activeMediaModal.license} — Full permission granted for broadcast journalism, educational publishing, and digital science outreach with attribution.
+              <strong style={{ color: '#c2410c' }}>Permitted Usage:</strong> {activeMediaModal.license} — Free for schools, news broadcasting, and public education with credit.
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
@@ -445,7 +445,7 @@ export function MediaVault() {
                 }}
                 className="btn-accent-orange"
               >
-                Add to Media Press Kit
+                Add to Downloads
               </button>
             </div>
           </div>

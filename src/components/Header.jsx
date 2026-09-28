@@ -57,44 +57,44 @@ export function Header({ activeTab, setActiveTab, onOpenGapMatrix }) {
     { 
       id: 'research', 
       label: 'Explainer', 
-      desc: 'Read simplified research at 4 reading levels', 
+      desc: 'Read science in plain English (4 reading levels)', 
       icon: Sparkles 
     },
     { 
       id: 'outreach', 
-      label: 'Draft Posts', 
-      desc: 'Turn papers into news articles & social threads', 
+      label: 'Content Studio', 
+      desc: 'Create easy news stories & social media posts', 
       icon: Share2 
     },
     { 
       id: 'review', 
       label: 'Approvals', 
-      desc: 'Scientist fact-check & editorial sign-off gate', 
+      desc: 'Scientist review & fact-checking gate', 
       icon: CheckCircle2,
       badge: '4 Active'
     },
     { 
       id: 'expeditions', 
       label: 'Voyages', 
-      desc: 'Ship journey route tracker from Goa to Antarctica', 
+      desc: 'Track expedition ships from India to Antarctica', 
       icon: Navigation 
     },
     { 
       id: 'ai', 
       label: 'Ask AI', 
-      desc: 'Evidence-grounded RAG search across polar reports', 
+      desc: 'Ask questions and get answers from official reports', 
       icon: Sparkles 
     },
     { 
       id: 'scientist', 
       label: 'Q&A', 
-      desc: 'Direct citizen questions to active expedition PIs', 
+      desc: 'Ask questions directly to real polar researchers', 
       icon: Users 
     },
     { 
       id: 'anomalies', 
       label: 'Alerts', 
-      desc: 'Real-time weather storms & telemetry warnings', 
+      desc: 'Live blizzard alerts & polar storm warnings', 
       icon: ShieldAlert 
     },
   ];

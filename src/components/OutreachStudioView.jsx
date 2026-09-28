@@ -21,8 +21,8 @@ export function OutreachStudioView({ onNavigate, onSendToQueue }) {
   const contentPresets = {
     article: {
       type: 'Website Article',
-      headline: 'Cryospheric Teleconnections: How Antarctic Sea Ice Influences Indian Monsoons',
-      caption: 'Over four decades of continuous monitoring at Maitri and Bharati stations confirm that fluctuations in Southern Ocean sea ice directly modulate sea surface temperatures across the equatorial Indian Ocean, impacting the summer monsoon dynamics.',
+      headline: 'How Antarctic Sea Ice Shapes the Indian Monsoon',
+      caption: 'More than 40 years of continuous research at Maitri and Bharati stations confirm that changes in Antarctic sea ice directly affect ocean temperatures and rainfall patterns across India.',
       image: 'https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=800&q=80',
       length: '550 Words · Target: Science Portal Feature'
     },
@@ -36,7 +36,7 @@ export function OutreachStudioView({ onNavigate, onSendToQueue }) {
     x: {
       type: 'X (Twitter) Thread',
       headline: '🧵 1/4 How does melting Antarctic ice affect rainfall in India?',
-      caption: 'Researchers from @ncpogoa analyze 40 years of polar ice records showing a direct teleconnection with Indian monsoon stability. Every fraction of a degree matters in the Southern Ocean. #ClimateScience #Antarctica',
+      caption: 'Researchers from @ncpogoa analyze 40 years of polar ice records showing a direct link with rainfall stability across India. Every fraction of a degree matters in the Southern Ocean. #ClimateScience #Antarctica',
       image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80',
       length: '240 chars per tweet · 4-tweet thread'
     },
@@ -66,7 +66,7 @@ export function OutreachStudioView({ onNavigate, onSendToQueue }) {
         headline: headline
       });
     }
-    setStatusMsg('Approved & dispatched to Editorial Review Queue!');
+    setStatusMsg('Sent to Scientist Fact-Check Gate for review!');
     setTimeout(() => setStatusMsg(null), 3500);
   };
 
@@ -106,8 +106,8 @@ export function OutreachStudioView({ onNavigate, onSendToQueue }) {
             }}
           >
             <option>Changes in Antarctic Sea Ice and its Impact on Global Climate</option>
-            <option>Cryospheric Mass Balance at Maitri & Bharati Stations (NCPOR Technical Report)</option>
-            <option>IndARC Kongsfjorden Mooring Telemetry & Arctic Fjord Circulation</option>
+            <option>Ice Thickness Measurements at Maitri & Bharati Stations (Official Report)</option>
+            <option>IndARC Kongsfjorden Underwater Ocean Records & Arctic Currents</option>
           </select>
         </div>
 

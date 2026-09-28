@@ -39,7 +39,7 @@ export function ExpeditionReplay({ onNavigate }) {
       seaTemp: '28.4°C',
       airTemp: '29.1°C',
       waveHeight: '1.2 m',
-      desc: 'The 45th Indian Antarctic Expedition departed Mormugao Port aboard MV Vasiliy Golovnin carrying 48 scientists, heavy logistics, modular habitat containers, and scientific payloads.',
+      desc: 'The 45th Indian expedition set sail from Goa aboard the polar ice-breaker ship, carrying 48 scientists, food supplies, cold-weather survival gear, and research instruments.',
       photo: 'https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=800&q=80',
       photosCount: 18,
       datasetsCount: 4,
@@ -58,7 +58,7 @@ export function ExpeditionReplay({ onNavigate }) {
       seaTemp: '1.4°C',
       airTemp: '-2.8°C',
       waveHeight: '4.8 m',
-      desc: 'The vessel crossed the Southern Ocean entering the Antarctic Convergence zone. Continuous meteorological, CTD rosette profiling and surface pCO2 oceanographic observations were collected.',
+      desc: 'The ship crossed rough stormy waters in the Southern Ocean as waves reached nearly 5 meters. Scientists measured ocean water saltiness, currents, and deep-sea temperatures along the way.',
       photo: 'https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=800&q=80',
       photosCount: 12,
       datasetsCount: 3,
@@ -77,7 +77,7 @@ export function ExpeditionReplay({ onNavigate }) {
       seaTemp: '-1.6°C',
       airTemp: '-9.2°C',
       waveHeight: '0.8 m (Pack Ice)',
-      desc: 'Approaching fast ice shelf at Prydz Bay. Helicopter reconnaissance sorties initiated for safe heavy vehicle offloading and fuel pipeline transfer to Bharati base tanks.',
+      desc: 'Arriving at the thick Antarctic sea ice near Bharati base. Helicopters scout safe routes across the ice to unload fuel, vehicles, and scientific equipment.',
       photo: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80',
       photosCount: 24,
       datasetsCount: 7,
@@ -96,7 +96,7 @@ export function ExpeditionReplay({ onNavigate }) {
       seaTemp: 'N/A (Continental)',
       airTemp: '-14.6°C',
       waveHeight: '0.0 m',
-      desc: 'Intensive summer research campaigns: shallow ice core drilling, drone photogrammetry over glacier snouts, and paleolimnology sediment sampling in Lake Priyadarshini.',
+      desc: 'Busy summer field season: scientists drill ancient ice cores, fly camera drones over glaciers, and take mud samples from fresh lakes to study Earth\'s past climate.',
       photo: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
       photosCount: 36,
       datasetsCount: 12,
@@ -115,7 +115,7 @@ export function ExpeditionReplay({ onNavigate }) {
       seaTemp: '27.9°C',
       airTemp: '28.8°C',
       waveHeight: '1.4 m',
-      desc: 'Homeward transit across the equatorial Indian Ocean with wintering personnel handover complete and 400 kg of frozen ice cores stored in cryogenic holds.',
+      desc: 'The expedition sails back home across the Indian Ocean, safely bringing home 400 kg of precious frozen Antarctic ice samples for Indian university laboratories.',
       photo: 'https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=800&q=80',
       photosCount: 15,
       datasetsCount: 5,
@@ -239,7 +239,7 @@ export function ExpeditionReplay({ onNavigate }) {
               <Compass size={14} color="#1e6ef5" />
               <span>NCPOR Polar Operations</span>
             </div>
-            <span>Vessel tracking synchronized via INMARSAT telemetry.</span>
+            <span>Ship positions tracked live via satellite navigation.</span>
           </div>
         </div>
 
@@ -309,7 +309,7 @@ export function ExpeditionReplay({ onNavigate }) {
               MV Vasiliy Golovnin
             </h3>
             <div style={{ fontSize: '0.78rem', color: '#94a3b8', marginBottom: '14px' }}>
-              Ice-Class Polar Research & Logistics Vessel (DNV Ice-1A)
+              Heavy Polar Ice-Breaker & Research Vessel
             </div>
 
             {/* Live Nautical Gauge Badges */}

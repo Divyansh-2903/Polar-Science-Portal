@@ -72,13 +72,13 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
     return colors[id] || 'rgba(56,189,248,0.18)';
   };
 
-  // ── Key Proof Metrics (SIH Judge Confidence Anchors) ───────────────────────
+  // ── Key Proof Metrics (Simple, Human & Understandable) ─────────────────────
   const keyMetrics = [
     {
       number: '40+',
       unit: 'Years',
-      label: 'Expedition Legacy',
-      subtext: '45+ annual Antarctic missions & high Arctic records since 1981',
+      label: 'Expedition History',
+      subtext: 'Indian scientists exploring Antarctica, the Arctic, and Himalayas since 1981',
       icon: <Compass size={22} color="#1e6ef5" />,
       color: '#1e6ef5',
       bg: '#eff6ff',
@@ -87,8 +87,8 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
     {
       number: '4',
       unit: 'Stations',
-      label: '3 Polar Regimes',
-      subtext: 'Maitri, Bharati, Himadri & Himansh streaming real-time AWS feeds',
+      label: 'Indian Polar Bases',
+      subtext: 'Maitri, Bharati, Himadri & Himansh sharing live weather round the clock',
       icon: <Radio size={22} color="#0284c7" />,
       color: '#0284c7',
       bg: '#e0f2fe',
@@ -97,8 +97,8 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
     {
       number: '700+',
       unit: 'Datasets',
-      label: 'ISO 19115 Compliant',
-      subtext: 'Atmospheric physics, oceanography, cryosphere, NetCDF & CSV',
+      label: 'Open Data Files',
+      subtext: 'Free downloads of real weather records, ice thickness, and ocean surveys',
       icon: <Database size={22} color="#8b5cf6" />,
       color: '#8b5cf6',
       bg: '#f5f3ff',
@@ -106,9 +106,9 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
     },
     {
       number: '100%',
-      unit: 'Grounded',
-      label: 'Zero Hallucination',
-      subtext: 'Every statement locked to verified source-span citations',
+      unit: 'Fact-Checked',
+      label: 'Verified Answers',
+      subtext: 'Every single answer points directly to an official report page — zero AI guessing',
       icon: <ShieldCheck size={22} color="#059669" />,
       color: '#059669',
       bg: '#ecfdf5',
@@ -116,138 +116,138 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
     }
   ];
 
-  // ── Portal Capabilities (Organized by 3 Core SIH Architectural Pillars) ────
+  // ── Portal Capabilities (Simple & Clear Categories) ────────────────────────
   const features = [
-    // PILLAR 1: MULTIMODAL KNOWLEDGE REPOSITORY
+    // PILLAR 1: DATA & PHOTOS
     {
       id: 'datasets',
       pillar: 'repository',
-      pillarLabel: 'Pillar 1 · Multimodal Catalog',
+      pillarLabel: '1 · Data & Photos',
       pillarColor: '#0284c7',
       pillarBg: '#e0f2fe',
-      badge: 'ISO 19115 Standard',
+      badge: 'Free Downloads',
       icon: <Database size={22} color="#0284c7" />,
       iconBg: '#eff6ff',
-      title: 'Unified Dataset Catalog',
+      title: 'Scientific Datasets Hub',
       screen: 'data',
       actionText: 'Explore Datasets Hub',
-      body: '700+ verified polar datasets spanning atmospheric physics, glaciology, geomagnetism, oceanography, and biology with ISO 19115 compliant metadata, NetCDF, HDF5, and CSV downloads.'
+      body: 'Browse 700+ verified polar datasets on weather, oceans, ice, and wildlife. Easy to search, preview on screen, and download in standard spreadsheet formats.'
     },
     {
       id: 'media',
       pillar: 'repository',
-      pillarLabel: 'Pillar 1 · Multimodal Catalog',
+      pillarLabel: '1 · Data & Photos',
       pillarColor: '#0284c7',
       pillarBg: '#e0f2fe',
-      badge: 'CLIP Semantic Search',
+      badge: '4K Field Media',
       icon: <Film size={22} color="#ec4899" />,
       iconBg: '#fdf2f8',
-      title: 'Media Vault',
+      title: 'Photo & Video Vault',
       screen: 'media',
-      actionText: 'Open Media Vault',
-      body: '4K field photography, drone footage, and expedition videos indexed by CLIP neural embeddings with complete EXIF geolocation telemetry, licensing tags, and batch downloads.'
+      actionText: 'Open Photo Vault',
+      body: 'Explore high-resolution photographs, drone videos, and underwater recordings captured by Indian polar scientists, all free for school and news use.'
     },
     {
       id: 'map',
       pillar: 'repository',
-      pillarLabel: 'Pillar 1 · Multimodal Catalog',
+      pillarLabel: '1 · Data & Photos',
       pillarColor: '#0284c7',
       pillarBg: '#e0f2fe',
-      badge: 'EPSG:3031 / 3413 GIS',
+      badge: 'Live Ship Routes',
       icon: <Globe size={22} color="#059669" />,
       iconBg: '#ecfdf5',
-      title: 'Circumpolar Map & Vessels',
+      title: 'Interactive Polar Map',
       screen: 'explore',
-      actionText: 'Launch Polar Map',
-      body: 'Dual-polar stereographic interactive GIS linking station geography directly to expedition vessel tracks (MV Vasiliy Golovnin), ice-edge contours, and real-time AWS sensor nodes.'
+      actionText: 'Open Interactive Map',
+      body: 'Fly across Antarctica and the Arctic on an interactive 3D map. Follow Indian ship journeys, see station locations, and check current local weather.'
     },
 
-    // PILLAR 2: EVIDENCE-GROUNDED AI & EXPLAINER
+    // PILLAR 2: ASK AI & LEARN
     {
       id: 'ai',
       pillar: 'ai',
-      pillarLabel: 'Pillar 2 · Grounded AI & Explainer',
+      pillarLabel: '2 · Ask AI & Learn',
       pillarColor: '#7c3aed',
       pillarBg: '#ede9fe',
-      badge: 'Zero Hallucination RAG',
+      badge: 'Zero Guesswork',
       icon: <Sparkles size={22} color="#7c3aed" />,
       iconBg: '#f5f3ff',
       title: 'Ask Polar AI',
       screen: 'ai',
-      actionText: 'Consult Polar AI',
-      body: 'Evidence-grounded RAG trained on 40+ years of official Indian Antarctic and Arctic expedition reports. Every assertion is locked to exact source paragraphs — zero hallucination.'
+      actionText: 'Ask a Question',
+      body: 'Ask questions in plain English. Our AI reads official Indian polar books and papers to give you clear answers backed by exact page numbers.'
     },
     {
       id: 'explainer',
       pillar: 'ai',
-      pillarLabel: 'Pillar 2 · Grounded AI & Explainer',
+      pillarLabel: '2 · Ask AI & Learn',
       pillarColor: '#7c3aed',
       pillarBg: '#ede9fe',
-      badge: '4 Calibrated Levels',
+      badge: '4 Reading Levels',
       icon: <BookOpen size={22} color="#2563eb" />,
       iconBg: '#eff6ff',
-      title: 'Multi-Tier Research Explainer',
+      title: 'Simple Research Explainer',
       screen: 'research',
-      actionText: 'Read Explainers',
-      body: 'Any complex cryospheric monograph instantly calibrated into 4 audience levels — School Curriculum, College Undergrad, Research Specialist, and PIB Science Wire with citation trails.'
+      actionText: 'Read Simple Articles',
+      body: 'Read complex polar science rewritten in simple words for school students, college learners, researchers, and public news — with no confusing jargon.'
     },
     {
       id: 'telemetry',
       pillar: 'ai',
-      pillarLabel: 'Pillar 2 · Grounded AI & Explainer',
+      pillarLabel: '2 · Ask AI & Learn',
       pillarColor: '#7c3aed',
       pillarBg: '#ede9fe',
-      badge: 'Interactive Plotting',
+      badge: 'No Coding Needed',
       icon: <BarChart3 size={22} color="#0284c7" />,
       iconBg: '#f0f9ff',
-      title: 'Live Telemetry & "Ask the Data"',
+      title: 'Instant Chart Maker',
       screen: 'data',
-      actionText: 'Plot Sensor Telemetry',
-      body: 'Natural language data queries dynamically plotted into interactive in-browser time-series graphs without requiring users to download heavy MATLAB or xarray desktop software.'
+      actionText: 'Create Live Charts',
+      body: 'Type what you want to see — like "Show Bharati temperatures during winter" — and get an interactive chart right in your web browser in seconds.'
     },
 
-    // PILLAR 3: SCIENTIFIC GOVERNANCE & CONTENT STUDIO
+    // PILLAR 3: STORIES & SCIENTIST REVIEW
     {
       id: 'outreach',
       pillar: 'governance',
-      pillarLabel: 'Pillar 3 · Outreach & Governance',
+      pillarLabel: '3 · Stories & Review',
       pillarColor: '#ea580c',
       pillarBg: '#ffedd5',
-      badge: 'Multi-Channel Dispatch',
+      badge: 'Ready to Share',
       icon: <Share2 size={22} color="#ea580c" />,
       iconBg: '#fff7ed',
-      title: 'Outreach Studio',
+      title: 'Content Studio',
       screen: 'outreach',
-      actionText: 'Generate Content',
-      body: 'AI-assisted campaign generator converting research papers into PIB press releases, X threads, Instagram carousels, and educational quiz modules anchored to verified source spans.'
+      actionText: 'Create Stories',
+      body: 'Turn heavy scientific reports into friendly news updates, social media posts, and classroom quizzes with a single click.'
     },
     {
       id: 'queue',
       pillar: 'governance',
-      pillarLabel: 'Pillar 3 · Outreach & Governance',
+      pillarLabel: '3 · Stories & Review',
       pillarColor: '#ea580c',
       pillarBg: '#ffedd5',
-      badge: 'Mandatory Scientific Gate',
+      badge: 'Scientist Verified',
       icon: <ShieldCheck size={22} color="#059669" />,
       iconBg: '#ecfdf5',
-      title: 'Editorial Review Queue',
+      title: 'Scientist Fact-Check Gate',
       screen: 'review',
-      actionText: 'Inspect Approval Queue',
-      body: 'Four-stage scientific governance gate (Draft → Scientist Review → Fact Check → Approved) preventing unverified AI content from reaching the public.'
+      actionText: 'Check Review Queue',
+      body: 'Every public post is fact-checked by real polar researchers before going live, making sure no misleading information reaches the public.'
     },
     {
       id: 'scientist',
       pillar: 'governance',
-      pillarLabel: 'Pillar 3 · Outreach & Governance',
+      pillarLabel: '3 · Stories & Review',
       pillarColor: '#ea580c',
       pillarBg: '#ffedd5',
-      badge: 'Direct PI Outreach',
+      badge: 'Ask Questions',
       icon: <Users size={22} color="#4f46e5" />,
       iconBg: '#eef2ff',
-      title: 'Ask a Scientist & Directory',
+      title: 'Talk to Polar Scientists',
       screen: 'scientist',
-      actionText: 'Connect with Scientists',
-      body: 'Direct citizen question portal connecting students and educators to active NCPOR principal investigators, breaking traditional government research silos.'
+      actionText: 'Ask a Scientist',
+      body: 'Got a question about polar animals or climate change? Ask real Indian polar researchers directly and find out what life is like on the ice.'
     }
   ];
 
@@ -255,7 +255,7 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
     ? features
     : features.filter(f => f.pillar === activePillarFilter);
 
-  // ── Three Poles Regional Overview ──────────────────────────────────────────
+  // ── Three Poles Regional Overview (Simple & Engaging) ──────────────────────
   const poles = [
     {
       region: 'ANTARCTICA',
@@ -265,12 +265,12 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
       borderColor: '#bae6fd',
       accentColor: '#0284c7',
       stations: [
-        { name: 'Maitri', est: '1989', loc: '70.77° S · Schirmacher Oasis' },
-        { name: 'Bharati', est: '2012', loc: '69.41° S · Larsemann Hills' }
+        { name: 'Maitri', est: '1989', loc: '70.77° S · Rock Oasis' },
+        { name: 'Bharati', est: '2012', loc: '69.41° S · Coastline' }
       ],
-      desc: '45+ annual scientific expeditions conducting paleoclimate ice-core drilling, atmospheric physics, auroral geomagnetism, and Southern Ocean biogeochemistry.',
-      focusTag: 'Katabatic wind dynamics & basal ice melting',
-      historic: 'Dakshin Gangotri (1983 first station)',
+      desc: 'India’s permanent research homes in the deep freeze. Scientists live here year-round through dark polar winters to study ancient ice, changing weather, and ocean life.',
+      focusTag: 'Glacier melting, polar blizzards & ozone layer recovery',
+      historic: 'Dakshin Gangotri (First Indian Base, 1983)',
       screen: 'explore'
     },
     {
@@ -281,12 +281,12 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
       borderColor: '#a7f3d0',
       accentColor: '#059669',
       stations: [
-        { name: 'Himadri', est: '2008', loc: '78.92° N · Ny-Ålesund, Svalbard' },
-        { name: 'IndARC', est: '2014', loc: 'Kongsfjorden Mooring (Underwater)' }
+        { name: 'Himadri', est: '2008', loc: '78.92° N · Svalbard, Norway' },
+        { name: 'IndARC', est: '2014', loc: 'Underwater Ocean Sensor' }
       ],
-      desc: 'High-Arctic research station & underwater moored observatory investigating Arctic amplification, North Atlantic thermohaline circulation, and Indian Monsoon teleconnections.',
-      focusTag: 'Sea-ice albedo & Indian Monsoon link',
-      historic: 'Gruvebadet Atmospheric Lab',
+      desc: 'Located high in northern Norway. Indian scientists study how melting Arctic sea ice directly influences the Indian summer monsoon and rainfall patterns back home.',
+      focusTag: 'How North Pole ice loss impacts India\'s monsoon rains',
+      historic: 'Year-round atmospheric monitoring laboratory',
       screen: 'explore'
     },
     {
@@ -297,11 +297,11 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
       borderColor: '#c7d2fe',
       accentColor: '#6366f1',
       stations: [
-        { name: 'Himansh', est: '2016', loc: '32.40° N · Chandra Basin (4,080m)' }
+        { name: 'Himansh', est: '2016', loc: '32.40° N · Spiti Valley (4,080m)' }
       ],
-      desc: 'High-altitude cryosphere research station in the Spiti valley monitoring mass balance, snout retreat, black carbon deposition, and downstream water security for 1.3B people.',
-      focusTag: 'Glacio-hydrology & snout retreat modeling',
-      historic: 'Freshwater security monitoring',
+      desc: 'High up in the mountains of Himachal Pradesh. Scientists monitor melting glaciers that provide fresh drinking and irrigation water for over a billion people downstream.',
+      focusTag: 'Mountain glacier health and freshwater security',
+      historic: 'Protecting water supplies for northern India',
       screen: 'explore'
     }
   ];
@@ -566,7 +566,7 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
       <div style={{ background: '#f8fafc', borderTop: '1px solid #e2e8f0' }}>
         <div style={{ maxWidth: '1360px', margin: '0 auto', padding: '80px 48px 96px' }}>
 
-          {/* Section Header & Strategic SIH Problem Framing */}
+          {/* Section Header & Simple Human Story */}
           <div style={{ maxWidth: '860px', marginBottom: '44px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '16px' }}>
               <span style={{
@@ -577,21 +577,21 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
                 letterSpacing: '0.06em', textTransform: 'uppercase'
               }}>
                 <Zap size={12} />
-                SIH26063 · Ministry of Earth Sciences (MoES)
+                National Polar Program · India
               </span>
               <span style={{
                 fontSize: '0.72rem', fontWeight: 700, color: '#059669',
                 background: '#ecfdf5', border: '1px solid #a7f3d0',
                 padding: '4px 10px', borderRadius: '6px'
               }}>
-                Nodal Institute: NCPOR Goa
+                Ministry of Earth Sciences · NCPOR Goa
               </span>
               <span style={{
                 fontSize: '0.72rem', fontWeight: 700, color: '#6366f1',
                 background: '#ede9fe', border: '1px solid #c7d2fe',
                 padding: '4px 10px', borderRadius: '6px'
               }}>
-                Space Technology & Software
+                Open for Students, Scientists & Citizens
               </span>
             </div>
 
@@ -603,7 +603,7 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
               letterSpacing: '-0.028em',
               marginBottom: '16px'
             }}>
-              From Deep Frozen Archives to Active Science
+              Bringing India's Polar Expeditions to Life
             </h2>
             <p style={{
               fontSize: '1.05rem',
@@ -611,11 +611,10 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
               lineHeight: 1.7,
               marginBottom: 0
             }}>
-              <strong style={{ color: '#0f172a' }}>Polaris</strong> solves the fundamental challenge of Indian polar exploration:
-              for over four decades, thousands of expedition monographs, NetCDF datasets, and 4K field recordings have remained
-              locked in isolated government file servers and raw DSpace archives. Polaris transforms these dormant records into an
-              <strong style={{ color: '#1e6ef5' }}> evidence-grounded, citation-locked intelligence and public outreach engine</strong> —
-              making India's cryosphere discoveries discoverable for scientists, students, and citizens alike.
+              For more than 40 years, brave Indian researchers have explored the coldest places on Earth.
+              But their discoveries, photos, and weather files were buried in hard-to-read reports and old computer drives.
+              <strong style={{ color: '#0f172a' }}> Polaris brings all of India's polar science together in plain, simple English</strong> —
+              making real expedition files easy to explore for school students, college researchers, journalists, and curious citizens alike.
             </p>
           </div>
 
@@ -693,14 +692,14 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
               <Compass size={16} color="#0284c7" />
               <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#0284c7', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                Operational Theaters
+                Where India Works
               </span>
             </div>
             <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', margin: '0 0 6px' }}>
-              India's Scientific Presence Across The Three Poles
+              India's Research Bases Across The Three Poles
             </h3>
             <p style={{ fontSize: '0.88rem', color: '#64748b', margin: '0 0 24px' }}>
-              Continuous atmospheric, cryospheric, and oceanic research stations operated by NCPOR.
+              From Antarctic blizzards to Arctic fjords and Himalayan peaks, Indian scientists work in the coldest places on Earth.
             </p>
           </div>
 
@@ -795,7 +794,7 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
           </div>
 
           {/* ════════════════════════════════════════
-              PORTAL CAPABILITIES — 3-PILLAR FRAMEWORK
+              PORTAL CAPABILITIES — SIMPLE & CLEAR
              ════════════════════════════════════════ */}
           <div style={{ marginTop: '20px', paddingTop: '56px', borderTop: '1px solid #e2e8f0' }}>
 
@@ -804,7 +803,7 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                   <Layers size={16} color="#1e6ef5" />
                   <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#1e6ef5', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                    System Architecture & Capabilities
+                    How Polaris Works
                   </span>
                 </div>
                 <h3 style={{
@@ -812,11 +811,10 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
                   fontWeight: 800, color: '#0f172a',
                   letterSpacing: '-0.025em', margin: '0 0 8px'
                 }}>
-                  Built on Three Core Operational Pillars
+                  Everything You Need to Explore, Learn & Share
                 </h3>
                 <p style={{ fontSize: '0.88rem', color: '#64748b', margin: 0, lineHeight: 1.6 }}>
-                  Directly addressing the SIH problem statement requirements: eliminating scientific data silos,
-                  enforcing strict citation locking, and automating multi-channel public dissemination.
+                  Built to make India's polar science easy to search, simple to understand, and safe from misinformation.
                 </p>
               </div>
 
@@ -827,28 +825,28 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
                   className={`pillar-tab-btn ${activePillarFilter === 'all' ? 'active' : 'inactive'}`}
                 >
                   <SlidersHorizontal size={13} />
-                  All Capabilities ({features.length})
+                  All Features ({features.length})
                 </button>
                 <button
                   onClick={() => setActivePillarFilter('repository')}
                   className={`pillar-tab-btn ${activePillarFilter === 'repository' ? 'active' : 'inactive'}`}
                 >
                   <Database size={13} color="#0284c7" />
-                  Pillar 1: Repository (3)
+                  1. Data & Photos (3)
                 </button>
                 <button
                   onClick={() => setActivePillarFilter('ai')}
                   className={`pillar-tab-btn ${activePillarFilter === 'ai' ? 'active' : 'inactive'}`}
                 >
                   <Sparkles size={13} color="#7c3aed" />
-                  Pillar 2: Grounded AI (3)
+                  2. Ask AI & Learn (3)
                 </button>
                 <button
                   onClick={() => setActivePillarFilter('governance')}
                   className={`pillar-tab-btn ${activePillarFilter === 'governance' ? 'active' : 'inactive'}`}
                 >
                   <ShieldCheck size={13} color="#ea580c" />
-                  Pillar 3: Governance (3)
+                  3. Stories & Review (3)
                 </button>
               </div>
             </div>
@@ -949,7 +947,7 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
             </div>
 
             {/* ════════════════════════════════════════
-                SIH COMPETITIVE BENCHMARK: THE WINNING EDGE
+                THE OLD WAY VS THE POLARIS WAY
                ════════════════════════════════════════ */}
             <div style={{
               marginTop: '56px',
@@ -970,10 +968,10 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
                     marginBottom: '8px'
                   }}>
                     <Award size={13} />
-                    SIH26063 Competitive Evaluation Matrix
+                    Why Polaris Wins for India
                   </div>
                   <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#ffffff', margin: 0, letterSpacing: '-0.02em' }}>
-                    What NCPOR Has Today vs. What Polaris Delivers
+                    The Old Way vs. The Polaris Way
                   </h3>
                 </div>
 
@@ -998,7 +996,7 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
                     onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; }}
                     onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
                   >
-                    <span>View Complete SIH Gap Matrix</span>
+                    <span>Compare Old vs New Portals</span>
                     <ExternalLink size={14} />
                   </button>
                 )}
@@ -1018,26 +1016,26 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444' }} />
                     <span style={{ fontSize: '0.76rem', fontWeight: 800, color: '#f87171', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                      Legacy NCPOR Systems (NPDC / DSpace)
+                      The Old Way (Outdated Websites)
                     </span>
                   </div>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.5 }}>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
                       <span style={{ color: '#ef4444', fontWeight: 800 }}>✕</span>
-                      <span><strong>Fragmented Portals:</strong> 15-year-old JSP forms, unlinked subdomains, and static coordinate tables.</span>
+                      <span><strong>Trapped in Hard PDFs:</strong> 40 years of discoveries were locked in 50-page technical documents that students and citizens could never easily read.</span>
                     </div>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
                       <span style={{ color: '#ef4444', fontWeight: 800 }}>✕</span>
-                      <span><strong>Dormant PDFs:</strong> 50+ page technical monographs locked in raw DSpace servers unreadable to the public.</span>
+                      <span><strong>Difficult Software Needed:</strong> Viewing ice or weather files required heavy specialist engineering tools and coding knowledge.</span>
                     </div>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
                       <span style={{ color: '#ef4444', fontWeight: 800 }}>✕</span>
-                      <span><strong>Heavy Software Burden:</strong> NetCDF/HDF5 data requires MATLAB, xarray, or desktop QGIS to view.</span>
+                      <span><strong>Broken Links & Old Pages:</strong> Information was scattered across old government websites without a working search engine.</span>
                     </div>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
                       <span style={{ color: '#ef4444', fontWeight: 800 }}>✕</span>
-                      <span><strong>Zero Outreach Pipeline:</strong> No multi-channel news generation or reading-level adaptation.</span>
+                      <span><strong>No Public Outreach:</strong> Discoveries rarely reached schools, news channels, or social media in words people could understand.</span>
                     </div>
                   </div>
                 </div>
@@ -1055,26 +1053,26 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981' }} />
                     <span style={{ fontSize: '0.76rem', fontWeight: 800, color: '#34d399', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                      Polaris SIH Solution (Our Winning Edge)
+                      The Polaris Way (Simple & Connected)
                     </span>
                   </div>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.82rem', color: '#cbd5e1', lineHeight: 1.5 }}>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
                       <span style={{ color: '#10b981', fontWeight: 800 }}>✓</span>
-                      <span><strong>Unified Knowledge Graph:</strong> Interconnects Paper ➔ Scientist ➔ Station ➔ Dataset ➔ 4K Media.</span>
+                      <span><strong>Everything in One Place:</strong> Search research papers, live weather, 4K photos, and ship voyages together in seconds.</span>
                     </div>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
                       <span style={{ color: '#10b981', fontWeight: 800 }}>✓</span>
-                      <span><strong>Zero-Hallucination AI:</strong> Evidence-grounded generation with side-by-side source-span citation locking.</span>
+                      <span><strong>Plain-English Explanations:</strong> Complex papers are rewritten into school-friendly summaries with zero confusing jargon.</span>
                     </div>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
                       <span style={{ color: '#10b981', fontWeight: 800 }}>✓</span>
-                      <span><strong>"Ask-the-Data" Browser Engine:</strong> In-browser interactive dynamic plots without desktop tools.</span>
+                      <span><strong>Instant In-Browser Charts:</strong> Type what you want to see and explore interactive graphs right on your screen without coding.</span>
                     </div>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
                       <span style={{ color: '#10b981', fontWeight: 800 }}>✓</span>
-                      <span><strong>Scientific Governance Gate:</strong> Mandatory 4-stage Editorial Review Queue with verified scientist sign-off.</span>
+                      <span><strong>100% Fact-Checked by Scientists:</strong> Real researchers review every public post before it goes live, ensuring zero false info.</span>
                     </div>
                   </div>
                 </div>

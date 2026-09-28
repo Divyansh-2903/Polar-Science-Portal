@@ -47,13 +47,13 @@ export function GapMatrixModal({ isOpen, onClose }) {
           <div>
             <div className="glass-pill" style={{ marginBottom: '8px' }}>
               <ShieldAlert size={14} color="var(--accent-orange)" aria-hidden="true" />
-              <span>SIH Pitch Defense · The Core Hackathon Differentiator</span>
+              <span>Clear Comparison · The Old Way vs. The Polaris Way</span>
             </div>
             <h2 id="gap-matrix-title" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.6rem)', fontWeight: 800, color: '#0f172a' }}>
-              NCPOR Current Systems vs. Polaris Innovation Matrix
+              How Polaris Upgrades India's Polar Web Portal
             </h2>
             <p style={{ maxWidth: 850, marginTop: '6px', fontSize: '0.9rem', color: '#475569' }}>
-              Why this portal is essential: Addressing the 6 systemic gaps in current polar data infrastructure without duplicating existing archives.
+              See how Polaris takes 40+ years of official Indian research and makes it easy to search, explore, and share in plain English.
             </p>
           </div>
 
@@ -78,7 +78,7 @@ export function GapMatrixModal({ isOpen, onClose }) {
         <div style={{ marginBottom: '30px' }}>
           <h3 style={{ fontSize: '1.15rem', color: '#0284c7', fontWeight: 800, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <Sparkles size={18} aria-hidden="true" />
-            The Master Comparison Table (Core Evaluation Slide)
+            Feature-by-Feature Comparison
           </h3>
 
           <div style={{
@@ -90,9 +90,9 @@ export function GapMatrixModal({ isOpen, onClose }) {
             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem' }}>
               <thead>
                 <tr style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0' }}>
-                  <th style={{ padding: '14px 18px', color: '#0f172a', fontWeight: 700 }}>Capability</th>
-                  <th style={{ padding: '14px 18px', color: '#64748b', fontWeight: 600 }}>Already Exists at NCPOR (NPDC)</th>
-                  <th style={{ padding: '14px 18px', color: '#1e6ef5', fontWeight: 700 }}>What Polaris Adds (Our SIH Innovation)</th>
+                  <th style={{ padding: '14px 18px', color: '#0f172a', fontWeight: 700 }}>Feature</th>
+                  <th style={{ padding: '14px 18px', color: '#64748b', fontWeight: 600 }}>The Old Way (Legacy Websites)</th>
+                  <th style={{ padding: '14px 18px', color: '#1e6ef5', fontWeight: 700 }}>The Polaris Way (Modern & Accessible)</th>
                 </tr>
               </thead>
               <tbody>
@@ -126,7 +126,7 @@ export function GapMatrixModal({ isOpen, onClose }) {
         {/* The 6 Critical Gaps Breakdown */}
         <div>
           <h3 style={{ fontSize: '1.15rem', color: '#059669', fontWeight: 800, marginBottom: '14px' }}>
-            The 6 Research & Systems Gaps We Solve
+            The 6 Big Challenges Polaris Solves
           </h3>
 
           <div style={{

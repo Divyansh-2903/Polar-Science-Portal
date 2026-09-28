@@ -47,13 +47,13 @@ export function DatasetsHub({ preselectedDatasetId }) {
             marginBottom: '8px'
           }}>
             <Database size={13} />
-            <span>NCPOR Data Center // 700+ Verified Cryospheric Datasets</span>
+            <span>Indian Polar Data Center · 700+ Verified Datasets</span>
           </div>
           <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a', margin: '0 0 6px 0', letterSpacing: '-0.02em' }}>
             Data & Interactive Charts
           </h2>
           <p style={{ fontSize: '0.88rem', color: '#64748b', margin: 0, maxWidth: 840, lineHeight: 1.55 }}>
-            Explore calibrated Automated Weather Station (AWS) records, oceanographic CTD profiles, and mass balance series across Antarctica, the Arctic, and the Himalayas. Plot interactively or browse the full ISO 19115 / Dublin Core archive.
+            Explore real weather records, glacier measurements, and ocean surveys across Antarctica, the Arctic, and the Himalayas. Create interactive charts online or download raw data files for free.
           </p>
         </div>
 

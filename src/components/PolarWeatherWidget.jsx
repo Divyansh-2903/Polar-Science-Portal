@@ -27,12 +27,12 @@ export const polarStationsWeather = [
     pressure: '976 hPa',
     humidity: '64%',
     timestamp: '27 Sep 2026 11:00 PM',
-    sensorType: 'Automated Weather Station (AWS)',
+    sensorType: 'Automated Weather Station',
     images: ['/stations/maitri-1.jpg', '/stations/maitri-2.jpg'],
     color: '#8b5cf6',
     accentBg: '#eff6ff',
     tempColor: '#dc2626',
-    status: 'Live AWS Feed'
+    status: 'Live Weather'
   },
   {
     id: 'bharati',
@@ -44,17 +44,17 @@ export const polarStationsWeather = [
     altitude: '35 m ASL',
     temp: '-20.3° C',
     tempNum: -20.3,
-    condition: 'High Wind · Ice Shelf',
+    condition: 'Cold Wind · Ice Shelf',
     wind: '28 km/h ENE',
     pressure: '988 hPa',
     humidity: '58%',
     timestamp: '27 Sep 2026 11:00 PM',
-    sensorType: 'DCWIS Telemetry Network',
+    sensorType: 'Coastal Station Network',
     images: ['/stations/bharati-1.jpg', '/stations/bharati-2.jpg'],
     color: '#0ea5e9',
     accentBg: '#eff6ff',
     tempColor: '#dc2626',
-    status: 'Live DCWIS'
+    status: 'Live Weather'
   },
   {
     id: 'himansh',
@@ -66,17 +66,17 @@ export const polarStationsWeather = [
     altitude: '4,590 m ASL',
     temp: '3.9° C',
     tempNum: 3.9,
-    condition: 'High Altitude Glacier',
+    condition: 'High Mountain Glacier',
     wind: '14 km/h W',
     pressure: '582 hPa',
     humidity: '42%',
     timestamp: '27 Sep 2026 11:00 PM',
-    sensorType: 'Cryospheric High-Altitude AWS',
+    sensorType: 'Mountain Weather Station',
     images: ['/stations/himansh-1.jpg', '/stations/himansh-2.jpg'],
     color: '#f59e0b',
     accentBg: '#fffbeb',
     tempColor: '#d97706',
-    status: 'Live AWS Feed'
+    status: 'Live Weather'
   },
   {
     id: 'himadri',
@@ -88,17 +88,17 @@ export const polarStationsWeather = [
     altitude: '15 m ASL',
     temp: '2.7° C',
     tempNum: 2.7,
-    condition: 'Fjord Marine Telemetry',
+    condition: 'Arctic Coastal Breeze',
     wind: '18 km/h NW',
     pressure: '1004 hPa',
     humidity: '76%',
     timestamp: '27 Sep 2026 11:00 PM',
-    sensorType: 'Polar Marine Observational AWS',
+    sensorType: 'Arctic Weather Station',
     images: ['/stations/himadri-1.jpg', '/stations/himadri-2.jpg'],
     color: '#10b981',
     accentBg: '#ecfdf5',
     tempColor: '#059669',
-    status: 'Live AWS Feed'
+    status: 'Live Weather'
   }
 ];
 
@@ -168,7 +168,7 @@ export function PolarWeatherWidget({ onNavigate }) {
               gap: '4px',
               marginTop: '1px'
             }}>
-              <span>Live AWS Telemetry</span>
+              <span>Live Weather Feed</span>
               <span>·</span>
               <a
                 href="https://data.ncpor.res.in/"

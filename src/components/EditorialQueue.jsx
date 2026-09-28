@@ -66,11 +66,11 @@ export function EditorialQueue({ queueItems, onUpdateQueueItem }) {
         <div>
           <div className="glass-pill" style={{ marginBottom: '10px' }}>
             <ShieldCheck size={14} color="var(--accent-aurora)" aria-hidden="true" />
-            <span>Institutional Scientific Governance</span>
+            <span>Scientist Review Gate</span>
           </div>
-          <h1>Editorial Review Queue & Approval Governance</h1>
+          <h1>Scientist Review & Fact-Check Gate</h1>
           <p style={{ maxWidth: 880, marginTop: '8px', fontSize: '1.02rem' }}>
-            Nothing publishes unreviewed. Before any polar science finding reaches schools or journalists, it passes through this strict four-stage scientific verification gate staffed by NCPOR Principal Investigators.
+            Nothing publishes without review. Before any polar science post reaches schools, news reporters, or social media, real Indian scientists fact-check every sentence to ensure 100% accuracy.
           </p>
         </div>
 
