@@ -134,19 +134,18 @@ export function Header({ activeTab, setActiveTab, onOpenGapMatrix }) {
             flexShrink: 0
           }}
         >
-          <div style={{
-            width: '36px',
-            height: '36px',
-            borderRadius: '10px',
-            background: 'linear-gradient(135deg, #1e6ef5 0%, #0284c7 100%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#ffffff',
-            boxShadow: '0 2px 10px rgba(30, 110, 245, 0.3)'
-          }}>
-            <Compass size={20} strokeWidth={2.4} />
-          </div>
+          <img 
+            src="/polaris-logo.png" 
+            alt="Polaris Logo" 
+            style={{
+              width: '38px',
+              height: '38px',
+              objectFit: 'contain',
+              borderRadius: '50%',
+              boxShadow: '0 2px 8px rgba(15, 23, 42, 0.15)',
+              border: '1px solid rgba(30, 110, 245, 0.2)'
+            }}
+          />
 
           <span style={{
             fontFamily: 'var(--font-heading)',

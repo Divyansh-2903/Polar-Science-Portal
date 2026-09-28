@@ -319,14 +319,19 @@ export default function App() {
           {/* Brand column */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
-              <div style={{
-                width: '32px', height: '32px', borderRadius: '8px',
-                background: 'linear-gradient(135deg, #1e6ef5 0%, #0284c7 100%)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: '#ffffff', flexShrink: 0
-              }}>
-                <Compass size={18} />
-              </div>
+              <img 
+                src="/polaris-logo.png" 
+                alt="Polaris Logo" 
+                style={{
+                  width: '36px',
+                  height: '36px',
+                  objectFit: 'contain',
+                  borderRadius: '50%',
+                  background: '#ffffff',
+                  padding: '2px',
+                  boxShadow: '0 2px 10px rgba(0,0,0,0.3)'
+                }}
+              />
               <strong style={{
                 color: '#ffffff',
                 fontSize: '1.25rem',
