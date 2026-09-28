@@ -50,9 +50,23 @@
   --status-purple: #8b5cf6;
   --status-purple-soft: #f5f3ff;
 
+  /* Additional Tokens for Components */
+  --accent-cyan: #0284c7;
+  --accent-orange: #ea580c;
+  --accent-aurora: #10b981;
+  --border-aurora: #a7f3d0;
+  --border-cyan: #bae6fd;
+  --border-orange: #fed7aa;
+  --border-active: #1e6ef5;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --shadow-glow-cyan: 0 0 16px rgba(2, 132, 199, 0.18);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+
   /* Typography */
   --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Text Colors */
@@ -166,6 +180,151 @@ button:focus-visible, input:focus-visible, select:focus-visible {
   background: #10b981;
   box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
   animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* ── Portal Core Surface & Component Utilities ── */
+.glass-panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  color: #0f172a;
+  transition: box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+}
+
+.glass-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e6ef5;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  width: fit-content;
+}
+
+/* Button Utilities */
+.btn-primary {
+  background: #1e6ef5;
+  color: #ffffff !important;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 9px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.16s ease;
+  box-shadow: 0 2px 8px rgba(30, 110, 245, 0.28);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #1656c7;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(30, 110, 245, 0.38);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: #334155 !important;
+  border: 1px solid #cbd5e1;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.16s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a !important;
+}
+
+.btn-accent-orange {
+  background: #ea580c;
+  color: #ffffff !important;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.16s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.25);
+  border: none;
+}
+
+.btn-accent-orange:hover:not(:disabled) {
+  background: #c2410c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+}
+
+.btn-accent-orange:disabled {
+  background: #cbd5e1 !important;
+  color: #94a3b8 !important;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Status Badges */
+.badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.badge-scheduled {
+  background: #eff6ff;
+  color: #1e6ef5;
+  border: 1px solid #bfdbfe;
+}
+
+.badge-approved {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.badge-review {
+  background: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #fed7aa;
+}
+
+.badge-draft {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
 }
 
 /* ── Screen Showcase Architecture (Matches polar-mockup-screens.html) ── */

@@ -89,7 +89,7 @@ export function AskScientist() {
         
         {/* Researchers Directory */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <h2 style={{ fontSize: '1.25rem', color: '#ffffff' }}>NCPOR Principal Investigators</h2>
+          <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a' }}>NCPOR Principal Investigators</h2>
 
           {researchersDirectory.map((scientist) => {
             const isSelected = selectedScientist.id === scientist.id;
@@ -101,15 +101,15 @@ export function AskScientist() {
                 style={{
                   padding: '20px',
                   cursor: 'pointer',
-                  borderColor: isSelected ? 'var(--accent-cyan)' : 'var(--border-subtle)',
-                  boxShadow: isSelected ? 'var(--shadow-glow-cyan)' : 'none',
+                  borderColor: isSelected ? 'var(--blue-primary)' : 'var(--border-subtle)',
+                  boxShadow: isSelected ? '0 4px 16px rgba(30, 110, 245, 0.15)' : 'none',
                   transition: 'all 200ms ease'
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
                   <div>
-                    <h3 style={{ fontSize: '1.1rem', color: '#ffffff' }}>{scientist.name}</h3>
-                    <div style={{ fontSize: '0.8rem', color: 'var(--accent-cyan)' }}>
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0f172a' }}>{scientist.name}</h3>
+                    <div style={{ fontSize: '0.8rem', color: 'var(--accent-cyan)', fontWeight: 600 }}>
                       {scientist.designation} · {scientist.division}
                     </div>
                   </div>
@@ -125,10 +125,10 @@ export function AskScientist() {
                       style={{
                         fontSize: '0.72rem',
                         padding: '2px 8px',
-                        borderRadius: 'var(--radius-full)',
-                        background: 'rgba(56, 189, 248, 0.08)',
-                        color: '#cbd5e1',
-                        border: '1px solid rgba(56, 189, 248, 0.15)'
+                        borderRadius: '9999px',
+                        background: '#eff6ff',
+                        color: '#1e6ef5',
+                        border: '1px solid #bfdbfe'
                       }}
                     >
                       {exp}
@@ -136,8 +136,8 @@ export function AskScientist() {
                   ))}
                 </div>
 
-                <div style={{ fontSize: '0.76rem', color: 'var(--text-dim)', marginTop: '8px' }}>
-                  Active Fieldwork: {scientist.activeProjects}
+                <div style={{ fontSize: '0.76rem', color: '#64748b', marginTop: '8px' }}>
+                  Active Fieldwork: <strong style={{ color: '#0f172a' }}>{scientist.activeProjects}</strong>
                 </div>
               </div>
             );
@@ -151,23 +151,24 @@ export function AskScientist() {
           <div className="glass-panel" style={{ padding: '24px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
               <MessageSquare size={20} color="var(--accent-aurora)" aria-hidden="true" />
-              <h3 style={{ fontSize: '1.2rem', color: '#ffffff' }}>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0f172a' }}>
                 Ask {selectedScientist.name}
               </h3>
             </div>
 
-            <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', marginBottom: '16px' }}>
+            <p style={{ fontSize: '0.84rem', color: '#64748b', marginBottom: '16px' }}>
               Have a question about polar weather, glacier melt, or life in Antarctica? Submit your inquiry to get an authenticated scientific explanation.
             </p>
 
             {submitSuccess && (
               <div style={{
                 padding: '10px 14px',
-                borderRadius: 'var(--radius-sm)',
-                background: 'rgba(16, 185, 129, 0.15)',
-                border: '1px solid var(--border-aurora)',
-                color: 'var(--accent-aurora)',
+                borderRadius: '8px',
+                background: '#ecfdf5',
+                border: '1px solid #a7f3d0',
+                color: '#065f46',
                 fontSize: '0.85rem',
+                fontWeight: 600,
                 marginBottom: '14px',
                 display: 'flex',
                 alignItems: 'center',
@@ -187,18 +188,19 @@ export function AskScientist() {
                 style={{
                   width: '100%',
                   padding: '12px',
-                  background: 'var(--bg-surface)',
-                  border: '1px solid var(--border-subtle)',
-                  borderRadius: 'var(--radius-sm)',
-                  color: '#ffffff',
+                  background: '#f8fafc',
+                  border: '1px solid #cbd5e1',
+                  borderRadius: '8px',
+                  color: '#0f172a',
                   fontSize: '0.88rem',
-                  fontFamily: 'var(--font-sans)',
+                  fontFamily: 'var(--font-body)',
+                  outline: 'none',
                   resize: 'vertical'
                 }}
               />
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>
+                <span style={{ fontSize: '0.75rem', color: '#64748b' }}>
                   Questions reviewed under MoES Outreach Guidelines
                 </span>
                 <button type="submit" className="btn-primary" style={{ padding: '8px 20px' }}>
@@ -211,7 +213,7 @@ export function AskScientist() {
 
           {/* Verified Answers Feed */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-            <h3 style={{ fontSize: '1.1rem', color: '#ffffff' }}>Verified Public Q&A Archive</h3>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a' }}>Verified Public Q&A Archive</h3>
 
             {submittedAnswers.map((qa) => (
               <div
@@ -223,23 +225,24 @@ export function AskScientist() {
                   <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--accent-cyan)' }}>
                     {qa.scientistName} Responded:
                   </span>
-                  <span style={{ fontSize: '0.72rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>
+                  <span style={{ fontSize: '0.72rem', color: '#64748b', fontFamily: 'var(--font-mono)' }}>
                     {qa.verifiedDate}
                   </span>
                 </div>
 
-                <div style={{ fontSize: '0.92rem', fontWeight: 600, color: '#ffffff' }}>
+                <div style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0f172a' }}>
                   Q: "{qa.question}"
                 </div>
 
                 <p style={{
                   fontSize: '0.86rem',
-                  color: '#cbd5e1',
+                  color: '#334155',
                   lineHeight: 1.55,
-                  background: 'rgba(5, 11, 20, 0.45)',
+                  background: '#f8fafc',
+                  border: '1px solid #e2e8f0',
                   padding: '10px 12px',
-                  borderRadius: 'var(--radius-sm)',
-                  borderLeft: '3px solid var(--accent-aurora)'
+                  borderRadius: '8px',
+                  borderLeft: '3px solid #10b981'
                 }}>
                   {qa.answer}
                 </p>

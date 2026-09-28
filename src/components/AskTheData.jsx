@@ -127,13 +127,14 @@ export function AskTheData({ preselectedDatasetId }) {
               style={{
                 width: '100%',
                 padding: '14px 16px 14px 48px',
-                background: 'var(--bg-surface)',
-                border: '1px solid var(--border-subtle)',
-                borderRadius: 'var(--radius-md)',
-                color: '#ffffff',
+                background: '#f8fafc',
+                border: '1px solid #cbd5e1',
+                borderRadius: '12px',
+                color: '#0f172a',
                 fontSize: '0.95rem',
-                fontFamily: 'var(--font-sans)',
-                boxShadow: 'var(--shadow-md)'
+                fontFamily: 'var(--font-body)',
+                outline: 'none',
+                boxShadow: '0 2px 6px rgba(15, 23, 42, 0.04)'
               }}
             />
           </div>
@@ -145,26 +146,31 @@ export function AskTheData({ preselectedDatasetId }) {
 
         {/* Preset Prompt Chips */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '14px' }}>
-          <span style={{ fontSize: '0.78rem', color: 'var(--text-dim)', alignSelf: 'center', marginRight: '4px' }}>
+          <span style={{ fontSize: '0.78rem', color: '#64748b', alignSelf: 'center', marginRight: '4px', fontWeight: 600 }}>
             Suggested Queries:
           </span>
-          {queryPresets.map((preset) => (
-            <button
-              key={preset.id}
-              onClick={() => handleSelectQuery(preset)}
-              style={{
-                fontSize: '0.78rem',
-                padding: '5px 12px',
-                borderRadius: 'var(--radius-full)',
-                background: activeQuery.id === preset.id ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.04)',
-                color: activeQuery.id === preset.id ? 'var(--accent-cyan)' : 'var(--text-muted)',
-                border: activeQuery.id === preset.id ? '1px solid var(--border-active)' : '1px solid rgba(255, 255, 255, 0.08)',
-                cursor: 'pointer'
-              }}
-            >
-              {preset.query}
-            </button>
-          ))}
+          {queryPresets.map((preset) => {
+            const isSelected = activeQuery.id === preset.id;
+            return (
+              <button
+                key={preset.id}
+                onClick={() => handleSelectQuery(preset)}
+                style={{
+                  fontSize: '0.78rem',
+                  padding: '5px 12px',
+                  borderRadius: '9999px',
+                  background: isSelected ? '#eff6ff' : '#f1f5f9',
+                  color: isSelected ? '#1e6ef5' : '#475569',
+                  border: isSelected ? '1px solid #bfdbfe' : '1px solid #e2e8f0',
+                  fontWeight: isSelected ? 700 : 500,
+                  cursor: 'pointer',
+                  transition: 'all 0.16s ease'
+                }}
+              >
+                {preset.query}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -183,8 +189,8 @@ export function AskTheData({ preselectedDatasetId }) {
               <span className="badge-status badge-scheduled" style={{ marginBottom: '6px' }}>
                 {matchedDataset.station.toUpperCase()} OBSERVATORY · {matchedDataset.discipline}
               </span>
-              <h2 style={{ fontSize: '1.35rem', color: '#ffffff' }}>{activeQuery.title}</h2>
-              <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)', marginTop: '4px' }}>
+              <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a' }}>{activeQuery.title}</h2>
+              <div style={{ fontSize: '0.78rem', color: '#64748b', fontFamily: 'var(--font-mono)', marginTop: '4px' }}>
                 Temporal Range: {matchedDataset.temporalRange} · Variables: {matchedDataset.variables.slice(0, 3).join(', ')}
               </div>
             </div>
@@ -212,9 +218,9 @@ export function AskTheData({ preselectedDatasetId }) {
           <div style={{
             flex: 1,
             minHeight: '280px',
-            background: 'rgba(5, 11, 20, 0.7)',
-            borderRadius: 'var(--radius-md)',
-            border: '1px solid rgba(56, 189, 248, 0.1)',
+            background: '#071322',
+            borderRadius: '12px',
+            border: '1px solid #1e293b',
             padding: '20px',
             display: 'flex',
             flexDirection: 'column',
@@ -454,15 +460,15 @@ export function AskTheData({ preselectedDatasetId }) {
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                  padding: '8px 12px',
-                  background: 'rgba(5, 11, 20, 0.6)',
-                  borderRadius: 'var(--radius-sm)',
-                  border: '1px solid rgba(255, 255, 255, 0.04)'
+                  padding: '10px 14px',
+                  background: '#f8fafc',
+                  borderRadius: '8px',
+                  border: '1px solid #e2e8f0'
                 }}>
-                  <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textTransform: 'capitalize' }}>
+                  <span style={{ fontSize: '0.78rem', color: '#64748b', textTransform: 'capitalize', fontWeight: 500 }}>
                     {label.replace(/([A-Z])/g, ' $1')}
                   </span>
-                  <span style={{ fontSize: '0.92rem', fontWeight: 700, color: '#ffffff', fontFamily: 'var(--font-mono)' }}>
+                  <span style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0f172a', fontFamily: 'var(--font-mono)' }}>
                     {val}
                   </span>
                 </div>
@@ -479,30 +485,30 @@ export function AskTheData({ preselectedDatasetId }) {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.8rem' }}>
               <div>
-                <span style={{ color: 'var(--text-dim)' }}>Origin Station:</span>
-                <div style={{ fontWeight: 600, color: '#ffffff' }}>{matchedDataset.station.toUpperCase()} Base</div>
+                <span style={{ color: '#64748b' }}>Origin Station:</span>
+                <div style={{ fontWeight: 700, color: '#0f172a' }}>{matchedDataset.station.toUpperCase()} Base</div>
               </div>
 
               <div>
-                <span style={{ color: 'var(--text-dim)' }}>Discipline:</span>
-                <div style={{ color: 'var(--accent-cyan)' }}>{matchedDataset.discipline}</div>
+                <span style={{ color: '#64748b' }}>Discipline:</span>
+                <div style={{ color: '#0284c7', fontWeight: 600 }}>{matchedDataset.discipline}</div>
               </div>
 
               <div>
-                <span style={{ color: 'var(--text-dim)' }}>DOI Identifier:</span>
-                <div style={{ fontFamily: 'var(--font-mono)', color: '#ffffff', wordBreak: 'break-all' }}>
+                <span style={{ color: '#64748b' }}>DOI Identifier:</span>
+                <div style={{ fontFamily: 'var(--font-mono)', color: '#0f172a', wordBreak: 'break-all', fontWeight: 600 }}>
                   {matchedDataset.doi}
                 </div>
               </div>
 
               <div>
-                <span style={{ color: 'var(--text-dim)' }}>Standard:</span>
-                <div style={{ color: 'var(--accent-aurora)', fontWeight: 600 }}>
+                <span style={{ color: '#64748b' }}>Standard:</span>
+                <div style={{ color: '#059669', fontWeight: 700 }}>
                   ISO 19115 Geographic Metadata
                 </div>
               </div>
 
-              <div style={{ paddingTop: '8px', borderTop: '1px solid var(--border-subtle)' }}>
+              <div style={{ paddingTop: '8px', borderTop: '1px solid #e2e8f0' }}>
                 <button
                   onClick={handleDownload}
                   style={{

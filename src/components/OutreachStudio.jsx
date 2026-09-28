@@ -109,13 +109,15 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
                 setActiveClaimIndex(0);
               }}
               style={{
-                background: 'var(--bg-surface)',
-                color: '#ffffff',
-                border: '1px solid var(--border-subtle)',
-                borderRadius: 'var(--radius-sm)',
+                background: '#f8fafc',
+                color: '#0f172a',
+                border: '1px solid #cbd5e1',
+                borderRadius: '8px',
                 padding: '9px 14px',
                 fontSize: '0.85rem',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                fontFamily: 'var(--font-body)',
+                outline: 'none'
               }}
             >
               {expeditionReports.map(r => (
@@ -227,25 +229,26 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
               </span>
             </div>
 
-            <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>
+            <span style={{ fontSize: '0.75rem', color: '#64748b', fontFamily: 'var(--font-mono)' }}>
               Provenance: ISO 19115 Verified
             </span>
           </div>
 
-          <h2 style={{ fontSize: '1.35rem', lineHeight: 1.35, color: '#ffffff' }}>
+          <h2 style={{ fontSize: '1.35rem', lineHeight: 1.35, fontWeight: 800, color: '#0f172a' }}>
             {postData.headline}
           </h2>
 
           <div style={{
             fontSize: '0.82rem',
-            color: 'var(--accent-cyan)',
+            color: '#0284c7',
             padding: '8px 12px',
-            background: 'rgba(56, 189, 248, 0.08)',
-            borderRadius: 'var(--radius-sm)',
-            border: '1px solid rgba(56, 189, 248, 0.2)',
+            background: '#eff6ff',
+            borderRadius: '8px',
+            border: '1px solid #bfdbfe',
             display: 'flex',
             alignItems: 'center',
-            gap: '8px'
+            gap: '8px',
+            fontWeight: 500
           }}>
             <Eye size={16} aria-hidden="true" />
             <span>Interactive Demo: Click any claim below to inspect its exact source span in the right pane.</span>
@@ -265,10 +268,10 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
                   aria-pressed={isSelected}
                   style={{
                     padding: '14px 16px',
-                    borderRadius: 'var(--radius-md)',
-                    background: isSelected ? 'rgba(56, 189, 248, 0.14)' : 'rgba(5, 11, 20, 0.55)',
-                    border: isSelected ? '1px solid var(--accent-cyan)' : '1px solid var(--border-subtle)',
-                    boxShadow: isSelected ? '0 0 15px rgba(56, 189, 248, 0.25)' : 'none',
+                    borderRadius: '12px',
+                    background: isSelected ? '#eff6ff' : '#f8fafc',
+                    border: isSelected ? '1px solid #1e6ef5' : '1px solid #e2e8f0',
+                    boxShadow: isSelected ? '0 4px 16px rgba(30, 110, 245, 0.15)' : 'none',
                     cursor: 'pointer',
                     transition: 'all 200ms ease'
                   }}
@@ -276,19 +279,20 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '6px' }}>
                     <span style={{
                       fontSize: '0.72rem',
-                      fontWeight: 700,
+                      fontWeight: 800,
                       fontFamily: 'var(--font-mono)',
-                      color: isSelected ? 'var(--accent-cyan)' : 'var(--text-dim)'
+                      color: isSelected ? '#1e6ef5' : '#64748b'
                     }}>
                       CLAIM #{idx + 1}
                     </span>
                     <span style={{
                       fontSize: '0.72rem',
-                      color: isSelected ? '#fef08a' : 'var(--accent-aurora)',
-                      background: isSelected ? 'rgba(253, 224, 71, 0.15)' : 'rgba(16, 185, 129, 0.1)',
-                      padding: '2px 6px',
-                      borderRadius: '4px',
-                      fontWeight: 600
+                      color: isSelected ? '#1e6ef5' : '#059669',
+                      background: isSelected ? '#dbeafe' : '#ecfdf5',
+                      border: isSelected ? '1px solid #bfdbfe' : '1px solid #a7f3d0',
+                      padding: '2px 8px',
+                      borderRadius: '9999px',
+                      fontWeight: 700
                     }}>
                       Source Linked: {claim.sourceId.toUpperCase()}
                     </span>
@@ -296,16 +300,17 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
 
                   <p style={{
                     fontSize: '0.92rem',
-                    color: isSelected ? '#ffffff' : 'var(--text-main)',
+                    color: '#0f172a',
                     lineHeight: 1.55,
-                    marginBottom: '8px'
+                    marginBottom: '8px',
+                    fontWeight: isSelected ? 600 : 400
                   }}>
                     {claim.text}
                   </p>
 
                   <div style={{
                     fontSize: '0.76rem',
-                    color: 'var(--text-dim)',
+                    color: '#64748b',
                     fontFamily: 'var(--font-mono)',
                     display: 'flex',
                     alignItems: 'center',
@@ -358,8 +363,8 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
               <span className="badge-status badge-scheduled" style={{ marginBottom: '6px' }}>
                 PRIMARY SOURCE ARCHIVE · NCPOR DSPACE
               </span>
-              <h3 style={{ fontSize: '1.15rem', color: '#ffffff' }}>{report.title}</h3>
-              <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)', marginTop: '4px' }}>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0f172a' }}>{report.title}</h3>
+              <div style={{ fontSize: '0.78rem', color: '#64748b', marginTop: '4px' }}>
                 Lead PI: {report.leadAuthor} · Expedition: {report.expedition}
               </div>
             </div>
@@ -368,11 +373,13 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
               <div style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.72rem',
-                color: 'var(--accent-cyan)',
-                background: 'rgba(56, 189, 248, 0.1)',
+                color: '#0284c7',
+                background: '#eff6ff',
+                border: '1px solid #bfdbfe',
                 padding: '4px 8px',
-                borderRadius: 'var(--radius-sm)',
-                display: 'inline-block'
+                borderRadius: '6px',
+                display: 'inline-block',
+                fontWeight: 600
               }}>
                 DOI: {report.doi}
               </div>
@@ -401,10 +408,11 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
                   key={para.id}
                   style={{
                     padding: '14px',
-                    borderRadius: 'var(--radius-sm)',
-                    background: isTargetedByActiveClaim ? 'rgba(253, 224, 71, 0.08)' : 'rgba(5, 11, 20, 0.4)',
-                    borderLeft: isTargetedByActiveClaim ? '4px solid #fde047' : '1px solid rgba(255, 255, 255, 0.06)',
-                    boxShadow: isTargetedByActiveClaim ? '0 0 15px rgba(253, 224, 71, 0.15)' : 'none',
+                    borderRadius: '8px',
+                    background: isTargetedByActiveClaim ? '#fffbeb' : '#f8fafc',
+                    border: isTargetedByActiveClaim ? '1px solid #fde68a' : '1px solid #e2e8f0',
+                    borderLeft: isTargetedByActiveClaim ? '4px solid #f59e0b' : '1px solid #e2e8f0',
+                    boxShadow: isTargetedByActiveClaim ? '0 4px 16px rgba(245, 158, 11, 0.12)' : 'none',
                     transition: 'all 250ms ease'
                   }}
                 >
@@ -414,7 +422,7 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
                     marginBottom: '8px',
                     fontSize: '0.78rem',
                     fontWeight: 700,
-                    color: isTargetedByActiveClaim ? '#fde047' : 'var(--accent-cyan)'
+                    color: isTargetedByActiveClaim ? '#b45309' : '#0284c7'
                   }}>
                     <span>{para.section}</span>
                     <span style={{ fontFamily: 'var(--font-mono)', opacity: 0.8 }}>[{para.id.toUpperCase()}]</span>
@@ -423,7 +431,7 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
                   <p style={{
                     fontSize: '0.88rem',
                     lineHeight: 1.65,
-                    color: isTargetedByActiveClaim ? '#fef08a' : '#cbd5e1'
+                    color: isTargetedByActiveClaim ? '#78350f' : '#334155'
                   }}>
                     {para.text}
                   </p>
@@ -432,8 +440,8 @@ export function OutreachStudio({ initialReportId, onSendToQueue }) {
                     <div style={{
                       marginTop: '8px',
                       fontSize: '0.74rem',
-                      color: '#fef08a',
-                      fontWeight: 600,
+                      color: '#b45309',
+                      fontWeight: 700,
                       display: 'flex',
                       alignItems: 'center',
                       gap: '5px'

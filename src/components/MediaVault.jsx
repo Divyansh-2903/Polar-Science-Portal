@@ -73,23 +73,24 @@ export function MediaVault() {
         <div style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '12px',
-          background: 'rgba(5, 11, 20, 0.7)',
-          padding: '8px 16px',
-          borderRadius: 'var(--radius-md)',
-          border: '1px solid var(--border-subtle)'
+          gap: '14px',
+          background: '#ffffff',
+          padding: '10px 18px',
+          borderRadius: '12px',
+          border: '1px solid #e2e8f0',
+          boxShadow: '0 2px 8px rgba(15, 23, 42, 0.05)'
         }}>
-          <Package size={20} color="var(--accent-orange)" aria-hidden="true" />
+          <Package size={22} color="var(--accent-orange)" aria-hidden="true" />
           <div>
-            <div style={{ fontSize: '0.72rem', color: 'var(--text-dim)' }}>Media Press Kit Cart</div>
-            <div style={{ fontSize: '0.92rem', fontWeight: 700, color: '#ffffff', fontFamily: 'var(--font-mono)' }}>
+            <div style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 600 }}>Media Press Kit Cart</div>
+            <div style={{ fontSize: '0.94rem', fontWeight: 800, color: '#0f172a', fontFamily: 'var(--font-mono)' }}>
               {pressKitCart.length} Assets Selected
             </div>
           </div>
           <button
             disabled={pressKitCart.length === 0}
             className="btn-accent-orange"
-            style={{ padding: '6px 14px', fontSize: '0.8rem', opacity: pressKitCart.length === 0 ? 0.5 : 1 }}
+            style={{ padding: '7px 16px', fontSize: '0.8rem' }}
           >
             <Download size={14} aria-hidden="true" />
             <span>Download ZIP</span>
@@ -101,11 +102,12 @@ export function MediaVault() {
       {cartFeedback && (
         <div style={{
           padding: '10px 16px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'rgba(249, 115, 22, 0.15)',
-          border: '1px solid var(--border-orange)',
-          color: '#fdba74',
+          borderRadius: '8px',
+          background: '#fff7ed',
+          border: '1px solid #fed7aa',
+          color: '#c2410c',
           fontSize: '0.85rem',
+          fontWeight: 600,
           display: 'flex',
           alignItems: 'center',
           gap: '8px'
@@ -121,13 +123,14 @@ export function MediaVault() {
         flexWrap: 'wrap',
         gap: '14px',
         alignItems: 'center',
-        background: 'rgba(13, 26, 48, 0.65)',
-        padding: '16px',
-        borderRadius: 'var(--radius-md)',
-        border: '1px solid var(--border-subtle)'
+        background: '#ffffff',
+        padding: '16px 20px',
+        borderRadius: '14px',
+        border: '1px solid #e2e8f0',
+        boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)'
       }}>
         <div style={{ flex: 1, minWidth: '300px', position: 'relative', display: 'flex', alignItems: 'center' }}>
-          <Search size={18} color="var(--text-dim)" style={{ position: 'absolute', left: '14px' }} aria-hidden="true" />
+          <Search size={18} color="#64748b" style={{ position: 'absolute', left: '14px' }} aria-hidden="true" />
           <input
             type="text"
             value={searchTerm}
@@ -136,34 +139,41 @@ export function MediaVault() {
             style={{
               width: '100%',
               padding: '10px 14px 10px 42px',
-              background: 'var(--bg-surface)',
-              border: '1px solid var(--border-subtle)',
-              borderRadius: 'var(--radius-sm)',
-              color: '#ffffff',
-              fontSize: '0.88rem'
+              background: '#f8fafc',
+              border: '1px solid #cbd5e1',
+              borderRadius: '8px',
+              color: '#0f172a',
+              fontSize: '0.88rem',
+              outline: 'none',
+              fontFamily: 'var(--font-body)'
             }}
           />
         </div>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-          {categories.map(cat => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              style={{
-                padding: '7px 12px',
-                borderRadius: 'var(--radius-sm)',
-                fontSize: '0.8rem',
-                fontWeight: 600,
-                background: selectedCategory === cat ? 'rgba(249, 115, 22, 0.2)' : 'rgba(255, 255, 255, 0.04)',
-                color: selectedCategory === cat ? 'var(--accent-orange)' : 'var(--text-muted)',
-                border: selectedCategory === cat ? '1px solid var(--border-orange)' : '1px solid transparent',
-                cursor: 'pointer'
-              }}
-            >
-              {cat}
-            </button>
-          ))}
+          {categories.map(cat => {
+            const isSelected = selectedCategory === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                style={{
+                  padding: '7px 14px',
+                  borderRadius: '9999px',
+                  fontSize: '0.8rem',
+                  fontWeight: isSelected ? 700 : 600,
+                  background: isSelected ? '#ea580c' : '#f1f5f9',
+                  color: isSelected ? '#ffffff' : '#475569',
+                  border: isSelected ? '1px solid #ea580c' : '1px solid #e2e8f0',
+                  cursor: 'pointer',
+                  transition: 'all 0.16s ease',
+                  boxShadow: isSelected ? '0 2px 6px rgba(234, 88, 12, 0.25)' : 'none'
+                }}
+              >
+                {cat}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -243,40 +253,50 @@ export function MediaVault() {
               <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '12px', flex: 1, justifyContent: 'space-between' }}>
                 <div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '6px' }}>
-                    <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', color: 'var(--accent-orange)', fontWeight: 700 }}>
+                    <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', color: '#ea580c', fontWeight: 800 }}>
                       {asset.category}
                     </span>
-                    <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>
+                    <span style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 500 }}>
                       {asset.license.split(' ')[0]} {asset.license.split(' ')[1]}
                     </span>
                   </div>
 
-                  <h3 style={{ fontSize: '1.1rem', color: '#ffffff', lineHeight: 1.35, marginBottom: '8px' }}>
+                  <h3 style={{ fontSize: '1.08rem', color: '#0f172a', fontWeight: 700, lineHeight: 1.35, marginBottom: '8px' }}>
                     {asset.title}
                   </h3>
 
                   {/* Semantic Description Tag */}
                   <div style={{
                     fontSize: '0.76rem',
-                    color: 'var(--text-muted)',
-                    background: 'rgba(5, 11, 20, 0.5)',
+                    color: '#334155',
+                    background: '#f8fafc',
+                    border: '1px solid #e2e8f0',
                     padding: '8px 10px',
-                    borderRadius: 'var(--radius-sm)',
+                    borderRadius: '8px',
                     marginBottom: '10px'
                   }}>
-                    <strong style={{ color: 'var(--accent-cyan)' }}>CLIP Semantic Index:</strong> "{asset.clipEmbeddingsDescription}"
+                    <strong style={{ color: '#0284c7' }}>CLIP Semantic Index:</strong> "{asset.clipEmbeddingsDescription}"
                   </div>
 
                   {/* Tags */}
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
                     {asset.tags.map((tag, i) => (
-                      <span key={i} style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>{tag}</span>
+                      <span key={i} style={{ 
+                        fontSize: '0.72rem', 
+                        color: '#475569',
+                        background: '#f1f5f9',
+                        border: '1px solid #e2e8f0',
+                        padding: '2px 8px',
+                        borderRadius: '4px'
+                      }}>
+                        {tag}
+                      </span>
                     ))}
                   </div>
                 </div>
 
                 {/* Actions */}
-                <div style={{ display: 'flex', gap: '10px', paddingTop: '12px', borderTop: '1px solid var(--border-subtle)' }}>
+                <div style={{ display: 'flex', gap: '10px', paddingTop: '12px', borderTop: '1px solid #f1f5f9' }}>
                   <button
                     onClick={() => setActiveMediaModal(asset)}
                     className="btn-secondary"
@@ -291,20 +311,22 @@ export function MediaVault() {
                     style={{
                       flex: 1,
                       padding: '7px 10px',
-                      borderRadius: 'var(--radius-md)',
+                      borderRadius: '8px',
                       fontSize: '0.78rem',
-                      fontWeight: 600,
-                      background: inCart ? 'rgba(16, 185, 129, 0.2)' : 'rgba(249, 115, 22, 0.15)',
-                      color: inCart ? 'var(--accent-aurora)' : 'var(--accent-orange)',
-                      border: inCart ? '1px solid var(--border-aurora)' : '1px solid var(--border-orange)',
+                      fontWeight: 700,
+                      background: inCart ? '#ecfdf5' : '#fff7ed',
+                      color: inCart ? '#059669' : '#ea580c',
+                      border: inCart ? '1px solid #a7f3d0' : '1px solid #fed7aa',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      gap: '6px'
+                      gap: '6px',
+                      cursor: 'pointer',
+                      transition: 'all 0.16s ease'
                     }}
                   >
                     <Package size={14} aria-hidden="true" />
-                    <span>{inCart ? 'In Press Kit' : '+ Add to Press Kit'}</span>
+                    <span>{inCart ? 'In Press Kit' : '+ Add to Kit'}</span>
                   </button>
                 </div>
               </div>
@@ -318,7 +340,7 @@ export function MediaVault() {
         <div style={{
           position: 'fixed',
           inset: 0,
-          backgroundColor: 'rgba(4, 8, 16, 0.85)',
+          backgroundColor: 'rgba(15, 23, 42, 0.7)',
           backdropFilter: 'blur(8px)',
           display: 'flex',
           alignItems: 'center',
@@ -338,11 +360,11 @@ export function MediaVault() {
                 <span className="badge-status badge-scheduled" style={{ marginBottom: '6px' }}>
                   RAW EXIF CAMERA & GEOTAG TELEMETRY
                 </span>
-                <h3 style={{ fontSize: '1.2rem', color: '#ffffff' }}>{activeMediaModal.title}</h3>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a' }}>{activeMediaModal.title}</h3>
               </div>
               <button
                 onClick={() => setActiveMediaModal(null)}
-                style={{ color: 'var(--text-muted)', fontSize: '1.2rem', padding: '4px 8px' }}
+                style={{ color: '#64748b', fontSize: '1.2rem', padding: '4px 8px', cursor: 'pointer' }}
                 aria-label="Close EXIF modal"
               >
                 ✕
@@ -353,59 +375,60 @@ export function MediaVault() {
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
               gap: '12px',
-              background: 'rgba(5, 11, 20, 0.75)',
+              background: '#f8fafc',
               padding: '16px',
-              borderRadius: 'var(--radius-md)',
+              borderRadius: '12px',
               fontFamily: 'var(--font-mono)',
               fontSize: '0.8rem',
-              color: '#e2e8f0',
+              color: '#0f172a',
               marginBottom: '16px',
-              border: '1px solid rgba(56, 189, 248, 0.15)'
+              border: '1px solid #e2e8f0'
             }}>
               <div>
-                <span style={{ color: 'var(--text-dim)' }}>Camera Body:</span>
-                <div style={{ fontWeight: 600, color: 'var(--accent-cyan)' }}>{activeMediaModal.exif.camera}</div>
+                <span style={{ color: '#64748b' }}>Camera Body:</span>
+                <div style={{ fontWeight: 700, color: '#0284c7' }}>{activeMediaModal.exif.camera}</div>
               </div>
               <div>
-                <span style={{ color: 'var(--text-dim)' }}>Lens Spec:</span>
-                <div style={{ fontWeight: 600 }}>{activeMediaModal.exif.lens}</div>
+                <span style={{ color: '#64748b' }}>Lens Spec:</span>
+                <div style={{ fontWeight: 700 }}>{activeMediaModal.exif.lens}</div>
               </div>
               <div>
-                <span style={{ color: 'var(--text-dim)' }}>Focal Length:</span>
+                <span style={{ color: '#64748b' }}>Focal Length:</span>
                 <div>{activeMediaModal.exif.focalLength}</div>
               </div>
               <div>
-                <span style={{ color: 'var(--text-dim)' }}>Shutter Speed:</span>
+                <span style={{ color: '#64748b' }}>Shutter Speed:</span>
                 <div>{activeMediaModal.exif.shutter}</div>
               </div>
               <div>
-                <span style={{ color: 'var(--text-dim)' }}>Aperture:</span>
+                <span style={{ color: '#64748b' }}>Aperture:</span>
                 <div>{activeMediaModal.exif.aperture}</div>
               </div>
               <div>
-                <span style={{ color: 'var(--text-dim)' }}>ISO Sensitivity:</span>
+                <span style={{ color: '#64748b' }}>ISO Sensitivity:</span>
                 <div>{activeMediaModal.exif.iso}</div>
               </div>
               <div style={{ gridColumn: 'span 2' }}>
-                <span style={{ color: 'var(--text-dim)' }}>GPS Coordinates:</span>
-                <div style={{ color: 'var(--accent-aurora)' }}>{activeMediaModal.exif.gps}</div>
+                <span style={{ color: '#64748b' }}>GPS Coordinates:</span>
+                <div style={{ color: '#059669', fontWeight: 700 }}>{activeMediaModal.exif.gps}</div>
               </div>
               <div style={{ gridColumn: 'span 2' }}>
-                <span style={{ color: 'var(--text-dim)' }}>UTC Timestamp:</span>
+                <span style={{ color: '#64748b' }}>UTC Timestamp:</span>
                 <div>{activeMediaModal.exif.dateCaptured}</div>
               </div>
             </div>
 
             <div style={{
-              padding: '12px',
-              borderRadius: 'var(--radius-sm)',
-              background: 'rgba(249, 115, 22, 0.1)',
-              border: '1px solid rgba(249, 115, 22, 0.3)',
-              fontSize: '0.78rem',
-              color: '#fdba74',
+              padding: '12px 14px',
+              borderRadius: '8px',
+              background: '#fff7ed',
+              border: '1px solid #fed7aa',
+              fontSize: '0.8rem',
+              color: '#9a3412',
+              lineHeight: 1.5,
               marginBottom: '18px'
             }}>
-              <strong>Permitted Usage:</strong> {activeMediaModal.license} — Full permission granted for broadcast journalism, educational publishing, and digital science outreach with attribution.
+              <strong style={{ color: '#c2410c' }}>Permitted Usage:</strong> {activeMediaModal.license} — Full permission granted for broadcast journalism, educational publishing, and digital science outreach with attribution.
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>

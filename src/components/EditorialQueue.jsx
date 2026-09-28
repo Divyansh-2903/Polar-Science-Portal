@@ -77,14 +77,15 @@ export function EditorialQueue({ queueItems, onUpdateQueueItem }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <div style={{
             fontSize: '0.82rem',
-            padding: '8px 14px',
-            borderRadius: 'var(--radius-sm)',
-            background: 'rgba(5, 11, 20, 0.7)',
-            border: '1px solid var(--border-subtle)',
-            color: 'var(--text-dim)',
-            fontFamily: 'var(--font-mono)'
+            padding: '8px 16px',
+            borderRadius: '9999px',
+            background: '#ffffff',
+            border: '1px solid #e2e8f0',
+            color: '#475569',
+            fontFamily: 'var(--font-mono)',
+            boxShadow: '0 1px 3px rgba(15, 23, 42, 0.05)'
           }}>
-            Queue Status: <strong style={{ color: 'var(--accent-aurora)' }}>{activeItems.length} Active Items</strong>
+            Queue Status: <strong style={{ color: '#059669' }}>{activeItems.length} Active Items</strong>
           </div>
         </div>
       </div>
@@ -104,9 +105,9 @@ export function EditorialQueue({ queueItems, onUpdateQueueItem }) {
             <div
               key={col.id}
               style={{
-                background: 'rgba(13, 26, 48, 0.65)',
-                border: '1px solid var(--border-subtle)',
-                borderRadius: 'var(--radius-md)',
+                background: '#f8fafc',
+                border: '1px solid #e2e8f0',
+                borderRadius: '16px',
                 padding: '16px',
                 minHeight: '520px',
                 display: 'flex',
@@ -115,19 +116,19 @@ export function EditorialQueue({ queueItems, onUpdateQueueItem }) {
               }}
             >
               {/* Column Header */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '10px', borderBottom: '1px solid rgba(56, 189, 248, 0.1)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '10px', borderBottom: '1px solid #e2e8f0' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <ColIcon size={16} color="var(--accent-cyan)" aria-hidden="true" />
-                  <h3 style={{ fontSize: '0.92rem', color: '#ffffff' }}>{col.title}</h3>
+                  <h3 style={{ fontSize: '0.94rem', fontWeight: 800, color: '#0f172a' }}>{col.title}</h3>
                 </div>
                 <span style={{
-                  fontSize: '0.72rem',
-                  fontWeight: 700,
+                  fontSize: '0.74rem',
+                  fontWeight: 800,
                   fontFamily: 'var(--font-mono)',
                   padding: '2px 8px',
-                  borderRadius: 'var(--radius-full)',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  color: 'var(--text-main)'
+                  borderRadius: '9999px',
+                  background: '#e2e8f0',
+                  color: '#334155'
                 }}>
                   {colItems.length}
                 </span>
@@ -140,7 +141,7 @@ export function EditorialQueue({ queueItems, onUpdateQueueItem }) {
                     padding: '30px 10px',
                     textAlign: 'center',
                     fontSize: '0.8rem',
-                    color: 'var(--text-dim)',
+                    color: '#94a3b8',
                     fontStyle: 'italic'
                   }}>
                     No items in this stage
@@ -154,30 +155,29 @@ export function EditorialQueue({ queueItems, onUpdateQueueItem }) {
                         padding: '16px',
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: '10px',
-                        border: '1px solid rgba(56, 189, 248, 0.15)'
+                        gap: '10px'
                       }}
                     >
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                         <span className={`badge-status ${col.badgeClass}`}>
                           {item.targetAudience}
                         </span>
-                        <span style={{ fontSize: '0.72rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>
+                        <span style={{ fontSize: '0.72rem', color: '#64748b', fontFamily: 'var(--font-mono)' }}>
                           {item.sourceCitationsCount} Citations
                         </span>
                       </div>
 
-                      <h4 style={{ fontSize: '0.92rem', color: '#ffffff', lineHeight: 1.4 }}>
+                      <h4 style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0f172a', lineHeight: 1.4 }}>
                         {item.reportTitle}
                       </h4>
 
                       <p style={{
                         fontSize: '0.82rem',
-                        color: 'var(--text-muted)',
+                        color: '#334155',
                         lineHeight: 1.5,
-                        background: 'rgba(5, 11, 20, 0.4)',
+                        background: '#f1f5f9',
                         padding: '8px 10px',
-                        borderRadius: 'var(--radius-sm)'
+                        borderRadius: '8px'
                       }}>
                         "{item.content.substring(0, 140)}…"
                       </p>
@@ -185,38 +185,40 @@ export function EditorialQueue({ queueItems, onUpdateQueueItem }) {
                       {/* Reviewer Note */}
                       <div style={{
                         fontSize: '0.76rem',
-                        color: 'var(--accent-aurora)',
-                        background: 'rgba(16, 185, 129, 0.08)',
+                        color: '#065f46',
+                        background: '#ecfdf5',
                         padding: '6px 8px',
                         borderRadius: '4px',
-                        borderLeft: '2px solid var(--accent-aurora)'
+                        borderLeft: '3px solid #10b981'
                       }}>
                         <strong>Fact-Check Note:</strong> {item.reviewerNotes || 'Assigned to NCPOR Cryosphere Division'}
                       </div>
 
                       {/* Channels & Target Date */}
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.72rem', color: 'var(--text-dim)' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.72rem', color: '#64748b' }}>
                         <span>Target: {item.targetPublishDate}</span>
                       </div>
 
                       {/* Progression CTA */}
                       {col.id !== 'scheduled' && (
-                        <div style={{ paddingTop: '8px', borderTop: '1px solid rgba(255, 255, 255, 0.06)' }}>
+                        <div style={{ paddingTop: '8px', borderTop: '1px solid #f1f5f9' }}>
                           <button
                             onClick={() => handleAdvanceStatus(item)}
                             style={{
                               width: '100%',
                               padding: '8px',
-                              borderRadius: 'var(--radius-sm)',
-                              background: col.id === 'draft' ? 'rgba(56, 189, 248, 0.15)' : col.id === 'in_review' ? 'rgba(16, 185, 129, 0.18)' : 'rgba(249, 115, 22, 0.18)',
-                              color: col.id === 'draft' ? 'var(--accent-cyan)' : col.id === 'in_review' ? 'var(--accent-aurora)' : 'var(--accent-orange)',
-                              border: '1px solid currentColor',
+                              borderRadius: '8px',
+                              background: col.id === 'draft' ? '#eff6ff' : col.id === 'in_review' ? '#ecfdf5' : '#fff7ed',
+                              color: col.id === 'draft' ? '#1e6ef5' : col.id === 'in_review' ? '#059669' : '#ea580c',
+                              border: col.id === 'draft' ? '1px solid #bfdbfe' : col.id === 'in_review' ? '1px solid #a7f3d0' : '1px solid #fed7aa',
                               fontSize: '0.8rem',
-                              fontWeight: 600,
+                              fontWeight: 700,
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
-                              gap: '6px'
+                              gap: '6px',
+                              cursor: 'pointer',
+                              transition: 'all 0.16s ease'
                             }}
                           >
                             <span>
@@ -242,7 +244,7 @@ export function EditorialQueue({ queueItems, onUpdateQueueItem }) {
             <span className="badge-status badge-scheduled" style={{ marginBottom: '6px' }}>
               PUBLIC DISSEMINATION TIMELINE
             </span>
-            <h2 style={{ fontSize: '1.25rem', color: '#ffffff' }}>Upcoming Polar Science Campaign Milestones</h2>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a' }}>Upcoming Polar Science Campaign Milestones</h2>
           </div>
           <button className="btn-secondary" style={{ fontSize: '0.82rem' }}>
             <Calendar size={15} aria-hidden="true" />
@@ -284,9 +286,9 @@ export function EditorialQueue({ queueItems, onUpdateQueueItem }) {
             <div
               key={idx}
               style={{
-                background: 'rgba(5, 11, 20, 0.65)',
-                border: '1px solid var(--border-subtle)',
-                borderRadius: 'var(--radius-sm)',
+                background: '#f8fafc',
+                border: '1px solid #e2e8f0',
+                borderRadius: '12px',
                 padding: '16px',
                 display: 'flex',
                 flexDirection: 'column',
@@ -301,8 +303,8 @@ export function EditorialQueue({ queueItems, onUpdateQueueItem }) {
                   {milestone.status}
                 </span>
               </div>
-              <h4 style={{ fontSize: '0.95rem', color: '#ffffff' }}>{milestone.title}</h4>
-              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{milestone.target}</p>
+              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a' }}>{milestone.title}</h4>
+              <p style={{ fontSize: '0.8rem', color: '#64748b' }}>{milestone.target}</p>
             </div>
           ))}
         </div>

@@ -404,11 +404,11 @@ export function KnowledgeRepository({ onExploreDataset, onNavigate }) {
                 </span>
               </div>
 
-              <h3 style={{ fontSize: '1.08rem', color: '#ffffff', lineHeight: 1.4, marginBottom: '8px' }}>
+              <h3 style={{ fontSize: '1.08rem', fontWeight: 700, color: '#0f172a', lineHeight: 1.4, marginBottom: '8px' }}>
                 {ds.title}
               </h3>
 
-              <div style={{ fontSize: '0.78rem', color: 'var(--accent-cyan)', marginBottom: '12px' }}>
+              <div style={{ fontSize: '0.78rem', color: 'var(--accent-cyan)', fontWeight: 600, marginBottom: '12px' }}>
                 Discipline: {ds.discipline}
               </div>
 
@@ -420,18 +420,18 @@ export function KnowledgeRepository({ onExploreDataset, onNavigate }) {
                     style={{
                       fontSize: '0.72rem',
                       fontFamily: 'var(--font-mono)',
-                      background: 'rgba(56, 189, 248, 0.08)',
-                      color: '#cbd5e1',
+                      background: '#eff6ff',
+                      color: '#0284c7',
                       padding: '2px 8px',
                       borderRadius: '4px',
-                      border: '1px solid rgba(56, 189, 248, 0.15)'
+                      border: '1px solid #bfdbfe'
                     }}
                   >
                     {v}
                   </span>
                 ))}
                 {ds.variables.length > 4 && (
-                  <span style={{ fontSize: '0.72rem', color: 'var(--text-dim)', alignSelf: 'center' }}>
+                  <span style={{ fontSize: '0.72rem', color: '#64748b', alignSelf: 'center' }}>
                     +{ds.variables.length - 4} more
                   </span>
                 )}
@@ -439,14 +439,15 @@ export function KnowledgeRepository({ onExploreDataset, onNavigate }) {
 
               <div style={{
                 fontSize: '0.74rem',
-                color: 'var(--text-dim)',
+                color: '#475569',
                 fontFamily: 'var(--font-mono)',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '4px',
-                background: 'rgba(5, 11, 20, 0.5)',
+                background: '#f8fafc',
+                border: '1px solid #e2e8f0',
                 padding: '8px 10px',
-                borderRadius: 'var(--radius-sm)'
+                borderRadius: '8px'
               }}>
                 <div>Temporal: {ds.temporalRange}</div>
                 <div>Size: {ds.fileSize} ({ds.recordsCount})</div>
@@ -507,11 +508,11 @@ export function KnowledgeRepository({ onExploreDataset, onNavigate }) {
                 <span className="badge-status badge-scheduled" style={{ marginBottom: '6px' }}>
                   NETCDF-4 / HDF5 DATA SCHEMA PREVIEW
                 </span>
-                <h3 style={{ fontSize: '1.2rem', color: '#ffffff' }}>{selectedDatasetModal.title}</h3>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a' }}>{selectedDatasetModal.title}</h3>
               </div>
               <button
                 onClick={() => setSelectedDatasetModal(null)}
-                style={{ color: 'var(--text-muted)', fontSize: '1.2rem', padding: '4px 8px' }}
+                style={{ color: '#64748b', fontSize: '1.2rem', padding: '4px 8px', cursor: 'pointer' }}
                 aria-label="Close schema modal"
               >
                 ✕
@@ -519,15 +520,15 @@ export function KnowledgeRepository({ onExploreDataset, onNavigate }) {
             </div>
 
             <div style={{
-              background: 'rgba(5, 11, 20, 0.85)',
+              background: '#0b1526',
               padding: '16px',
-              borderRadius: 'var(--radius-md)',
+              borderRadius: '12px',
               fontFamily: 'var(--font-mono)',
               fontSize: '0.78rem',
               color: '#38bdf8',
               lineHeight: 1.6,
               marginBottom: '16px',
-              border: '1px solid rgba(56, 189, 248, 0.2)'
+              border: '1px solid #1e293b'
             }}>
               <div style={{ color: '#94a3b8' }}>// NetCDF Global Attributes (ISO 19115 compliant)</div>
               <div>:title = "{selectedDatasetModal.title}" ;</div>

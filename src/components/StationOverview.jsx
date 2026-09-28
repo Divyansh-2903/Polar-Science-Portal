@@ -183,17 +183,17 @@ export function StationOverview({ onNavigateToStudio, onNavigateToDataset }) {
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
-                gap: '8px',
-                background: 'rgba(5, 11, 20, 0.6)',
-                padding: '12px',
-                borderRadius: 'var(--radius-sm)',
-                border: '1px solid rgba(56, 189, 248, 0.08)'
+                gap: '10px',
+                background: '#f8fafc',
+                padding: '14px',
+                borderRadius: '12px',
+                border: '1px solid #e2e8f0'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Thermometer size={16} color="var(--accent-cyan)" />
                   <div>
-                    <div style={{ fontSize: '0.68rem', color: 'var(--text-dim)' }}>Temperature</div>
-                    <div style={{ fontSize: '0.95rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+                    <div style={{ fontSize: '0.68rem', color: '#64748b', fontWeight: 600 }}>Temperature</div>
+                    <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', fontFamily: 'var(--font-mono)' }}>
                       {station.currentWeather.temperature > 0 ? `+${station.currentWeather.temperature}` : station.currentWeather.temperature}°C
                     </div>
                   </div>
@@ -202,8 +202,8 @@ export function StationOverview({ onNavigateToStudio, onNavigateToDataset }) {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Wind size={16} color="var(--accent-aurora)" />
                   <div>
-                    <div style={{ fontSize: '0.68rem', color: 'var(--text-dim)' }}>Wind Speed</div>
-                    <div style={{ fontSize: '0.95rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+                    <div style={{ fontSize: '0.68rem', color: '#64748b', fontWeight: 600 }}>Wind Speed</div>
+                    <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', fontFamily: 'var(--font-mono)' }}>
                       {station.currentWeather.windSpeed} km/h
                     </div>
                   </div>
@@ -212,18 +212,18 @@ export function StationOverview({ onNavigateToStudio, onNavigateToDataset }) {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Gauge size={16} color="var(--accent-orange)" />
                   <div>
-                    <div style={{ fontSize: '0.68rem', color: 'var(--text-dim)' }}>Pressure</div>
-                    <div style={{ fontSize: '0.95rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+                    <div style={{ fontSize: '0.68rem', color: '#64748b', fontWeight: 600 }}>Pressure</div>
+                    <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', fontFamily: 'var(--font-mono)' }}>
                       {station.currentWeather.pressure} hPa
                     </div>
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Sun size={16} color="#fbbf24" />
+                  <Sun size={16} color="#d97706" />
                   <div>
-                    <div style={{ fontSize: '0.68rem', color: 'var(--text-dim)' }}>Solar Flux</div>
-                    <div style={{ fontSize: '0.95rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+                    <div style={{ fontSize: '0.68rem', color: '#64748b', fontWeight: 600 }}>Solar Flux</div>
+                    <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', fontFamily: 'var(--font-mono)' }}>
                       {station.currentWeather.solarRadiation} W/m²
                     </div>
                   </div>
@@ -279,22 +279,23 @@ export function StationOverview({ onNavigateToStudio, onNavigateToDataset }) {
         }}>
           {/* Linked Research Report */}
           <div style={{
-            background: 'rgba(5, 11, 20, 0.75)',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: 'var(--radius-md)',
-            padding: '18px'
+            background: '#f8fafc',
+            border: '1px solid #e2e8f0',
+            borderRadius: '14px',
+            padding: '18px',
+            color: '#0f172a'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-cyan)', marginBottom: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#0284c7', marginBottom: '10px' }}>
               <FileText size={18} />
-              <span style={{ fontWeight: 600, fontSize: '0.85rem', textTransform: 'uppercase' }}>Linked Technical Report</span>
+              <span style={{ fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase' }}>Linked Technical Report</span>
             </div>
             {linkedReport ? (
               <>
-                <h4 style={{ fontSize: '1rem', marginBottom: '8px', color: '#ffffff' }}>{linkedReport.shortTitle}</h4>
-                <p style={{ fontSize: '0.82rem', marginBottom: '12px' }}>
+                <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '8px', color: '#0f172a' }}>{linkedReport.shortTitle}</h4>
+                <p style={{ fontSize: '0.82rem', color: '#475569', marginBottom: '12px', lineHeight: 1.5 }}>
                   {linkedReport.abstract.substring(0, 160)}...
                 </p>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)', marginBottom: '14px', fontFamily: 'var(--font-mono)' }}>
+                <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: '14px', fontFamily: 'var(--font-mono)' }}>
                   DOI: {linkedReport.doi}
                 </div>
                 <button
@@ -303,38 +304,40 @@ export function StationOverview({ onNavigateToStudio, onNavigateToDataset }) {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    color: 'var(--accent-cyan)',
-                    fontWeight: 600,
-                    fontSize: '0.82rem'
+                    color: '#1e6ef5',
+                    fontWeight: 700,
+                    fontSize: '0.82rem',
+                    cursor: 'pointer'
                   }}
                 >
                   Open in Grounded Outreach Studio <ArrowRight size={14} />
                 </button>
               </>
             ) : (
-              <p style={{ fontSize: '0.85rem' }}>No direct field report mapped for current season.</p>
+              <p style={{ fontSize: '0.85rem', color: '#64748b' }}>No direct field report mapped for current season.</p>
             )}
           </div>
 
           {/* Linked Scientific Dataset */}
           <div style={{
-            background: 'rgba(5, 11, 20, 0.75)',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: 'var(--radius-md)',
-            padding: '18px'
+            background: '#f8fafc',
+            border: '1px solid #e2e8f0',
+            borderRadius: '14px',
+            padding: '18px',
+            color: '#0f172a'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-aurora)', marginBottom: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#059669', marginBottom: '10px' }}>
               <Database size={18} />
-              <span style={{ fontWeight: 600, fontSize: '0.85rem', textTransform: 'uppercase' }}>Linked Live Dataset (ISO 19115)</span>
+              <span style={{ fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase' }}>Linked Live Dataset (ISO 19115)</span>
             </div>
             {linkedDataset ? (
               <>
-                <h4 style={{ fontSize: '1rem', marginBottom: '8px', color: '#ffffff' }}>{linkedDataset.title}</h4>
+                <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '8px', color: '#0f172a' }}>{linkedDataset.title}</h4>
                 <div style={{ display: 'flex', gap: '8px', marginBottom: '10px' }}>
                   <span className="badge-status badge-scheduled">{linkedDataset.format}</span>
                   <span className="badge-status badge-approved">{linkedDataset.dataQualityGrade}</span>
                 </div>
-                <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)', marginBottom: '14px', fontFamily: 'var(--font-mono)' }}>
+                <div style={{ fontSize: '0.78rem', color: '#64748b', marginBottom: '14px', fontFamily: 'var(--font-mono)' }}>
                   Records: {linkedDataset.recordsCount} ({linkedDataset.fileSize})
                 </div>
                 <button
@@ -343,45 +346,47 @@ export function StationOverview({ onNavigateToStudio, onNavigateToDataset }) {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    color: 'var(--accent-aurora)',
-                    fontWeight: 600,
-                    fontSize: '0.82rem'
+                    color: '#059669',
+                    fontWeight: 700,
+                    fontSize: '0.82rem',
+                    cursor: 'pointer'
                   }}
                 >
                   Explore Dataset in Visualizer <ArrowRight size={14} />
                 </button>
               </>
             ) : (
-              <p style={{ fontSize: '0.85rem' }}>Automated telemetry ingested continuously.</p>
+              <p style={{ fontSize: '0.85rem', color: '#64748b' }}>Automated telemetry ingested continuously.</p>
             )}
           </div>
 
           {/* Linked Multimodal Media Asset */}
           <div style={{
-            background: 'rgba(5, 11, 20, 0.75)',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: 'var(--radius-md)',
-            padding: '18px'
+            background: '#f8fafc',
+            border: '1px solid #e2e8f0',
+            borderRadius: '14px',
+            padding: '18px',
+            color: '#0f172a'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-orange)', marginBottom: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#ea580c', marginBottom: '10px' }}>
               <Film size={18} />
-              <span style={{ fontWeight: 600, fontSize: '0.85rem', textTransform: 'uppercase' }}>Verified 4K Media Asset</span>
+              <span style={{ fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase' }}>Verified 4K Media Asset</span>
             </div>
             {linkedMedia ? (
               <>
-                <h4 style={{ fontSize: '1rem', marginBottom: '8px', color: '#ffffff' }}>{linkedMedia.title}</h4>
-                <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '8px' }}>
+                <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '8px', color: '#0f172a' }}>{linkedMedia.title}</h4>
+                <div style={{ fontSize: '0.78rem', color: '#475569', marginBottom: '8px' }}>
                   {linkedMedia.type} · {linkedMedia.resolution}
                 </div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)', marginBottom: '12px', fontFamily: 'var(--font-mono)' }}>
+                <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: '12px', fontFamily: 'var(--font-mono)' }}>
                   EXIF: {linkedMedia.exif.camera} · {linkedMedia.exif.lens}
                 </div>
-                <span style={{ fontSize: '0.75rem', color: 'var(--accent-orange)', fontWeight: 600 }}>
+                <span style={{ fontSize: '0.75rem', color: '#ea580c', fontWeight: 700 }}>
                   {linkedMedia.license}
                 </span>
               </>
             ) : (
-              <p style={{ fontSize: '0.85rem' }}>No media linked directly.</p>
+              <p style={{ fontSize: '0.85rem', color: '#64748b' }}>No media linked directly.</p>
             )}
           </div>
         </div>
