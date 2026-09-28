@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POLARIS // Mobbin Data & Telemetry Explorer — NCPOR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #141414;
+      --on-primary: #ffffff;
+      --ink: #141414;
+      --ink-soft: #262626;
+      --text-muted: #707070;
+      --text-faint: #adadad;
+      --canvas: #ffffff;
+      --canvas-soft: #f3f3f3;
+      --field: #f0f0f0;
+      --hairline-soft: #f0f0f0;
+      --hairline: #e0e0e0;
+      --accent: #0066ff;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--canvas);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.4;
+      font-weight: 450;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Floating Stadium Nav Pill */
+    .nav-container {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 0 24px;
+      margin-bottom: 32px;
+    }
+    .nav-pill {
+      background-color: var(--canvas-soft);
+      border-radius: 9999px;
+      padding: 6px 10px 6px 20px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .brand-squircle {
+      width: 22px;
+      height: 22px;
+      background: var(--ink);
+      border-radius: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .nav-links a.active { color: var(--accent); }
+    .nav-cta a {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-radius: 9999px;
+      padding: 8px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    /* Header & Filter Controls */
+    .page-header {
+      margin-bottom: 36px;
+    }
+    .page-title {
+      font-size: 38px;
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .page-sub {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    /* Stadium Filter Bar */
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      align-items: center;
+    }
+    .pill-select {
+      background-color: var(--field);
+      border: none;
+      border-radius: 9999px;
+      padding: 10px 18px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      outline: none;
+      cursor: pointer;
+    }
+    .pill-select:focus {
+      box-shadow: 0 0 0 2px var(--ink);
+      background-color: var(--canvas);
+    }
+
+    /* Dual Column Layout */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 32px;
+    }
+
+    /* 24px Chart Card */
+    .chart-card {
+      background-color: var(--canvas);
+      border: 1px solid var(--hairline-soft);
+      border-radius: 24px;
+      padding: 32px;
+    }
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 24px;
+    }
+    .chart-title {
+      font-size: 20px;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+    }
+    .badge-accent {
+      background-color: var(--accent);
+      color: var(--on-primary);
+      border-radius: 9999px;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--hairline-soft);
+    }
+    .stat-box {
+      background: var(--canvas-soft);
+      border-radius: 16px;
+      padding: 16px 20px;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .stat-val {
+      font-size: 22px;
+      font-weight: 650;
+      font-family: var(--font-mono);
+    }
+
+    /* Right Column: Recent Data Stream */
+    .stream-card {
+      background-color: var(--canvas-soft);
+      border-radius: 24px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .stream-title {
+      font-size: 18px;
+      font-weight: 650;
+      margin-bottom: 16px;
+    }
+    .stream-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .stream-item {
+      background: var(--canvas);
+      border-radius: 16px;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+    .stream-time {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .stream-reading {
+      font-family: var(--font-mono);
+      font-weight: 600;
+    }
+
+    .btn-download-pill {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-radius: 9999px;
+      padding: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Inverted Footer */
+    footer {
+      background-color: var(--ink);
+      color: var(--on-primary);
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      padding: 48px;
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-faint);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-container">
+    <nav class="nav-pill">
+      <a href="template-mobbin-gallery.html" class="brand-mark">
+        <div class="brand-squircle">P</div>
+        <span>POLARIS</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="template-mobbin-gallery.html">Stations</a></li>
+        <li><a href="template-mobbin-data.html" class="active">Telemetry</a></li>
+        <li><a href="template-mobbin-repository.html">Catalog</a></li>
+        <li><a href="template-mobbin-media.html">Media</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="index.html">Compare Systems</a>
+      </div>
+    </nav>
+  </div>
+
+  <main class="container">
+    <header class="page-header">
+      <h1 class="page-title">Real-time AWS telemetry and sensor diagnostics.</h1>
+      <p class="page-sub">Continuous synoptic feeds from Bharati, Maitri, Himadri, and IndARC mooring.</p>
+    </header>
+
+    <!-- Stadium Filter Bar -->
+    <div class="filter-bar">
+      <select class="pill-select">
+        <option>Station: Bharati (Antarctica)</option>
+        <option>Station: Maitri (Antarctica)</option>
+        <option>Station: Himadri (Arctic)</option>
+        <option>Station: IndARC (Kongsfjorden)</option>
+      </select>
+      <select class="pill-select">
+        <option>Parameter: Surface Ozone (DU)</option>
+        <option>Parameter: 2m Temperature (°C)</option>
+        <option>Parameter: Wind Velocity (kt)</option>
+        <option>Parameter: Solar Radiation (W/m²)</option>
+      </select>
+      <select class="pill-select">
+        <option>Interval: 10-Minute Synoptic</option>
+        <option>Interval: Hourly Mean</option>
+        <option>Interval: Daily Aggregate</option>
+      </select>
+      <button class="pill-select" style="background: var(--canvas-soft); cursor: pointer;">
+        Last 72 Hours
+      </button>
+    </div>
+
+    <div class="dashboard-grid">
+      <!-- 24px Chart Card -->
+      <section class="chart-card">
+        <div class="chart-header">
+          <div>
+            <h2 class="chart-title">Surface Ozone Partial Pressure (DU)</h2>
+            <div style="font-size: 13px; color: var(--text-muted); margin-top: 2px;">Sensor ID: BREW-BH-04 · QC Level 2B Validated</div>
+          </div>
+          <span class="badge-accent">Live Stream</span>
+        </div>
+
+        <!-- SVG Plot -->
+        <svg viewBox="0 0 740 220" style="width: 100%; height: auto; display: block; overflow: visible;">
+          <line x1="40" y1="20" x2="720" y2="20" stroke="#f0f0f0"/>
+          <line x1="40" y1="70" x2="720" y2="70" stroke="#f0f0f0"/>
+          <line x1="40" y1="120" x2="720" y2="120" stroke="#f0f0f0"/>
+          <line x1="40" y1="170" x2="720" y2="170" stroke="#f0f0f0"/>
+          <line x1="40" y1="190" x2="720" y2="190" stroke="#e0e0e0"/>
+
+          <text x="32" y="24" font-family="JetBrains Mono" font-size="10" fill="#adadad" text-anchor="end">280</text>
+          <text x="32" y="74" font-family="JetBrains Mono" font-size="10" fill="#adadad" text-anchor="end">220</text>
+          <text x="32" y="124" font-family="JetBrains Mono" font-size="10" fill="#adadad" text-anchor="end">160</text>
+          <text x="32" y="174" font-family="JetBrains Mono" font-size="10" fill="#adadad" text-anchor="end">100</text>
+
+          <path d="M 40,60 Q 140,80 240,120 T 420,165 T 560,140 T 720,110" fill="none" stroke="#141414" stroke-width="2.5"/>
+          <circle cx="420" cy="165" r="5" fill="#0066ff"/>
+
+          <text x="40" y="210" font-family="JetBrains Mono" font-size="10" fill="#707070">25 Sep 00:00</text>
+          <text x="260" y="210" font-family="JetBrains Mono" font-size="10" fill="#707070">26 Sep 00:00</text>
+          <text x="420" y="210" font-family="JetBrains Mono" font-size="10" fill="#0066ff" font-weight="600">Dip: 168 DU</text>
+          <text x="660" y="210" font-family="JetBrains Mono" font-size="10" fill="#707070">27 Sep 06:00</text>
+        </svg>
+
+        <div class="stat-row">
+          <div class="stat-box">
+            <div class="stat-label">72-Hour Mean</div>
+            <div class="stat-val">174.2 DU</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Minimum Observed</div>
+            <div class="stat-val">168.0 DU</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Sensor Uplink</div>
+            <div class="stat-val" style="color: #166534;">100%</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Stream Card -->
+      <aside class="stream-card">
+        <div>
+          <h3 class="stream-title">Latest Observations</h3>
+          <div class="stream-list">
+            <div class="stream-item">
+              <div>
+                <div style="font-weight: 600;">Ozone Column</div>
+                <div class="stream-time">06:40 UTC · Bharati</div>
+              </div>
+              <div class="stream-reading">168.4 DU</div>
+            </div>
+            <div class="stream-item">
+              <div>
+                <div style="font-weight: 600;">2m Air Temp</div>
+                <div class="stream-time">06:40 UTC · Bharati</div>
+              </div>
+              <div class="stream-reading">-14.2°C</div>
+            </div>
+            <div class="stream-item">
+              <div>
+                <div style="font-weight: 600;">Wind Gust</div>
+                <div class="stream-time">06:40 UTC · Bharati</div>
+              </div>
+              <div class="stream-reading">28.4 kt</div>
+            </div>
+            <div class="stream-item">
+              <div>
+                <div style="font-weight: 600;">Barometer</div>
+                <div class="stream-time">06:40 UTC · Bharati</div>
+              </div>
+              <div class="stream-reading">982 hPa</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-download-pill">
+          Export NetCDF-4 Subset
+        </button>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>National Centre for Polar and Ocean Research · Ministry of Earth Sciences</div>
+      <div>Mobbin Design System: Gallery-White, Stadium Pills, Zero Shadows.</div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POLARIS // Mobbin Dataset Repository — NCPOR Knowledge Catalog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #141414;
+      --on-primary: #ffffff;
+      --ink: #141414;
+      --text-muted: #707070;
+      --text-faint: #adadad;
+      --canvas: #ffffff;
+      --canvas-soft: #f3f3f3;
+      --field: #f0f0f0;
+      --hairline-soft: #f0f0f0;
+      --hairline: #e0e0e0;
+      --accent: #0066ff;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--canvas);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.4;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .nav-container {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 0 24px;
+      margin-bottom: 32px;
+    }
+    .nav-pill {
+      background-color: var(--canvas-soft);
+      border-radius: 9999px;
+      padding: 6px 10px 6px 20px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .brand-squircle {
+      width: 22px;
+      height: 22px;
+      background: var(--ink);
+      border-radius: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .nav-links a.active { color: var(--accent); }
+    .nav-cta a {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-radius: 9999px;
+      padding: 8px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    .catalog-header {
+      margin-bottom: 32px;
+    }
+    .catalog-title {
+      font-size: 38px;
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .catalog-sub {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    /* Search & Filter Strip */
+    .search-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .search-input {
+      background-color: var(--field);
+      border: none;
+      border-radius: 16px;
+      padding: 14px 20px;
+      font-size: 14px;
+      color: var(--ink);
+      outline: none;
+    }
+    .search-input:focus {
+      box-shadow: 0 0 0 2px var(--ink);
+      background-color: var(--canvas);
+    }
+    .filter-pill {
+      background-color: var(--canvas-soft);
+      border: none;
+      border-radius: 9999px;
+      padding: 0 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    /* Dataset Cards Grid */
+    .dataset-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .dataset-card {
+      background-color: var(--canvas);
+      border: 1px solid var(--hairline-soft);
+      border-radius: 24px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.15s ease;
+    }
+    .dataset-card:hover {
+      border-color: var(--hairline);
+    }
+
+    .dataset-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    .squircle-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--canvas-soft);
+      border-radius: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .badge-pill {
+      background-color: var(--canvas-soft);
+      color: var(--ink);
+      border-radius: 9999px;
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .badge-accent {
+      background-color: var(--accent);
+      color: var(--on-primary);
+      border-radius: 9999px;
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .dataset-name {
+      font-size: 20px;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+    .dataset-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .meta-pills {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .meta-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: var(--field);
+      padding: 3px 8px;
+      border-radius: 6px;
+      color: var(--ink);
+    }
+
+    .dataset-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--hairline-soft);
+    }
+    .doi-link {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .doi-link:hover { color: var(--accent); }
+    .btn-download {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-radius: 9999px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: var(--ink);
+      color: var(--on-primary);
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      padding: 48px;
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-faint);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-container">
+    <nav class="nav-pill">
+      <a href="template-mobbin-gallery.html" class="brand-mark">
+        <div class="brand-squircle">P</div>
+        <span>POLARIS</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="template-mobbin-gallery.html">Stations</a></li>
+        <li><a href="template-mobbin-data.html">Telemetry</a></li>
+        <li><a href="template-mobbin-repository.html" class="active">Catalog</a></li>
+        <li><a href="template-mobbin-media.html">Media</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="index.html">Compare Systems</a>
+      </div>
+    </nav>
+  </div>
+
+  <main class="container">
+    <header class="catalog-header">
+      <h1 class="catalog-title">Curated polar knowledge and dataset catalog.</h1>
+      <p class="catalog-sub">712 open-access NetCDF, GeoTIFF, and hydrocast datasets with ISO 19115 schema validation.</p>
+    </header>
+
+    <div class="search-row">
+      <input type="text" class="search-input" placeholder="Filter by variable name, expedition, station, or DOI (e.g. 'Aerosol Optical Depth' or '44th ISEA')...">
+      <button class="filter-pill">Domain: All (4)</button>
+      <button class="filter-pill">Format: NetCDF-4</button>
+    </div>
+
+    <section class="dataset-grid">
+      <!-- Dataset 1 -->
+      <article class="dataset-card">
+        <div>
+          <div class="dataset-top">
+            <div class="squircle-icon">ATM</div>
+            <span class="badge-accent">Level-3 NetCDF</span>
+          </div>
+          <h2 class="dataset-name">Bharati Diurnal AWS Meteorological Time-Series</h2>
+          <p class="dataset-desc">
+            Continuous 10-minute automated weather station recordings of 2m air temperature, pressure, relative humidity, wind vector, and incoming solar irradiance.
+          </p>
+          <div class="meta-pills">
+            <span class="meta-tag">69°24'S, 76°11'E</span>
+            <span class="meta-tag">NetCDF-4 / CF-1.8</span>
+            <span class="meta-tag">198 MB</span>
+            <span class="meta-tag">2012–2026</span>
+          </div>
+        </div>
+        <div class="dataset-actions">
+          <span class="doi-link">doi:10.5067/NCPOR/BHA-MET-01</span>
+          <a href="#" class="btn-download">Download NetCDF</a>
+        </div>
+      </article>
+
+      <!-- Dataset 2 -->
+      <article class="dataset-card">
+        <div>
+          <div class="dataset-top">
+            <div class="squircle-icon">OCN</div>
+            <span class="badge-pill">CTD Hydrocast</span>
+          </div>
+          <h2 class="dataset-name">Kongsfjorden IndARC Mooring Acoustic Velocity Profile</h2>
+          <p class="dataset-desc">
+            Sub-surface ocean temperature, conductivity, salinity, and current velocity from 0 to 192m depth captured by IndARC acoustic Doppler current profiler.
+          </p>
+          <div class="meta-pills">
+            <span class="meta-tag">78°55'N, 11°56'E</span>
+            <span class="meta-tag">Ocean Data View</span>
+            <span class="meta-tag">44 MB</span>
+            <span class="meta-tag">2014–2026</span>
+          </div>
+        </div>
+        <div class="dataset-actions">
+          <span class="doi-link">doi:10.5067/NCPOR/ARC-CTD-44</span>
+          <a href="#" class="btn-download">Download Cast</a>
+        </div>
+      </article>
+
+      <!-- Dataset 3 -->
+      <article class="dataset-card">
+        <div>
+          <div class="dataset-top">
+            <div class="squircle-icon">CRY</div>
+            <span class="badge-pill">Ice Core Specimen</span>
+          </div>
+          <h2 class="dataset-name">Larsemann Hills 1,480m Ice Core Stratigraphy & Gas Ratio</h2>
+          <p class="dataset-desc">
+            Continuous δ¹⁸O, deuterium, CO₂, and CH₄ trapped bubble concentrations representing 142,000 years of paleoclimate stratigraphy.
+          </p>
+          <div class="meta-pills">
+            <span class="meta-tag">IND-LAR-2024</span>
+            <span class="meta-tag">CSV / NetCDF</span>
+            <span class="meta-tag">12.4 MB</span>
+            <span class="meta-tag">142 kyr BP</span>
+          </div>
+        </div>
+        <div class="dataset-actions">
+          <span class="doi-link">doi:10.5067/NCPOR-ICE/LAR-1480</span>
+          <a href="#" class="btn-download">Download Record</a>
+        </div>
+      </article>
+
+      <!-- Dataset 4 -->
+      <article class="dataset-card">
+        <div>
+          <div class="dataset-top">
+            <div class="squircle-icon">GLA</div>
+            <span class="badge-pill">Third Pole</span>
+          </div>
+          <h2 class="dataset-name">Chandra Basin Himalayan Glacier Ablation & Runoff Balance</h2>
+          <p class="dataset-desc">
+            Himansh station ablation stake network data monitoring annual mass loss and discharge across 6 high-altitude benchmark glaciers in Spiti Valley.
+          </p>
+          <div class="meta-pills">
+            <span class="meta-tag">4,050m Altitude</span>
+            <span class="meta-tag">GeoTIFF / CSV</span>
+            <span class="meta-tag">86 MB</span>
+            <span class="meta-tag">2016–2026</span>
+          </div>
+        </div>
+        <div class="dataset-actions">
+          <span class="doi-link">doi:10.5067/NCPOR/HIM-GLA-09</span>
+          <a href="#" class="btn-download">Download Bundle</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>National Polar Data Centre (NPDC) · Ministry of Earth Sciences</div>
+      <div>Mobbin Design System: Gallery-White, Stadium Pills, Zero Shadows.</div>
+    </div>
+  </footer>
+
+</body>
+</html>

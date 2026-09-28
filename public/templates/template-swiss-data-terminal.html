@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POLARIS // Swiss Analytical Data Terminal — NCPOR Telemetry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --surface: #F8F8F9;
+      --text: #09090B;
+      --text-muted: #52525B;
+      --text-dim: #A1A1AA;
+      --border: #E4E4E7;
+      --border-heavy: #09090B;
+      --accent-red: #E11D48;
+      --accent-blue: #0284C7;
+      --font-display: 'Space Grotesk', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 13px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Grid Header */
+    header {
+      border-bottom: 2px solid var(--border-heavy);
+      padding: 16px 36px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      align-items: baseline;
+      gap: 20px;
+    }
+    .header-brand {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+    .header-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .back-btn {
+      color: var(--text);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      text-align: right;
+    }
+    .back-btn:hover { text-decoration: underline; }
+
+    /* Parametric Control Strip */
+    .controls-strip {
+      border-bottom: 1px solid var(--border-heavy);
+      padding: 16px 36px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr) auto;
+      gap: 20px;
+      background: var(--surface);
+      align-items: center;
+    }
+    .ctrl-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+    .ctrl-select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border-heavy);
+      padding: 8px 12px;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* Main Terminal Layout: 2 Columns */
+    .terminal-body {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      min-height: calc(100vh - 125px);
+    }
+
+    /* Left: Visualization & Time-Series */
+    .plot-stage {
+      padding: 32px 36px;
+      border-right: 1px solid var(--border-heavy);
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .stage-title-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .stage-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    .stage-code {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* SVG Chart Container */
+    .chart-box {
+      border: 1px solid var(--border-heavy);
+      padding: 24px;
+      background: var(--bg);
+      position: relative;
+    }
+    .chart-meta-bar {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+    }
+    .stat-pills {
+      display: flex;
+      gap: 16px;
+    }
+    .stat-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pill-line { width: 12px; height: 3px; }
+
+    /* Summary Stats Below Plot */
+    .stat-matrix {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border-heavy);
+    }
+    .stat-box {
+      padding: 16px;
+      border-right: 1px solid var(--border);
+    }
+    .stat-box:last-child { border-right: none; }
+    .stat-box-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+    .stat-box-val {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* Right Column: Tabular Stream & Data Export */
+    .data-sidebar {
+      padding: 32px 28px;
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .sidebar-section-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border-heavy);
+      padding-bottom: 6px;
+    }
+
+    .telemetry-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+      font-size: 11px;
+    }
+    .telemetry-table th {
+      text-align: left;
+      font-size: 10px;
+      color: var(--text-dim);
+      padding: 8px 4px;
+      border-bottom: 1px solid var(--border-heavy);
+    }
+    .telemetry-table td {
+      padding: 8px 4px;
+      border-bottom: 1px solid var(--border);
+      font-variant-numeric: tabular-nums;
+    }
+    .telemetry-table tr:hover td {
+      background: #EFEFEF;
+    }
+
+    .export-box {
+      border: 1px solid var(--border-heavy);
+      padding: 20px;
+      background: var(--bg);
+      margin-top: auto;
+    }
+    .export-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .export-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .btn-export {
+      width: 100%;
+      background: var(--border-heavy);
+      color: #FFF;
+      border: none;
+      padding: 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+    }
+    .btn-export:hover { background: #27272A; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-brand">POLARIS // TELEMETRY TERMINAL</div>
+    <div class="header-meta">NCPOR AWS-AWS-NETCDF STREAM · SENSOR ARRAY 04</div>
+    <div style="text-align: right;">
+      <a href="index.html" class="back-btn">← RETURN TO GALLERY</a>
+    </div>
+  </header>
+
+  <!-- Parametric Query Control Strip -->
+  <div class="controls-strip">
+    <div class="ctrl-group">
+      <label>Station Registry</label>
+      <select class="ctrl-select">
+        <option>BHARATI (Larsemann Hills) [69°24'S]</option>
+        <option>MAITRI (Schirmacher) [70°45'S]</option>
+        <option>HIMADRI (Svalbard) [78°55'N]</option>
+        <option>INDARC (Kongsfjorden Mooring)</option>
+        <option>HIMANSH (Spiti Valley, Himalayas)</option>
+      </select>
+    </div>
+    <div class="ctrl-group">
+      <label>Sensor Parameter</label>
+      <select class="ctrl-select">
+        <option>SURFACE OZONE (DU / ppb)</option>
+        <option>ICE SHEET SURFACE ALBEDO (%)</option>
+        <option>AWS 2M AIR TEMPERATURE (°C)</option>
+        <option>BAROMETRIC PRESSURE (hPa)</option>
+        <option>SUB-ICE CURRENT VELOCITY (m/s)</option>
+      </select>
+    </div>
+    <div class="ctrl-group">
+      <label>Sampling Resolution</label>
+      <select class="ctrl-select">
+        <option>10-MINUTE SYNOPTIC INTERVAL</option>
+        <option>HOURLY INTEGRATED MEAN</option>
+        <option>DAILY DIURNAL CYCLE</option>
+        <option>MONTHLY ANOMALY</option>
+      </select>
+    </div>
+    <div class="ctrl-group">
+      <label>Time Bracket</label>
+      <select class="ctrl-select">
+        <option>LAST 72 HOURS (REAL-TIME)</option>
+        <option>PAST 30 DAYS (MONTHLY RUN)</option>
+        <option>ANNUAL 2025/2026 CYCLE</option>
+      </select>
+    </div>
+    <div>
+      <label>&nbsp;</label>
+      <button style="background: var(--accent-red); color: #FFF; border: none; padding: 9px 18px; font-family: var(--font-display); font-size: 13px; font-weight: 700; cursor: pointer;">
+        SYNC QUERY
+      </button>
+    </div>
+  </div>
+
+  <div class="terminal-body">
+    <!-- Left Column: Scientific Plot -->
+    <main class="plot-stage">
+      <div class="stage-title-block">
+        <div>
+          <h1 class="stage-title">Surface Ozone Partial Pressure vs Wind Shear</h1>
+          <div class="stage-code">DATASET ID: NCPOR-ANT-AWS-O3-2026 // QC LEVEL 2B VERIFIED</div>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-blue);">
+          ● LIVE UDP STREAM ACTIVE (PORT 9120)
+        </div>
+      </div>
+
+      <!-- Vector Plot -->
+      <div class="chart-box">
+        <div class="chart-meta-bar">
+          <div class="stat-pills">
+            <div class="stat-pill"><div class="pill-line" style="background: #E11D48;"></div> <span>Ozone (DU)</span></div>
+            <div class="stat-pill"><div class="pill-line" style="background: #0284C7;"></div> <span>Wind Velocity (kt)</span></div>
+          </div>
+          <div style="color: var(--text-dim);">T-AXIS: 24-27 SEP 2026 (72H HORIZON)</div>
+        </div>
+
+        <svg viewBox="0 0 740 260" style="width: 100%; height: auto; display: block; overflow: visible;">
+          <!-- Grid Lines -->
+          <line x1="50" y1="30" x2="720" y2="30" stroke="#F1F1F3" stroke-width="1"/>
+          <line x1="50" y1="85" x2="720" y2="85" stroke="#F1F1F3" stroke-width="1"/>
+          <line x1="50" y1="140" x2="720" y2="140" stroke="#F1F1F3" stroke-width="1"/>
+          <line x1="50" y1="195" x2="720" y2="195" stroke="#F1F1F3" stroke-width="1"/>
+          <line x1="50" y1="225" x2="720" y2="225" stroke="#09090B" stroke-width="1.5"/>
+
+          <!-- Axis Labels -->
+          <text x="42" y="34" font-family="JetBrains Mono" font-size="9" fill="#A1A1AA" text-anchor="end">280 DU</text>
+          <text x="42" y="89" font-family="JetBrains Mono" font-size="9" fill="#A1A1AA" text-anchor="end">220 DU</text>
+          <text x="42" y="144" font-family="JetBrains Mono" font-size="9" fill="#A1A1AA" text-anchor="end">160 DU</text>
+          <text x="42" y="199" font-family="JetBrains Mono" font-size="9" fill="#A1A1AA" text-anchor="end">100 DU</text>
+
+          <!-- Ozone depletion spring curve (Red) -->
+          <path d="M 50,70 Q 140,85 220,130 T 360,190 T 480,185 T 600,140 T 720,120" fill="none" stroke="#E11D48" stroke-width="2.5"/>
+          
+          <!-- Wind speed curve (Blue) -->
+          <path d="M 50,160 Q 160,110 260,75 T 410,130 T 560,90 T 720,150" fill="none" stroke="#0284C7" stroke-width="1.8" stroke-dasharray="4,2"/>
+
+          <!-- Active Marker -->
+          <line x1="480" y1="20" x2="480" y2="225" stroke="#09090B" stroke-width="1" stroke-dasharray="2,2"/>
+          <circle cx="480" cy="185" r="4.5" fill="#E11D48"/>
+          <circle cx="480" cy="115" r="4.5" fill="#0284C7"/>
+
+          <!-- Time Ticks -->
+          <text x="50" y="242" font-family="JetBrains Mono" font-size="9" fill="#71717A">24 SEP 00:00</text>
+          <text x="270" y="242" font-family="JetBrains Mono" font-size="9" fill="#71717A">25 SEP 00:00</text>
+          <text x="480" y="242" font-family="JetBrains Mono" font-size="9" fill="#09090B" font-weight="600">26 SEP 12:00 (EVENT)</text>
+          <text x="660" y="242" font-family="JetBrains Mono" font-size="9" fill="#71717A">27 SEP 06:00</text>
+        </svg>
+      </div>
+
+      <!-- Stat Matrix -->
+      <div class="stat-matrix">
+        <div class="stat-box">
+          <div class="stat-box-label">Mean Ozone Column</div>
+          <div class="stat-box-val">168.4 DU</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-label">Depletion Anomaly</div>
+          <div class="stat-box-val" style="color: var(--accent-red);">-38.2%</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-label">Peak Gust Velocity</div>
+          <div class="stat-box-val">54.2 kt</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-label">Sensor Confidence</div>
+          <div class="stat-box-val">99.8%</div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Right Column: Raw Tabular Stream -->
+    <aside class="data-sidebar">
+      <div class="sidebar-section-title">Telemetry Ledger (Last 6 Observations)</div>
+
+      <table class="telemetry-table">
+        <thead>
+          <tr>
+            <th>TIMESTAMP</th>
+            <th>O₃ (DU)</th>
+            <th>WIND</th>
+            <th>STATUS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>06:40 UTC</td>
+            <td>168.4</td>
+            <td>28.2 kt</td>
+            <td style="color: green;">OK</td>
+          </tr>
+          <tr>
+            <td>06:30 UTC</td>
+            <td>167.9</td>
+            <td>29.1 kt</td>
+            <td style="color: green;">OK</td>
+          </tr>
+          <tr>
+            <td>06:20 UTC</td>
+            <td>169.2</td>
+            <td>27.8 kt</td>
+            <td style="color: green;">OK</td>
+          </tr>
+          <tr>
+            <td>06:10 UTC</td>
+            <td>170.1</td>
+            <td>26.4 kt</td>
+            <td style="color: green;">OK</td>
+          </tr>
+          <tr>
+            <td>06:00 UTC</td>
+            <td>172.5</td>
+            <td>25.9 kt</td>
+            <td style="color: green;">OK</td>
+          </tr>
+          <tr>
+            <td>05:50 UTC</td>
+            <td>174.0</td>
+            <td>24.3 kt</td>
+            <td style="color: green;">OK</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Export Drawer -->
+      <div class="export-box">
+        <div class="export-title">CF-Compliant NetCDF-4 Export</div>
+        <div class="export-desc">
+          Complies with Climate & Forecast (CF-1.8) metadata conventions. Includes cryptographic SHA-256 integrity checksum and DataCite DOI.
+        </div>
+        <button class="btn-export">
+          <span>DOWNLOAD NETCDF-4</span>
+          <span>[3.4 MB] ↗</span>
+        </button>
+      </div>
+    </aside>
+  </div>
+
+</body>
+</html>

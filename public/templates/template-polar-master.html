@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polar Science Portal — India’s Window to the Polar Regions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-dark: #0A1128;
+      --navy-surface: #101F42;
+      --navy-card: #182C5B;
+      --blue-accent: #0066FF;
+      --blue-hover: #0052CC;
+      --blue-light: #EBF3FF;
+      --cyan: #00D2FF;
+      --emerald: #10B981;
+      --red-alert: #EF4444;
+      --white: #FFFFFF;
+      --slate-50: #F8FAFC;
+      --slate-100: #F1F5F9;
+      --slate-200: #E2E8F0;
+      --slate-400: #94A3B8;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-900: #0F172A;
+      --font-main: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #F0F4F8;
+      color: var(--slate-900);
+      font-family: var(--font-main);
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Global Navigation Bar */
+    header {
+      background: var(--navy-dark);
+      color: var(--white);
+      padding: 12px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-emblem {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, #00D2FF, #0066FF);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 2px 10px rgba(0, 102, 255, 0.3);
+    }
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .brand-sub {
+      font-size: 11px;
+      color: var(--slate-400);
+    }
+
+    /* Interactive View Selector Tabs */
+    .view-tabs {
+      display: flex;
+      gap: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 4px;
+      border-radius: 10px;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--slate-400);
+      padding: 7px 14px;
+      font-family: var(--font-main);
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .tab-btn:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .tab-btn.active {
+      background: var(--blue-accent);
+      color: var(--white);
+      box-shadow: 0 2px 8px rgba(0, 102, 255, 0.35);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .search-btn-icon {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: var(--white);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .btn-login {
+      background: var(--blue-accent);
+      color: var(--white);
+      border: none;
+      padding: 7px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Screen Views Container */
+    .screen-view {
+      display: none;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+    .screen-view.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ========================================================
+       SCREEN 1: POLAR LIVE COMMAND CENTER (HOMEPAGE)
+       ======================================================== */
+    .hero-banner {
+      position: relative;
+      min-height: 480px;
+      background: linear-gradient(180deg, rgba(10, 17, 40, 0.4) 0%, rgba(10, 17, 40, 0.85) 100%),
+                  url('https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px 60px 80px;
+      color: var(--white);
+    }
+    .hero-content {
+      max-width: 640px;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 102, 255, 0.25);
+      border: 1px solid rgba(0, 210, 255, 0.4);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--cyan);
+    }
+    .hero-headline {
+      font-size: clamp(36px, 4.5vw, 52px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+    .hero-subheadline {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 28px;
+    }
+
+    /* Central Search Bar */
+    .hero-search-box {
+      max-width: 680px;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 6px 6px 6px 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+    .search-input-field {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 15px;
+      font-family: var(--font-main);
+      color: var(--slate-900);
+    }
+    .btn-search-go {
+      background: var(--blue-accent);
+      color: var(--white);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    /* Floating Station Weather Card (Top Right of Hero) */
+    .station-weather-card {
+      position: absolute;
+      top: 40px;
+      right: 60px;
+      width: 290px;
+      background: rgba(16, 31, 66, 0.82);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 18px 20px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    }
+    .weather-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+    .weather-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .weather-sync {
+      font-size: 10px;
+      color: var(--cyan);
+      font-family: var(--font-mono);
+    }
+    .station-weather-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      font-size: 13px;
+    }
+    .st-name {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+    .st-temp {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* 5 Quick Action Launchpads */
+    .launchpad-container {
+      max-width: 1320px;
+      margin: -40px auto 48px;
+      padding: 0 32px;
+      position: relative;
+      z-index: 10;
+    }
+    .launchpad-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .launchpad-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 16px;
+      padding: 20px 18px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .launchpad-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 102, 255, 0.12);
+      border-color: var(--blue-accent);
+    }
+    .lp-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--blue-light);
+      color: var(--blue-accent);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+    .lp-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--slate-900);
+      margin-bottom: 4px;
+    }
+    .lp-sub {
+      font-size: 12px;
+      color: var(--slate-600);
+      line-height: 1.35;
+    }
+
+    /* ========================================================
+       SCREEN 2: INTERACTIVE POLAR EXPLORER (MAP)
+       ======================================================== */
+    .explorer-layout {
+      max-width: 1400px;
+      margin: 24px auto;
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 24px;
+      height: 640px;
+    }
+    .globe-stage {
+      background: radial-gradient(circle at center, #182C5B 0%, #0A1128 100%);
+      border-radius: 20px;
+      border: 1px solid var(--slate-200);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pole-toggle-pill {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border-radius: 9999px;
+      padding: 4px;
+      display: flex;
+      gap: 4px;
+      z-index: 10;
+    }
+    .pole-btn {
+      background: transparent;
+      border: none;
+      color: var(--white);
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+    .pole-btn.active {
+      background: var(--blue-accent);
+      box-shadow: 0 2px 6px rgba(0, 102, 255, 0.4);
+    }
+    .station-marker {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+    }
+    .marker-dot {
+      width: 14px;
+      height: 14px;
+      background: var(--cyan);
+      border: 3px solid var(--white);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--cyan);
+    }
+
+    /* Right Station Inspector Panel */
+    .station-inspector {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+    .inspector-img {
+      height: 180px;
+      background: url('https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;
+      position: relative;
+    }
+    .badge-live-marker {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--emerald);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 9999px;
+    }
+    .inspector-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex-grow: 1;
+    }
+    .inspector-tabs {
+      display: flex;
+      gap: 14px;
+      border-bottom: 1px solid var(--slate-200);
+      padding-bottom: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .inspector-tab.active {
+      color: var(--blue-accent);
+      border-bottom: 2px solid var(--blue-accent);
+      padding-bottom: 6px;
+    }
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      padding: 4px 0;
+      border-bottom: 1px dotted var(--slate-200);
+    }
+
+    /* ========================================================
+       SCREEN 3: ASK POLAR AI (EVIDENCE-BASED ANSWERS)
+       ======================================================== */
+    .ask-ai-layout {
+      max-width: 1280px;
+      margin: 28px auto;
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 28px;
+    }
+    .ai-chat-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 20px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 580px;
+    }
+    .prompt-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .prompt-chip {
+      background: var(--slate-100);
+      border: 1px solid var(--slate-200);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--slate-700);
+      cursor: pointer;
+    }
+    .prompt-chip:hover {
+      background: var(--blue-light);
+      color: var(--blue-accent);
+      border-color: var(--blue-accent);
+    }
+    .user-query-bubble {
+      background: var(--blue-accent);
+      color: var(--white);
+      padding: 12px 18px;
+      border-radius: 16px 16px 4px 16px;
+      align-self: flex-end;
+      max-width: 75%;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .ai-answer-card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .citation-item {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    /* Right: Related Knowledge Panel */
+    .related-knowledge-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 20px;
+      padding: 24px;
+    }
+    .rk-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .rk-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--slate-100);
+    }
+    .rk-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--blue-light);
+      color: var(--blue-accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    /* ========================================================
+       SCREEN 4: ASK THE DATA (REAL NCPOR DATA)
+       ======================================================== */
+    .ask-data-layout {
+      max-width: 1200px;
+      margin: 28px auto;
+      padding: 0 32px;
+    }
+    .data-query-strip {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 14px;
+      padding: 8px 12px;
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .query-input {
+      flex-grow: 1;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      font-family: var(--font-main);
+    }
+    .chart-panel-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 20px;
+      padding: 28px;
+    }
+    .param-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .param-tab {
+      background: var(--slate-100);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .param-tab.active {
+      background: var(--blue-accent);
+      color: var(--white);
+    }
+
+    /* ========================================================
+       SCREEN 5: EXPEDITION REPLAY (INDIA'S JOURNEY)
+       ======================================================== */
+    .replay-layout {
+      max-width: 1360px;
+      margin: 24px auto;
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: 320px 1fr 340px;
+      gap: 24px;
+      height: 600px;
+    }
+    .stepper-col {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 20px;
+      padding: 24px;
+    }
+    .step-item {
+      display: flex;
+      gap: 14px;
+      position: relative;
+      padding-bottom: 28px;
+    }
+    .step-item::before {
+      content: '';
+      position: absolute;
+      left: 14px;
+      top: 26px;
+      bottom: 0;
+      width: 2px;
+      background: var(--slate-200);
+    }
+    .step-item:last-child::before { display: none; }
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--slate-100);
+      color: var(--slate-600);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 12px;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+    .step-item.active .step-num {
+      background: var(--blue-accent);
+      color: var(--white);
+    }
+    .replay-center {
+      background: radial-gradient(circle at center, #1C2541 0%, #0B132B 100%);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .scrubber-dock {
+      position: absolute;
+      bottom: 24px;
+      left: 32px;
+      right: 32px;
+      background: rgba(16, 31, 66, 0.85);
+      backdrop-filter: blur(12px);
+      padding: 12px 20px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--white);
+    }
+    .play-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--blue-accent);
+      border: none;
+      color: var(--white);
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ========================================================
+       SCREEN 6: EXPLAIN THIS RESEARCH (MULTI-AUDIENCE)
+       ======================================================== */
+    .explain-layout {
+      max-width: 1040px;
+      margin: 28px auto;
+      padding: 0 32px;
+    }
+    .explain-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 20px;
+      padding: 36px;
+    }
+    .audience-selector {
+      display: flex;
+      gap: 8px;
+      background: var(--slate-100);
+      padding: 6px;
+      border-radius: 12px;
+      margin: 20px 0 28px;
+    }
+    .aud-btn {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      background: transparent;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--slate-600);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .aud-btn.active {
+      background: var(--blue-accent);
+      color: var(--white);
+      box-shadow: 0 2px 8px rgba(0, 102, 255, 0.25);
+    }
+
+    /* ========================================================
+       SCREEN 7: AI OUTREACH STUDIO
+       ======================================================== */
+    .outreach-layout {
+      max-width: 1280px;
+      margin: 28px auto;
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .outreach-form-card, .outreach-preview-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 20px;
+      padding: 32px;
+    }
+
+    /* ========================================================
+       SCREEN 8: POLAR INSIGHT (ANOMALY ALERTS)
+       ======================================================== */
+    .alert-layout {
+      max-width: 1120px;
+      margin: 28px auto;
+      padding: 0 32px;
+    }
+    .alert-banner {
+      background: #FEF2F2;
+      border: 1px solid #FCA5A5;
+      border-left: 6px solid var(--red-alert);
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .alert-split-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header>
+    <div class="brand-group">
+      <div class="brand-emblem">❄</div>
+      <div>
+        <div class="brand-title">Polar Science Portal</div>
+        <div class="brand-sub">India’s Window to the Polar Regions · NCPOR / MoES</div>
+      </div>
+    </div>
+
+    <!-- 8 Interactive Screen Switcher Tabs -->
+    <nav class="view-tabs">
+      <button class="tab-btn active" onclick="switchView('view-home')">1. Command Center</button>
+      <button class="tab-btn" onclick="switchView('view-map')">2. Polar Explorer</button>
+      <button class="tab-btn" onclick="switchView('view-ask-ai')">3. Ask Polar AI</button>
+      <button class="tab-btn" onclick="switchView('view-ask-data')">4. Ask the Data</button>
+      <button class="tab-btn" onclick="switchView('view-replay')">5. Expedition Replay</button>
+      <button class="tab-btn" onclick="switchView('view-explain')">6. Explain Research</button>
+      <button class="tab-btn" onclick="switchView('view-outreach')">7. Outreach Studio</button>
+      <button class="tab-btn" onclick="switchView('view-anomaly')">8. Anomaly Alerts</button>
+    </nav>
+
+    <div class="nav-right">
+      <button class="search-btn-icon" title="Global Search">🔍</button>
+      <button class="btn-login">Login</button>
+    </div>
+  </header>
+
+  <!-- ========================================================
+       SCREEN 1: POLAR LIVE COMMAND CENTER (HOMEPAGE)
+       ======================================================== -->
+  <div id="view-home" class="screen-view active">
+    <section class="hero-banner">
+      <div class="hero-content">
+        <span class="hero-tag">● NATIONAL POLAR PORTAL</span>
+        <h1 class="hero-headline">Exploring Today for a Greener Tomorrow</h1>
+        <p class="hero-subheadline">
+          Discover · Understand · Explore · Disseminate India’s Polar Research across Antarctica, the Arctic, and the Himalayas.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="hero-search-box">
+          <input type="text" class="search-input-field" placeholder="Search research, datasets, expeditions, stations...">
+          <button class="btn-search-go" onclick="switchView('view-ask-ai')">→</button>
+        </div>
+      </div>
+
+      <!-- Floating Live Station Weather Card -->
+      <aside class="station-weather-card">
+        <div class="weather-header">
+          <span class="weather-title">Live from Polar Stations</span>
+          <span class="weather-sync">12 Jan 2025, 14:30 IST</span>
+        </div>
+        <div class="station-weather-row">
+          <div class="st-name"><span>❄</span> Maitri (Antarctica)</div>
+          <div class="st-temp">-11.8°C ☁</div>
+        </div>
+        <div class="station-weather-row">
+          <div class="st-name"><span>❄</span> Bharati (Antarctica)</div>
+          <div class="st-temp">-9.6°C ☁</div>
+        </div>
+        <div class="station-weather-row">
+          <div class="st-name"><span>🌐</span> Himadri (Arctic)</div>
+          <div class="st-temp">-1.2°C ⛅</div>
+        </div>
+        <div class="station-weather-row">
+          <div class="st-name"><span>🏔</span> Himansh (Himalayas)</div>
+          <div class="st-temp">4.8°C ☀</div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- 5 Quick Action Launchpads -->
+    <section class="launchpad-container">
+      <div class="launchpad-grid">
+        <div class="launchpad-card" onclick="switchView('view-map')">
+          <div class="lp-icon">🗺</div>
+          <div class="lp-title">Explore Polar Map</div>
+          <div class="lp-sub">Stations, expeditions, and research locations</div>
+        </div>
+        <div class="launchpad-card" onclick="switchView('view-ask-ai')">
+          <div class="lp-icon">🤖</div>
+          <div class="lp-title">Ask Polar AI</div>
+          <div class="lp-sub">Get answers with real scientific sources</div>
+        </div>
+        <div class="launchpad-card" onclick="switchView('view-ask-data')">
+          <div class="lp-icon">📊</div>
+          <div class="lp-title">Ask the Data</div>
+          <div class="lp-sub">Visualize real NCPOR telemetry & plots</div>
+        </div>
+        <div class="launchpad-card" onclick="switchView('view-replay')">
+          <div class="lp-icon">🚢</div>
+          <div class="lp-title">Expedition Replay</div>
+          <div class="lp-sub">Follow India’s Antarctic journeys day-by-day</div>
+        </div>
+        <div class="launchpad-card" onclick="switchView('view-outreach')">
+          <div class="lp-icon">📢</div>
+          <div class="lp-title">Outreach Studio</div>
+          <div class="lp-sub">Create verified educational & social content</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ========================================================
+       SCREEN 2: INTERACTIVE POLAR EXPLORER (MAP)
+       ======================================================== -->
+  <div id="view-map" class="screen-view">
+    <div class="explorer-layout">
+      <!-- 3D Polar Globe / Stereographic Stage -->
+      <div class="globe-stage">
+        <div class="pole-toggle-pill">
+          <button class="pole-btn active">Antarctica</button>
+          <button class="pole-btn">Arctic</button>
+        </div>
+
+        <!-- Rendered Vector Globe -->
+        <svg viewBox="0 0 600 600" style="width: 520px; height: 520px;">
+          <!-- Ocean Sphere -->
+          <circle cx="300" cy="300" r="240" fill="#0C1B3B" stroke="#00D2FF" stroke-width="1.5" stroke-opacity="0.3"/>
+          <!-- Antarctic Continent Outline -->
+          <path d="M 280,120 Q 380,150 440,240 T 420,380 T 260,460 T 150,340 T 200,180 Z" fill="#E2E8F0" opacity="0.9"/>
+          <path d="M 330,130 Q 380,180 390,260" fill="none" stroke="#CBD5E1" stroke-width="2"/>
+          
+          <!-- Indian Antarctic Expedition Route (Dashed) -->
+          <path d="M 460,80 Q 430,180 390,240" fill="none" stroke="#EF4444" stroke-width="2.5" stroke-dasharray="6,4"/>
+          <!-- Ship Icon -->
+          <circle cx="430" cy="180" r="8" fill="#EF4444"/>
+          <text x="445" y="184" fill="#FFFFFF" font-size="11" font-weight="700">ORV Sagar Nidhi</text>
+
+          <!-- Station Markers -->
+          <circle cx="270" cy="180" r="7" fill="#0066FF" stroke="#FFF" stroke-width="2"/>
+          <text x="282" y="184" fill="#FFFFFF" font-size="12" font-weight="700">Maitri (1989)</text>
+
+          <circle cx="390" cy="240" r="9" fill="#00D2FF" stroke="#FFF" stroke-width="2"/>
+          <text x="404" y="244" fill="#00D2FF" font-size="13" font-weight="800">Bharati (2012) [Selected]</text>
+
+          <circle cx="230" cy="230" r="6" fill="#64748B" stroke="#FFF" stroke-width="2"/>
+          <text x="242" y="234" fill="#94A3B8" font-size="11">Dakshin Gangotri (1983)</text>
+        </svg>
+      </div>
+
+      <!-- Right Station Inspector Drawer -->
+      <aside class="station-inspector">
+        <div class="inspector-img">
+          <span class="badge-live-marker">● LIVE</span>
+        </div>
+        <div class="inspector-body">
+          <div>
+            <h2 style="font-size: 20px; font-weight: 700;">Bharati Research Station</h2>
+            <div style="font-size: 12px; color: var(--slate-600);">Larsemann Hills, East Antarctica</div>
+          </div>
+
+          <div class="inspector-tabs">
+            <span class="inspector-tab active">Overview</span>
+            <span class="inspector-tab">Weather</span>
+            <span class="inspector-tab">Research</span>
+            <span class="inspector-tab">Media</span>
+          </div>
+
+          <div>
+            <div class="meta-row"><span>Location:</span><strong>69.41° S, 76.19° E</strong></div>
+            <div class="meta-row"><span>Established:</span><strong>2012</strong></div>
+            <div class="meta-row"><span>Operated by:</span><strong>NCPOR, Goa</strong></div>
+            <div class="meta-row"><span>Current Temp:</span><strong>-9.6 °C</strong></div>
+          </div>
+
+          <p style="font-size: 13px; color: var(--slate-600); line-height: 1.5;">
+            Bharati is India’s newest research station in Antarctica, supporting multidisciplinary research in earth sciences, atmosphere, biology, and satellite telemetry.
+          </p>
+
+          <button style="margin-top: auto; background: var(--blue-accent); color: #FFF; border: none; padding: 12px; border-radius: 10px; font-weight: 600; cursor: pointer;">
+            View Station Details →
+          </button>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       SCREEN 3: ASK POLAR AI (EVIDENCE-BASED ANSWERS)
+       ======================================================== -->
+  <div id="view-ask-ai" class="screen-view">
+    <div class="ask-ai-layout">
+      <main class="ai-chat-card">
+        <div>
+          <h2 style="font-size: 24px; font-weight: 800; margin-bottom: 6px;">Ask Polar AI</h2>
+          <p style="color: var(--slate-600); font-size: 13px; margin-bottom: 20px;">
+            Get verified answers from India’s polar research archives with grounded scientific source citations.
+          </p>
+
+          <div class="prompt-chips">
+            <span class="prompt-chip">What research has India done on Antarctic glaciers?</span>
+            <span class="prompt-chip">Show datasets from Maitri station</span>
+            <span class="prompt-chip">Explain sea ice for school students</span>
+          </div>
+
+          <!-- User Bubble -->
+          <div class="user-query-bubble">
+            What research has India conducted on Antarctic glaciers?
+          </div>
+
+          <!-- AI Answer Card with Grounded Citations -->
+          <div class="ai-answer-card">
+            <div style="font-weight: 700; margin-bottom: 8px; color: var(--navy-dark); display: flex; align-items: center; gap: 6px;">
+              <span>🤖 Polar AI:</span>
+              <span style="font-size: 11px; background: #DCFCE7; color: #166534; padding: 2px 8px; border-radius: 4px;">Verified Sources</span>
+            </div>
+            <p style="font-size: 14px; color: var(--slate-700); line-height: 1.6; margin-bottom: 16px;">
+              India has conducted extensive research on Antarctic glaciers, focusing on glacier dynamics, mass balance, ice core analysis, and the impact of climate change. Key studies include satellite-based mapping, GPS measurements, and glaciological field observations during Indian Antarctic Expeditions.
+            </p>
+
+            <div style="font-size: 12px; font-weight: 700; color: var(--slate-900); margin-bottom: 6px;">Primary Scientific Sources:</div>
+            
+            <div class="citation-item">
+              <div>
+                <strong>1. Glaciological Studies at Bharati Station</strong>
+                <div style="font-size: 11px; color: var(--slate-600);">Technical Report · NCPOR 2023 · DOI: 10.5067/BHA-GLAC</div>
+              </div>
+              <button style="background: var(--slate-100); border: 1px solid var(--slate-200); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;">View [PDF]</button>
+            </div>
+
+            <div class="citation-item">
+              <div>
+                <strong>2. Mass Balance of Antarctic Glaciers</strong>
+                <div style="font-size: 11px; color: var(--slate-600);">Journal of Earth Sciences · 2022 · A. Sharma et al.</div>
+              </div>
+              <button style="background: var(--slate-100); border: 1px solid var(--slate-200); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;">View [Article]</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Input Field -->
+        <div style="display: flex; gap: 10px; border-top: 1px solid var(--slate-200); padding-top: 16px;">
+          <input type="text" placeholder="Ask anything about India's polar research..." style="flex-grow: 1; padding: 12px 18px; border: 1px solid var(--slate-200); border-radius: 10px; outline: none; font-size: 14px;">
+          <button style="background: var(--blue-accent); color: #FFF; border: none; padding: 0 20px; border-radius: 10px; font-weight: 600; cursor: pointer;">Send</button>
+        </div>
+      </main>
+
+      <!-- Right Column: Related Knowledge Panel -->
+      <aside class="related-knowledge-card">
+        <h3 class="rk-title">Related Knowledge</h3>
+        <div class="rk-item">
+          <div class="rk-icon">👨‍🔬</div>
+          <div>
+            <div style="font-weight: 700;">3 Researchers</div>
+            <div style="font-size: 11px; color: var(--slate-600);">Principal investigators working on this topic</div>
+          </div>
+        </div>
+        <div class="rk-item">
+          <div class="rk-icon">🚢</div>
+          <div>
+            <div style="font-weight: 700;">5 Expeditions</div>
+            <div style="font-size: 11px; color: var(--slate-600);">Associated scientific cruises</div>
+          </div>
+        </div>
+        <div class="rk-item">
+          <div class="rk-icon">📊</div>
+          <div>
+            <div style="font-weight: 700;">8 Datasets</div>
+            <div style="font-size: 11px; color: var(--slate-600);">NetCDF and AWS time series</div>
+          </div>
+        </div>
+        <div class="rk-item">
+          <div class="rk-icon">📄</div>
+          <div>
+            <div style="font-weight: 700;">21 Publications</div>
+            <div style="font-size: 11px; color: var(--slate-600);">Peer-reviewed papers and reports</div>
+          </div>
+        </div>
+        <div class="rk-item">
+          <div class="rk-icon">📷</div>
+          <div>
+            <div style="font-weight: 700;">12 Photos & Videos</div>
+            <div style="font-size: 11px; color: var(--slate-600);">Field media and b-roll</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       SCREEN 4: ASK THE DATA (REAL NCPOR DATA)
+       ======================================================== -->
+  <div id="view-ask-data" class="screen-view">
+    <div class="ask-data-layout">
+      <div class="data-query-strip">
+        <span style="font-size: 16px; margin-top: 4px;">🔍</span>
+        <input type="text" class="query-input" value="Show me temperature variation at Maitri station for the last 1 year">
+        <button style="background: var(--blue-accent); color: #FFF; border: none; padding: 8px 18px; border-radius: 8px; font-weight: 600; cursor: pointer;">Run Query</button>
+      </div>
+
+      <div class="chart-panel-card">
+        <div class="param-tabs">
+          <button class="param-tab active">Temperature</button>
+          <button class="param-tab">Pressure</button>
+          <button class="param-tab">Wind Speed</button>
+          <button class="param-tab">Humidity</button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <div>
+            <h3 style="font-size: 18px; font-weight: 700;">Maitri Station — Air Temperature (°C)</h3>
+            <div style="font-size: 12px; color: var(--slate-600);">Source: NCPOR Automated Weather Station (AWS)</div>
+          </div>
+          <select style="padding: 6px 12px; border: 1px solid var(--slate-200); border-radius: 6px; font-size: 13px;">
+            <option>Last 1 Year (2024–2025)</option>
+            <option>Last 5 Years</option>
+            <option>Decadal Baseline</option>
+          </select>
+        </div>
+
+        <!-- SVG Line Chart with Area Gradient -->
+        <svg viewBox="0 0 900 240" style="width: 100%; height: auto; display: block; overflow: visible;">
+          <defs>
+            <linearGradient id="tempGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0066FF" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#0066FF" stop-opacity="0.0"/>
+            </linearGradient>
+          </defs>
+          <line x1="50" y1="20" x2="880" y2="20" stroke="#E2E8F0" stroke-dasharray="3,3"/>
+          <line x1="50" y1="70" x2="880" y2="70" stroke="#E2E8F0" stroke-dasharray="3,3"/>
+          <line x1="50" y1="120" x2="880" y2="120" stroke="#E2E8F0" stroke-dasharray="3,3"/>
+          <line x1="50" y1="170" x2="880" y2="170" stroke="#E2E8F0" stroke-dasharray="3,3"/>
+          <line x1="50" y1="200" x2="880" y2="200" stroke="#94A3B8"/>
+
+          <text x="42" y="24" font-family="JetBrains Mono" font-size="10" fill="#94A3B8" text-anchor="end">0°C</text>
+          <text x="42" y="74" font-family="JetBrains Mono" font-size="10" fill="#94A3B8" text-anchor="end">-10°C</text>
+          <text x="42" y="124" font-family="JetBrains Mono" font-size="10" fill="#94A3B8" text-anchor="end">-20°C</text>
+          <text x="42" y="174" font-family="JetBrains Mono" font-size="10" fill="#94A3B8" text-anchor="end">-30°C</text>
+          <text x="42" y="204" font-family="JetBrains Mono" font-size="10" fill="#94A3B8" text-anchor="end">-40°C</text>
+
+          <!-- Area -->
+          <path d="M 60,50 Q 140,80 200,120 T 320,180 T 440,195 T 560,185 T 680,110 T 800,70 L 860,50 L 860,200 L 60,200 Z" fill="url(#tempGrad)"/>
+          <!-- Line -->
+          <path d="M 60,50 Q 140,80 200,120 T 320,180 T 440,195 T 560,185 T 680,110 T 800,70 L 860,50" fill="none" stroke="#0066FF" stroke-width="2.5"/>
+
+          <text x="60" y="220" font-family="JetBrains Mono" font-size="10" fill="#64748B">Jan</text>
+          <text x="140" y="220" font-family="JetBrains Mono" font-size="10" fill="#64748B">Feb</text>
+          <text x="210" y="220" font-family="JetBrains Mono" font-size="10" fill="#64748B">Mar</text>
+          <text x="280" y="220" font-family="JetBrains Mono" font-size="10" fill="#64748B">Apr</text>
+          <text x="350" y="220" font-family="JetBrains Mono" font-size="10" fill="#64748B">May</text>
+          <text x="420" y="220" font-family="JetBrains Mono" font-size="10" fill="#64748B">Jun</text>
+          <text x="490" y="220" font-family="JetBrains Mono" font-size="10" fill="#64748B">Jul</text>
+          <text x="560" y="220" font-family="JetBrains Mono" font-size="10" fill="#64748B">Aug</text>
+          <text x="630" y="220" font-family="JetBrains Mono" font-size="10" fill="#64748B">Sep</text>
+          <text x="700" y="220" font-family="JetBrains Mono" font-size="10" fill="#64748B">Oct</text>
+          <text x="770" y="220" font-family="JetBrains Mono" font-size="10" fill="#64748B">Nov</text>
+          <text x="840" y="220" font-family="JetBrains Mono" font-size="10" fill="#64748B">Dec</text>
+        </svg>
+
+        <!-- Insights Matrix -->
+        <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--slate-200); display: flex; justify-content: space-between; align-items: center;">
+          <div style="display: flex; gap: 32px; font-size: 13px;">
+            <div><span style="color: var(--slate-600);">Average temperature:</span> <strong>-18.6°C</strong></div>
+            <div><span style="color: var(--slate-600);">Coldest month:</span> <strong>August (-32.1°C)</strong></div>
+            <div><span style="color: var(--slate-600);">Warmest month:</span> <strong>January (-5.4°C)</strong></div>
+          </div>
+          <button style="background: var(--slate-100); border: 1px solid var(--slate-200); padding: 8px 16px; border-radius: 8px; font-weight: 600; cursor: pointer;">
+            Download Data (NetCDF / CSV)
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       SCREEN 5: EXPEDITION REPLAY (INDIA'S JOURNEY)
+       ======================================================== -->
+  <div id="view-replay" class="screen-view">
+    <div class="replay-layout">
+      <!-- Left: 5-Stage Stepper -->
+      <aside class="stepper-col">
+        <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 16px;">45th Indian Antarctic Expedition</h3>
+        
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div>
+            <div style="font-weight: 700;">Departure from Goa</div>
+            <div style="font-size: 11px; color: var(--slate-600);">Nov 2024 · Port Mormugao</div>
+          </div>
+        </div>
+
+        <div class="step-item active">
+          <div class="step-num">2</div>
+          <div>
+            <div style="font-weight: 700; color: var(--blue-accent);">Voyage Southern Ocean</div>
+            <div style="font-size: 11px; color: var(--blue-accent);">Nov - Dec 2024 · Underway</div>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div>
+            <div style="font-weight: 700;">Arrival at Antarctica</div>
+            <div style="font-size: 11px; color: var(--slate-600);">Dec 2024 · Ice Shelf Anchorage</div>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div>
+            <div style="font-weight: 700;">Research Operations</div>
+            <div style="font-size: 11px; color: var(--slate-600);">Dec 2024 - Mar 2025 · Summer</div>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div>
+            <div style="font-weight: 700;">Return to India</div>
+            <div style="font-size: 11px; color: var(--slate-600);">Mar 2025 · Demobilization</div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Center: Voyage Map & Day Scrubber -->
+      <main class="replay-center">
+        <svg viewBox="0 0 600 450" style="width: 100%; height: auto;">
+          <circle cx="300" cy="225" r="200" fill="#0C1B3B" stroke="#00D2FF" stroke-width="1.5" stroke-opacity="0.3"/>
+          <path d="M 280,120 Q 380,150 440,240 T 360,380 T 200,320 Z" fill="#E2E8F0" opacity="0.9"/>
+          <!-- Voyage Arc -->
+          <path d="M 380,60 Q 420,150 360,280" fill="none" stroke="#00D2FF" stroke-width="3" stroke-dasharray="4,2"/>
+          <circle cx="395" cy="190" r="8" fill="#EF4444"/>
+          <text x="410" y="195" fill="#FFF" font-size="11" font-weight="700">Day 12: 54.2°S</text>
+        </svg>
+
+        <div class="scrubber-dock">
+          <button class="play-btn">▶</button>
+          <div style="flex-grow: 1;">
+            <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+              <span><strong>Day 12</strong> — Southern Ocean</span>
+              <span style="font-family: var(--font-mono);">28 / 70 Days</span>
+            </div>
+            <input type="range" min="1" max="70" value="28" style="width: 100%;">
+          </div>
+        </div>
+      </main>
+
+      <!-- Right: Daily Observation Dispatch -->
+      <aside style="background: var(--white); border: 1px solid var(--slate-200); border-radius: 20px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="font-size: 11px; font-family: var(--font-mono); color: var(--slate-600); margin-bottom: 4px;">22 NOV 2024 · 54.2°S, 12.1°E</div>
+          <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 12px;">Day 12 — Southern Ocean</h4>
+          <img src="https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=400&q=80" style="width: 100%; height: 140px; object-fit: cover; border-radius: 10px; margin-bottom: 12px;">
+          <p style="font-size: 13px; color: var(--slate-600); line-height: 1.5;">
+            The vessel crossed the Southern Ocean entering the Antarctic Convergence zone. Continuous meteorological and oceanographic observations were collected.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 8px; border-top: 1px solid var(--slate-100); padding-top: 14px;">
+          <span style="font-size: 11px; background: var(--slate-100); padding: 4px 8px; border-radius: 6px;">📷 Photos (12)</span>
+          <span style="font-size: 11px; background: var(--slate-100); padding: 4px 8px; border-radius: 6px;">📊 Datasets (5)</span>
+          <span style="font-size: 11px; background: var(--slate-100); padding: 4px 8px; border-radius: 6px;">📄 Reports (2)</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       SCREEN 6: EXPLAIN THIS RESEARCH (MULTI-AUDIENCE)
+       ======================================================== -->
+  <div id="view-explain" class="screen-view">
+    <div class="explain-layout">
+      <div class="explain-card">
+        <span style="font-size: 11px; font-family: var(--font-mono); background: var(--blue-light); color: var(--blue-accent); padding: 3px 8px; border-radius: 4px; font-weight: 600;">PAPER BREAKDOWN</span>
+        <h2 style="font-size: 26px; font-weight: 800; margin: 10px 0 6px;">Changes in Antarctic Sea Ice and its Impact on Global Climate</h2>
+        <div style="font-size: 13px; color: var(--slate-600);">Journal of Climate Research · 2024 · Dr. A. Sharma et al. (NCPOR)</div>
+
+        <!-- 4-Tier Audience Switcher -->
+        <div class="audience-selector">
+          <button class="aud-btn" onclick="setAudience(this)">Researcher</button>
+          <button class="aud-btn active" onclick="setAudience(this)">College Student</button>
+          <button class="aud-btn" onclick="setAudience(this)">School Student</button>
+          <button class="aud-btn" onclick="setAudience(this)">General Public</button>
+        </div>
+
+        <div style="background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 14px; padding: 24px; margin-bottom: 24px;">
+          <h4 style="font-size: 15px; font-weight: 700; color: var(--navy-dark); margin-bottom: 8px;">Simplified Explanation (College Student Level)</h4>
+          <p style="font-size: 14px; line-height: 1.65; color: var(--slate-700);">
+            This research studies how Antarctic sea ice has changed over recent decades using satellite data and field observations. The results show a decreasing trend in some regions, which can affect global climate patterns, ocean circulation, and weather systems worldwide. Understanding these changes is critical for predicting future climate impacts and Indian monsoon depression teleconnections.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <button style="background: var(--slate-100); border: 1px solid var(--slate-200); padding: 8px 16px; border-radius: 8px; font-weight: 600; cursor: pointer;">📌 Key Takeaways</button>
+          <button style="background: var(--slate-100); border: 1px solid var(--slate-200); padding: 8px 16px; border-radius: 8px; font-weight: 600; cursor: pointer;">📖 Important Terms</button>
+          <button style="background: var(--slate-100); border: 1px solid var(--slate-200); padding: 8px 16px; border-radius: 8px; font-weight: 600; cursor: pointer;">🔗 Cite This</button>
+          <button style="background: var(--slate-100); border: 1px solid var(--slate-200); padding: 8px 16px; border-radius: 8px; font-weight: 600; cursor: pointer;">⚡ Generate Another</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       SCREEN 7: AI OUTREACH STUDIO
+       ======================================================== -->
+  <div id="view-outreach" class="screen-view">
+    <div class="outreach-layout">
+      <!-- Left: Generator Form -->
+      <div class="outreach-form-card">
+        <h3 style="font-size: 20px; font-weight: 800; margin-bottom: 16px;">Create Outreach Content from Research</h3>
+        
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px;">Source Research Paper</label>
+          <select style="width: 100%; padding: 10px; border: 1px solid var(--slate-200); border-radius: 8px; font-size: 13px;">
+            <option>Changes in Antarctic Sea Ice and its Impact on Global Climate (2024)</option>
+            <option>Larsemann Hills Ice Core Paleoclimate Analysis (2023)</option>
+            <option>Himalayan Glacier Ablation Rates in Chandra Basin (2024)</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px;">Select Content Type</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <label style="display: flex; align-items: center; gap: 6px; font-size: 13px;"><input type="checkbox" checked> Website Article</label>
+            <label style="display: flex; align-items: center; gap: 6px; font-size: 13px;"><input type="checkbox" checked> Instagram Post</label>
+            <label style="display: flex; align-items: center; gap: 6px; font-size: 13px;"><input type="checkbox"> X (Twitter) Post</label>
+            <label style="display: flex; align-items: center; gap: 6px; font-size: 13px;"><input type="checkbox"> YouTube Script</label>
+            <label style="display: flex; align-items: center; gap: 6px; font-size: 13px;"><input type="checkbox"> Student Article</label>
+            <label style="display: flex; align-items: center; gap: 6px; font-size: 13px;"><input type="checkbox"> Infographic Text</label>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <label style="display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px;">Target Audience</label>
+          <select style="width: 100%; padding: 10px; border: 1px solid var(--slate-200); border-radius: 8px; font-size: 13px;">
+            <option>General Public</option>
+            <option>School Students (K-12)</option>
+            <option>Policy Makers</option>
+            <option>Academic Researchers</option>
+          </select>
+        </div>
+
+        <button style="width: 100%; background: var(--blue-accent); color: #FFF; border: none; padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer;">
+          Generate Verified Content
+        </button>
+      </div>
+
+      <!-- Right: Generated Post Preview & Approval -->
+      <div class="outreach-preview-card">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
+          <h4 style="font-size: 16px; font-weight: 700;">Generated Content Preview</h4>
+          <span style="font-size: 11px; background: #DCFCE7; color: #166534; padding: 2px 8px; border-radius: 4px; font-weight: 600;">Fact-Check Passed</span>
+        </div>
+
+        <div style="background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 12px; padding: 18px; margin-bottom: 20px;">
+          <img src="https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=600&q=80" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
+          <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 6px;">India's Polar Research is Helping Us Understand Our Changing Planet</h4>
+          <p style="font-size: 13px; color: var(--slate-600); line-height: 1.5; margin-bottom: 10px;">
+            Scientists at NCPOR are studying Antarctic sea ice to uncover how its melt affects global climate, ocean conveyor currents, and Indian summer rainfall patterns.
+          </p>
+          <div style="font-size: 12px; color: var(--blue-accent); font-family: var(--font-mono);">
+            #PolarScience #Antarctica #NCPOR #ClimateAction
+          </div>
+        </div>
+
+        <button style="width: 100%; background: var(--emerald); color: #FFF; border: none; padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer;">
+          Approve & Schedule Post
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       SCREEN 8: POLAR INSIGHT (ANOMALY ALERTS)
+       ======================================================== -->
+  <div id="view-anomaly" class="screen-view">
+    <div class="alert-layout">
+      <!-- High Alert Callout Banner -->
+      <div class="alert-banner">
+        <div>
+          <div style="font-weight: 800; font-size: 16px; color: #991B1B; display: flex; align-items: center; gap: 8px;">
+            <span>⚠️</span> Unusual Temperature Rise Detected at Maitri
+            <span style="font-size: 10px; background: var(--red-alert); color: #FFF; padding: 2px 6px; border-radius: 4px;">NEW</span>
+          </div>
+          <p style="font-size: 13px; color: #7F1D1D; margin-top: 4px;">
+            Current temperature is <strong>4.2°C higher</strong> than the 10-year synoptic average for this calendar date.
+          </p>
+        </div>
+        <button style="background: #991B1B; color: #FFF; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; cursor: pointer;">
+          Acknowledge Alert
+        </button>
+      </div>
+
+      <div class="alert-split-grid">
+        <!-- Baseline vs Current Comparison Chart -->
+        <div style="background: var(--white); border: 1px solid var(--slate-200); border-radius: 20px; padding: 24px;">
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 16px;">Maitri — Temperature Anomaly Comparison</h3>
+          
+          <div style="display: flex; gap: 18px; font-size: 12px; margin-bottom: 16px;">
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="width: 12px; height: 3px; background: #EF4444; display: inline-block;"></span> Current Year (2025)
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="width: 12px; height: 3px; background: #0066FF; display: inline-block; border-top: 1px dashed;"></span> 10-Year Climatological Average
+            </div>
+          </div>
+
+          <svg viewBox="0 0 600 200" style="width: 100%; height: auto;">
+            <line x1="40" y1="20" x2="560" y2="20" stroke="#F1F5F9"/>
+            <line x1="40" y1="70" x2="560" y2="70" stroke="#F1F5F9"/>
+            <line x1="40" y1="120" x2="560" y2="120" stroke="#F1F5F9"/>
+            <line x1="40" y1="170" x2="560" y2="170" stroke="#E2E8F0"/>
+
+            <text x="32" y="24" font-family="JetBrains Mono" font-size="9" fill="#94A3B8" text-anchor="end">-5°C</text>
+            <text x="32" y="74" font-family="JetBrains Mono" font-size="9" fill="#94A3B8" text-anchor="end">-10°C</text>
+            <text x="32" y="124" font-family="JetBrains Mono" font-size="9" fill="#94A3B8" text-anchor="end">-15°C</text>
+            <text x="32" y="174" font-family="JetBrains Mono" font-size="9" fill="#94A3B8" text-anchor="end">-20°C</text>
+
+            <!-- 10-Year Average (Blue Dashed) -->
+            <path d="M 40,130 Q 180,135 300,140 T 560,145" fill="none" stroke="#0066FF" stroke-width="2" stroke-dasharray="4,3"/>
+            <!-- Current Year (Red Spike) -->
+            <path d="M 40,128 Q 180,125 320,110 T 480,88 T 560,82" fill="none" stroke="#EF4444" stroke-width="2.5"/>
+            <circle cx="560" cy="82" r="5" fill="#EF4444"/>
+
+            <text x="40" y="190" font-family="JetBrains Mono" font-size="9" fill="#64748B">1 Jan</text>
+            <text x="300" y="190" font-family="JetBrains Mono" font-size="9" fill="#64748B">5 Jan</text>
+            <text x="540" y="190" font-family="JetBrains Mono" font-size="9" fill="#EF4444" font-weight="700">12 Jan (-11.8°C)</text>
+          </svg>
+        </div>
+
+        <!-- Alert Parameter Details -->
+        <div style="background: var(--white); border: 1px solid var(--slate-200); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 16px;">Telemetry Diagnostic</h3>
+            <div class="meta-row"><span>Observed Temp:</span><strong>-11.8 °C</strong></div>
+            <div class="meta-row"><span>Expected (10-yr avg):</span><strong>-16.0 °C</strong></div>
+            <div class="meta-row"><span>Thermal Deviation:</span><strong style="color: var(--red-alert);">+4.2 °C</strong></div>
+            <div class="meta-row"><span>Sensor Timestamp:</span><strong>12 Jan 2025, 14:30 IST</strong></div>
+            <div class="meta-row"><span>Atmospheric Pressure:</span><strong>984 hPa (Dropping)</strong></div>
+          </div>
+
+          <button style="background: var(--navy-dark); color: #FFF; border: none; padding: 12px; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 20px;">
+            View Detailed Analysis →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchView(viewId) {
+      document.querySelectorAll('.screen-view').forEach(view => {
+        view.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      const target = document.getElementById(viewId);
+      if (target) target.classList.add('active');
+
+      const tabs = Array.from(document.querySelectorAll('.tab-btn'));
+      const activeBtn = tabs.find(t => t.getAttribute('onclick') && t.getAttribute('onclick').includes(viewId));
+      if (activeBtn) activeBtn.classList.add('active');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function setAudience(btn) {
+      document.querySelectorAll('.aud-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

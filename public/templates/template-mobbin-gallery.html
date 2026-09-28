@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POLARIS // Mobbin-Style Clean Gallery — NCPOR Polar Science</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #141414;
+      --on-primary: #ffffff;
+      --ink: #141414;
+      --ink-soft: #262626;
+      --text-muted: #707070;
+      --text-faint: #adadad;
+      --canvas: #ffffff;
+      --canvas-soft: #f3f3f3;
+      --field: #f0f0f0;
+      --hairline-soft: #f0f0f0;
+      --hairline: #e0e0e0;
+      --accent: #0066ff; /* electric blue for commercial / key signals only */
+      --font-sans: 'Inter', -apple-system, "Helvetica Neue", sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--canvas);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.38;
+      font-weight: 450;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Floating Stadium Nav Pill */
+    .nav-container {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 0 24px;
+      margin-bottom: 40px;
+    }
+    .nav-pill {
+      background-color: var(--canvas-soft);
+      border-radius: 9999px;
+      padding: 6px 10px 6px 20px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.02em;
+    }
+    .brand-squircle {
+      width: 22px;
+      height: 22px;
+      background: var(--ink);
+      border-radius: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+    .nav-links a:hover { color: var(--text-muted); }
+
+    .nav-cta {
+      display: flex;
+      gap: 8px;
+    }
+    .btn-pill-primary {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-radius: 9999px;
+      padding: 8px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-pill-outline {
+      background-color: var(--canvas);
+      color: var(--ink);
+      border: 1px solid var(--hairline);
+      border-radius: 9999px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Hero Lockup (Mobbin Style: 650 Heavy Display + 300 Light Subtitle) */
+    .hero-lockup {
+      padding: 48px 0 64px;
+      text-align: center;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .hero-heading {
+      font-size: clamp(40px, 5.5vw, 68px);
+      font-weight: 650;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+    .hero-sub {
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.4;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    /* Search Input (Field fill, no border, 16px radius) */
+    .search-wrapper {
+      max-width: 560px;
+      margin: 0 auto 36px;
+      position: relative;
+    }
+    .search-input {
+      width: 100%;
+      background-color: var(--field);
+      border: none;
+      border-radius: 16px;
+      padding: 16px 22px;
+      font-size: 15px;
+      color: var(--ink);
+      outline: none;
+      transition: background-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .search-input:focus {
+      box-shadow: 0 0 0 2px var(--ink);
+      background-color: var(--canvas);
+    }
+    .search-input::placeholder {
+      color: var(--text-faint);
+    }
+
+    /* Segmented Control Pill */
+    .segmented-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+    .segmented-control {
+      background-color: var(--canvas-soft);
+      border-radius: 9999px;
+      padding: 4px;
+      display: inline-flex;
+      gap: 4px;
+    }
+    .seg-btn {
+      background: transparent;
+      border: none;
+      border-radius: 9999px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .seg-btn.active {
+      background: var(--canvas);
+      color: var(--ink);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    /* Content Gallery Grid: 24px Card Geometry */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 80px;
+    }
+
+    .gallery-card {
+      background-color: var(--canvas);
+      border: 1px solid var(--hairline-soft);
+      border-radius: 24px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.15s ease;
+    }
+    .gallery-card:hover {
+      border-color: var(--hairline);
+    }
+    .gallery-card.featured {
+      background-color: var(--canvas-soft);
+      border: none;
+    }
+
+    .card-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .squircle-tile {
+      width: 48px;
+      height: 48px;
+      background: var(--ink);
+      border-radius: 30%; /* iOS squircle motif */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .badge-accent {
+      background-color: var(--accent);
+      color: var(--on-primary);
+      border-radius: 9999px;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .badge-soft {
+      background-color: var(--canvas-soft);
+      color: var(--ink);
+      border-radius: 9999px;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .card-title {
+      font-size: 22px;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .card-body {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    /* Live Mini Telemetry Strip inside Card */
+    .tele-strip {
+      background: var(--canvas);
+      border: 1px solid var(--hairline);
+      border-radius: 16px;
+      padding: 12px 16px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .gallery-card.featured .tele-strip {
+      background: var(--canvas);
+      border-color: transparent;
+    }
+    .tele-item-label {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      color: var(--text-faint);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .tele-item-val {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      font-family: var(--font-mono);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--hairline-soft);
+    }
+    .card-link-pill {
+      background: var(--canvas-soft);
+      color: var(--ink);
+      border-radius: 9999px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .gallery-card.featured .card-link-pill {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+
+    /* Polarity Inverted Near-Black Footer (24px Top Corners) */
+    footer {
+      background-color: var(--ink);
+      color: var(--on-primary);
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      padding: 64px 48px;
+      margin-top: 60px;
+    }
+    .footer-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-logo {
+      font-size: 26px;
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .footer-desc {
+      font-size: 14px;
+      color: var(--text-faint);
+      max-width: 320px;
+      line-height: 1.5;
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #FFF;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col a {
+      color: var(--text-faint);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.15s ease;
+    }
+    .footer-col a:hover { color: #FFF; }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: 32px;
+      border-top: 1px solid #262626;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-faint);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Stadium Nav Pill -->
+  <div class="nav-container">
+    <nav class="nav-pill">
+      <a href="#" class="brand-mark">
+        <div class="brand-squircle">P</div>
+        <span>POLARIS</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="template-repository.html">Catalog</a></li>
+        <li><a href="template-ask-data.html">Telemetry</a></li>
+        <li><a href="template-editorial-queue.html">Editorial</a></li>
+        <li><a href="template-media-vault.html">Media</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="template-swiss-portal-home.html" class="btn-pill-outline">Swiss Mode</a>
+        <a href="index.html" class="btn-pill-primary">All Screens ↗</a>
+      </div>
+    </nav>
+  </div>
+
+  <main class="container">
+    <!-- Hero Lockup -->
+    <section class="hero-lockup">
+      <h1 class="hero-heading">Explore real-world polar science.</h1>
+      <p class="hero-sub">
+        712 verified NetCDF datasets, real-time Antarctic AWS telemetry, and curated documentary media across India’s three poles.
+      </p>
+
+      <!-- Pill Search Field -->
+      <div class="search-wrapper">
+        <input type="text" class="search-input" placeholder="Search datasets, stations, parameters, PIs (e.g. 'Bharati Ozone' or 'IndARC CTD')...">
+      </div>
+
+      <!-- Segmented Control Toggle -->
+      <div class="segmented-wrap">
+        <div class="segmented-control">
+          <button class="seg-btn active">All Assets (5)</button>
+          <button class="seg-btn">Antarctica (2)</button>
+          <button class="seg-btn">Arctic (2)</button>
+          <button class="seg-btn">Himalayas (1)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Grid (24px Geometry, Stadium Pills, iOS Squircles) -->
+    <section class="gallery-grid">
+
+      <!-- Card 1: Bharati (Featured Pill Tint) -->
+      <article class="gallery-card featured">
+        <div>
+          <div class="card-header-row">
+            <div class="squircle-tile">BH</div>
+            <span class="badge-accent">Live Telemetry</span>
+          </div>
+          <h2 class="card-title">Bharati Research Station</h2>
+          <p class="card-body">
+            Grovnes Peninsula, Larsemann Hills (69°24'S, 76°11'E). High-precision microgrid monitoring, ionospheric physics, and benthic biology.
+          </p>
+
+          <div class="tele-strip">
+            <div>
+              <div class="tele-item-label">Air Temp</div>
+              <div class="tele-item-val">-14.2°C</div>
+            </div>
+            <div>
+              <div class="tele-item-label">Wind Gust</div>
+              <div class="tele-item-val">28.4 kt</div>
+            </div>
+            <div>
+              <div class="tele-item-label">Ozone</div>
+              <div class="tele-item-val">168 DU</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <span style="font-size: 12px; color: var(--text-muted); font-family: var(--font-mono);">44th ISEA Active</span>
+          <a href="template-swiss-station-dossier.html" class="card-link-pill">Explore Station ↗</a>
+        </div>
+      </article>
+
+      <!-- Card 2: Maitri -->
+      <article class="gallery-card">
+        <div>
+          <div class="card-header-row">
+            <div class="squircle-tile" style="background: #262626;">MT</div>
+            <span class="badge-soft">Year-Round</span>
+          </div>
+          <h2 class="card-title">Maitri Station</h2>
+          <p class="card-body">
+            Schirmacher Oasis (70°45'S, 11°44'E). Lake Zub limnological observation, geomagnetism baseline, and geological core drilling.
+          </p>
+
+          <div class="tele-strip">
+            <div>
+              <div class="tele-item-label">Air Temp</div>
+              <div class="tele-item-val">-18.6°C</div>
+            </div>
+            <div>
+              <div class="tele-item-label">Pressure</div>
+              <div class="tele-item-val">982 hPa</div>
+            </div>
+            <div>
+              <div class="tele-item-label">Status</div>
+              <div class="tele-item-val" style="color: #166534;">Online</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <span style="font-size: 12px; color: var(--text-muted); font-family: var(--font-mono);">Est. 1989</span>
+          <a href="template-repository.html" class="card-link-pill">View Datasets ↗</a>
+        </div>
+      </article>
+
+      <!-- Card 3: Himadri -->
+      <article class="gallery-card">
+        <div>
+          <div class="card-header-row">
+            <div class="squircle-tile" style="background: #1E3A8A;">HM</div>
+            <span class="badge-soft">Arctic Base</span>
+          </div>
+          <h2 class="card-title">Himadri Research Base</h2>
+          <p class="card-body">
+            Ny-Ålesund, Svalbard (78°55'N, 11°56'E). Long-term fjord biogeochemistry, Arctic sea-ice teleconnections, and atmospheric aerosol optics.
+          </p>
+
+          <div class="tele-strip">
+            <div>
+              <div class="tele-item-label">Air Temp</div>
+              <div class="tele-item-val">-2.1°C</div>
+            </div>
+            <div>
+              <div class="tele-item-label">Fjord Ice</div>
+              <div class="tele-item-val">0.3m Nilas</div>
+            </div>
+            <div>
+              <div class="tele-item-label">CTD Cast</div>
+              <div class="tele-item-val">44m Depth</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <span style="font-size: 12px; color: var(--text-muted); font-family: var(--font-mono);">Kings Bay Marine</span>
+          <a href="template-expedition-log.html" class="card-link-pill">Fjord Log ↗</a>
+        </div>
+      </article>
+
+      <!-- Card 4: IndARC Mooring -->
+      <article class="gallery-card">
+        <div>
+          <div class="card-header-row">
+            <div class="squircle-tile" style="background: #0284C7;">IA</div>
+            <span class="badge-soft">Subsea Mooring</span>
+          </div>
+          <h2 class="card-title">IndARC Subsea Mooring</h2>
+          <p class="card-body">
+            Underwater acoustic observatory in Kongsfjorden at 192m depth. Captures Atlantic water mass intrusions and Arctic seasonal thermoclines.
+          </p>
+
+          <div class="tele-strip">
+            <div>
+              <div class="tele-item-label">Depth</div>
+              <div class="tele-item-val">192 m</div>
+            </div>
+            <div>
+              <div class="tele-item-label">Salinity</div>
+              <div class="tele-item-val">34.8 PSU</div>
+            </div>
+            <div>
+              <div class="tele-item-label">Current</div>
+              <div class="tele-item-val">0.24 m/s</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <span style="font-size: 12px; color: var(--text-muted); font-family: var(--font-mono);">Acoustic Uplink</span>
+          <a href="template-ask-data.html" class="card-link-pill">Plot Mooring ↗</a>
+        </div>
+      </article>
+
+      <!-- Card 5: Himansh Observatory -->
+      <article class="gallery-card">
+        <div>
+          <div class="card-header-row">
+            <div class="squircle-tile" style="background: #475569;">HS</div>
+            <span class="badge-soft">Third Pole</span>
+          </div>
+          <h2 class="card-title">Himansh Glaciological Base</h2>
+          <p class="card-body">
+            Spiti Valley, Himachal Pradesh at 4,050m altitude. Autonomous ablation stakes, mass balance telemetry, and Himalayan runoff forecasting.
+          </p>
+
+          <div class="tele-strip">
+            <div>
+              <div class="tele-item-label">Altitude</div>
+              <div class="tele-item-val">4,050 m</div>
+            </div>
+            <div>
+              <div class="tele-item-label">Melt Rate</div>
+              <div class="tele-item-val">1.2 cm/d</div>
+            </div>
+            <div>
+              <div class="tele-item-label">Albedo</div>
+              <div class="tele-item-val">0.68</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <span style="font-size: 12px; color: var(--text-muted); font-family: var(--font-mono);">Chandra Basin</span>
+          <a href="template-climate-dashboard.html" class="card-link-pill">Glacier Vitals ↗</a>
+        </div>
+      </article>
+
+      <!-- Card 6: National Ice Core Laboratory -->
+      <article class="gallery-card">
+        <div>
+          <div class="card-header-row">
+            <div class="squircle-tile" style="background: #0F172A;">IC</div>
+            <span class="badge-soft">Paleoclimate Vault</span>
+          </div>
+          <h2 class="card-title">National Ice Core Vault</h2>
+          <p class="card-body">
+            -25°C cryogenic archive at NCPOR Goa holding 1,480m of Antarctic and Himalayan ice cores preserving 142,000 years of paleoclimate history.
+          </p>
+
+          <div class="tele-strip">
+            <div>
+              <div class="tele-item-label">Vault Temp</div>
+              <div class="tele-item-val">-25.0°C</div>
+            </div>
+            <div>
+              <div class="tele-item-label">Core Depth</div>
+              <div class="tele-item-val">1,480 m</div>
+            </div>
+            <div>
+              <div class="tele-item-label">Span</div>
+              <div class="tele-item-val">142 kyr BP</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <span style="font-size: 12px; color: var(--text-muted); font-family: var(--font-mono);">NCPOR Goa Vault</span>
+          <a href="template-ice-core.html" class="card-link-pill">Stratigraphy ↗</a>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- Inverted Near-Black Footer (24px Top Corners) -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">POLARIS.</div>
+        <p class="footer-desc">
+          Integrated Polar Science Outreach, Knowledge Repository and Media Dissemination Portal for NCPOR, Ministry of Earth Sciences, Government of India.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Catalog</h4>
+        <ul>
+          <li><a href="template-repository.html">Atmospheric NetCDF</a></li>
+          <li><a href="template-repository.html">Ocean Hydrocasts</a></li>
+          <li><a href="template-ice-core.html">Ice Core Vault</a></li>
+          <li><a href="template-specimen-herbarium.html">Cryo Herbarium</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Telemetry</h4>
+        <ul>
+          <li><a href="template-swiss-data-terminal.html">Analytical Terminal</a></li>
+          <li><a href="template-ask-data.html">Ask-the-Data Plots</a></li>
+          <li><a href="template-climate-dashboard.html">Climate Indicators</a></li>
+          <li><a href="template-interactive-atlas.html">Polar Vector Atlas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Dissemination</h4>
+        <ul>
+          <li><a href="template-media-vault.html">Media MAM Vault</a></li>
+          <li><a href="template-editorial-queue.html">Editorial Board</a></li>
+          <li><a href="template-policy-brief.html">Strategic Policy Brief</a></li>
+          <li><a href="template-ask-scientist.html">Ask a Scientist</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 National Centre for Polar and Ocean Research (NCPOR), Vasco da Gama, Goa.</div>
+      <div>Designed following Mobbin Gallery Principles (Saans / Inter, Stadium Pills, Zero Shadows).</div>
+    </div>
+  </footer>
+
+</body>
+</html>
