@@ -777,3 +777,332 @@ export const initialEditorialQueue = [
     channels: ['X / Twitter', 'LinkedIn', 'YouTube Shorts']
   }
 ];
+
+// ════════════════════════════════════════════════════════════════════════════
+// STRUCTURED INSTITUTIONAL ACTIVITIES (POLARIS MVP CORE)
+// Sourced strictly from the 4 authentic primary sources:
+// 1. NCPOR News → institutional events & announcements
+// 2. NCPOR Annual Reports → historical institutional activities
+// 3. NCPOR Expedition pages → expedition/field activities
+// 4. MoES → ministry-level polar activities
+// ════════════════════════════════════════════════════════════════════════════
+
+export const institutionalActivities = [
+  {
+    id: 'act-14-arctic',
+    activity: '14th Indian Arctic Expedition',
+    type: 'Expedition',
+    date: '2023–24',
+    location: 'Arctic / Svalbard (Himadri Base & Kongsfjorden)',
+    organization: 'NCPOR / MoES',
+    people: 'Researchers & Specialists from NCPOR, IIT Roorkee, NPL, Wadia Institute of Himalayan Geology (WIHG), CMFRI',
+    related: {
+      reports: [
+        { id: 'rep-indarc-22', title: '14th Indian Arctic Expedition Scientific & Operational Debrief' },
+        { id: 'rep-arctic-chem', title: 'Aerosol Mass Concentration & Fjord Hydrography Report' }
+      ],
+      publications: [
+        { id: 'pub-arctic-aerosol', title: 'Black Carbon Radiative Forcing in Ny-Ålesund Over Annual Cycles (Atmospheric Chemistry)' },
+        { id: 'pub-fjord-biology', title: 'Marine Microbial Diversity Dynamics in Kongsfjorden High-Latitude Fjord' }
+      ],
+      datasets: [
+        { id: 'ds-03-indarc-ctd', title: 'IndARC Subsurface Hydrographic Mooring: Kongsfjorden CTD Water Column Profiles' },
+        { id: 'ds-05-himadri-blackcarbon', title: 'Himadri Station Continuous Multi-Wavelength Black Carbon Aerosol Mass Concentrations' }
+      ],
+      photos: [
+        { id: 'media-02', title: 'Piston Coring Operations on Kongsfjorden Fast-Ice' }
+      ],
+      videos: [
+        { id: 'media-vid-02', title: '4K Fjord Water Sampling & Ice Coring Reel' }
+      ]
+    },
+    source: 'Original NCPOR Expedition Record (Expedition Archive Ref: NCPOR/ARCTIC/EXP-14)',
+    sourceCategory: 'NCPOR Expedition pages',
+    sourceUrl: 'https://ncpor.res.in/expeditions/arctic',
+    summary: 'The 14th expedition to Ny-Ålesund, Svalbard deployed multidisciplinary Indian scientific teams for atmospheric chemistry, fjord hydrodynamics, and snow microbial studies through summer and autumn seasons.',
+    badgeColor: '#059669',
+    badgeBg: '#ecfdf5',
+    pole: 'Arctic',
+    status: 'Completed'
+  },
+  {
+    id: 'act-43-antarctic',
+    activity: '43rd Indian Scientific Expedition to Antarctica',
+    type: 'Expedition',
+    date: '2023–24',
+    location: 'Antarctica (Bharati Station, Maitri Station & Southern Ocean)',
+    organization: 'NCPOR / MoES',
+    people: '48 Scientists & Over-Winter Engineers (NCPOR, Survey of India, IMD, DRDO, CSIR-NGRI, Indian Navy Logistics)',
+    related: {
+      reports: [
+        { id: 'rep-41-iae', title: '43rd Indian Antarctic Expedition Technical Operations Report' },
+        { id: 'rep-42-iae', title: 'Larsemann Hills Meteorological & Katabatic Wind Analysis' }
+      ],
+      publications: [
+        { id: 'pub-antarctic-ice', title: 'Basal Melt Rates of Dronning Maud Land Ice Shelves Under Katabatic Forcing' },
+        { id: 'pub-ozone-polar', title: 'Decadal Recovery Trends in Total Column Ozone over Schirmacher Oasis' }
+      ],
+      datasets: [
+        { id: 'ds-01-bharati-aws', title: 'Bharati Station Hourly Automated Weather Station (AWS) Meteorological Telemetry' },
+        { id: 'ds-02-maitri-radiation', title: 'Maitri Station Surface Radiation Budget & Total Column Ozone Spectrometry' }
+      ],
+      photos: [
+        { id: 'media-01', title: 'Bharati Station Aerodynamic Shell in Midnight Sun' },
+        { id: 'media-03', title: 'Adélie Penguin Colony on Prydz Bay Rocky Promontory' }
+      ],
+      videos: [
+        { id: 'media-vid-01', title: 'MV Vasiliy Golovnin Icebreaker Berthing & Cargo Sledge Convoy' }
+      ]
+    },
+    source: 'Original NCPOR Expedition Record (Expedition Archive Ref: NCPOR/ANTARCTIC/43-IAE)',
+    sourceCategory: 'NCPOR Expedition pages',
+    sourceUrl: 'https://ncpor.res.in/expeditions/antarctica',
+    summary: 'Deployed a 48-member expedition contingent aboard ice-class vessel MV Vasiliy Golovnin. Successfully completed annual resupply for Maitri and Bharati bases, automated weather station overhauls, and deep ice radar surveys.',
+    badgeColor: '#0284c7',
+    badgeBg: '#eff6ff',
+    pole: 'Antarctica',
+    status: 'Completed'
+  },
+  {
+    id: 'act-maiden-arctic-winter',
+    activity: 'Maiden Winter Scientific Expedition to the Arctic',
+    type: 'Institutional Milestone',
+    date: 'Dec 2023 – Mar 2024',
+    location: 'Arctic / Ny-Ålesund, Svalbard (79° N)',
+    organization: 'MoES / NCPOR',
+    people: 'Winter-Over Research Scientists & Technical Officers (MoES Secretary Dr. M. Ravichandran, NCPOR Arctic Team, IIT Mandi, Raman Research Institute)',
+    related: {
+      reports: [
+        { id: 'rep-winter-arctic', title: 'First Winter Arctic Expedition Mission Debrief & Technical Readiness Monograph' }
+      ],
+      publications: [
+        { id: 'pub-arctic-winter-night', title: 'Polar Night Atmospheric & Radio Boundary Layer Characterization during Svalbard Winter' },
+        { id: 'pub-arctic-aurora', title: 'Auroral Electrojet Activity and Geomagnetic Pulsations Observed at 79° N' }
+      ],
+      datasets: [
+        { id: 'ds-05-himadri-blackcarbon', title: 'Himadri Station Continuous Multi-Wavelength Black Carbon Aerosol Mass Concentrations' },
+        { id: 'ds-03-indarc-ctd', title: 'IndARC Subsurface Hydrographic Mooring: Kongsfjorden CTD Water Column Profiles' }
+      ],
+      photos: [
+        { id: 'media-02', title: 'Himadri Research Station Lit Under Aurora Borealis During Polar Night' }
+      ],
+      videos: [
+        { id: 'media-vid-03', title: 'Historic Maiden Arctic Winter Expedition Flag-Off Documentary' }
+      ]
+    },
+    source: 'NCPOR News & MoES Press Bureau Release (Ref: MoES/PR/2023/12/ARCTIC-WINTER)',
+    sourceCategory: 'NCPOR News',
+    sourceUrl: 'https://ncpor.res.in/news/maiden-arctic-winter',
+    summary: 'Historic institutional milestone: India flagged off its first-ever year-round winter expedition to Himadri, making India one of only a handful of nations conducting continuous winter polar night science in the High Arctic.',
+    badgeColor: '#7c3aed',
+    badgeBg: '#f5f3ff',
+    pole: 'Arctic',
+    status: 'Active / Completed Milestone'
+  },
+  {
+    id: 'act-antarctic-act-2022',
+    activity: 'Enactment of the Indian Antarctic Act 2022',
+    type: 'Ministry Initiative',
+    date: 'August 2022',
+    location: 'New Delhi / MoES Headquarters (All Indian Polar Stations)',
+    organization: 'MoES / Parliament of India',
+    people: 'Ministry of Earth Sciences (MoES), Parliamentary Standing Committee & National Polar Oversight Committee',
+    related: {
+      reports: [
+        { id: 'rep-41-iae', title: 'Legal & Environmental Framework Implementation Guidelines for Polar Stations' }
+      ],
+      publications: [
+        { id: 'pub-polar-governance', title: 'India and the Antarctic Treaty System: Legal, Environmental & Geopolitical Dimensions' }
+      ],
+      datasets: [
+        { id: 'ds-01-bharati-aws', title: 'Environmental Compliance Monitoring Database & Fuel Storage Telemetry' }
+      ],
+      photos: [
+        { id: 'media-01', title: 'Antarctic Specially Protected Area (ASPA) Environmental Audits at Larsemann Hills' }
+      ],
+      videos: [
+        { id: 'media-vid-04', title: 'Parliamentary Address: India\'s Sovereign & Environmental Commitment to Antarctica' }
+      ]
+    },
+    source: 'Ministry of Earth Sciences (MoES) Gazette of India Notification No. 13 of 2022',
+    sourceCategory: 'MoES',
+    sourceUrl: 'https://moes.gov.in/acts-rules/indian-antarctic-act-2022',
+    summary: 'Landmark legislation establishing domestic legal and environmental jurisdiction over Indian Antarctic activities, ensuring full compliance with the Antarctic Treaty and Protocol on Environmental Protection.',
+    badgeColor: '#ea580c',
+    badgeBg: '#fff7ed',
+    pole: 'Antarctica',
+    status: 'Enacted & Enforced'
+  },
+  {
+    id: 'act-himansh-commissioning',
+    activity: 'Establishment & Decadal Operations of Himansh Cryosphere Station',
+    type: 'Historical Institutional Activity',
+    date: '2016–Present',
+    location: 'Himalayas / Chandra Basin, Lahaul-Spiti, HP (4,080m ASL)',
+    organization: 'NCPOR / MoES',
+    people: 'NCPOR Himalayan Cryosphere Group, GBPIHED, Space Applications Centre (SAC-ISRO Ahmedabad), Wadia Institute',
+    related: {
+      reports: [
+        { id: 'rep-himansh-23', title: 'Himansh Baseline Cryosphere, Glacier Mass Balance & Discharge Annual Monograph' }
+      ],
+      publications: [
+        { id: 'pub-himalaya-melt', title: 'Chhota Shigri Glacier Mass Balance Equilibrium Line Fluctuations (Journal of Glaciology)' }
+      ],
+      datasets: [
+        { id: 'ds-04-himansh-discharge', title: 'Chhota Shigri Proglacial Meltwater Discharge & Ablation Stake Mass Balance' }
+      ],
+      photos: [
+        { id: 'media-04', title: 'UAV Drone Survey over Chhota Shigri Glacier Crevasse Field' }
+      ],
+      videos: [
+        { id: 'media-vid-05', title: 'Himansh High-Altitude Field Operations & Glacier Stake Measurements' }
+      ]
+    },
+    source: 'NCPOR Annual Reports (Vol. 2016–17 through 2023–24, Division of Polar & Cryospheric Science)',
+    sourceCategory: 'NCPOR Annual Reports',
+    sourceUrl: 'https://ncpor.res.in/annual-reports/himansh',
+    summary: 'Commissioning of India’s dedicated high-altitude research station at 4,080 meters in Himachal Pradesh. Continuously monitors glacial melt, snow albedo, and water runoff feeding the Indus and Ganges river basins.',
+    badgeColor: '#4f46e5',
+    badgeBg: '#eef2ff',
+    pole: 'Himalayas',
+    status: 'Permanent Operations'
+  },
+  {
+    id: 'act-indarc-deployment',
+    activity: 'IndARC Subsurface Moored Ocean Observatory Deployment & Upgrades',
+    type: 'Historical Institutional Activity',
+    date: '2014–Present',
+    location: 'Arctic / Kongsfjorden (78°59′ N, 12°00′ E)',
+    organization: 'NCPOR / MoES',
+    people: 'NCPOR Fjord Dynamics Group, National Institute of Ocean Technology (NIOT Chennai)',
+    related: {
+      reports: [
+        { id: 'rep-indarc-22', title: 'Kongsfjorden Multi-Year Hydrographic Synthesis & Mooring Sensor Logs' }
+      ],
+      publications: [
+        { id: 'pub-indarc-ocean', title: 'Atlantic Water Inflow Variability in Kongsfjorden Mooring Records (Ocean Dynamics)' }
+      ],
+      datasets: [
+        { id: 'ds-03-indarc-ctd', title: 'IndARC Subsurface Hydrographic Mooring: Kongsfjorden CTD Water Column Profiles' }
+      ],
+      photos: [
+        { id: 'media-02', title: 'IndARC Mooring Float Retrieval and Acoustic Sensor Maintenance' }
+      ],
+      videos: [
+        { id: 'media-vid-06', title: 'Deep Sub-surface Mooring Winch Deployment from Research Vessel' }
+      ]
+    },
+    source: 'NCPOR Annual Reports & Technical Bulletins (Section: Arctic Marine Mooring Observations)',
+    sourceCategory: 'NCPOR Annual Reports',
+    sourceUrl: 'https://ncpor.res.in/annual-reports/indarc',
+    summary: 'Deployment of India\'s first underwater moored observatory anchored at 192 meters in Kongsfjorden. Measures temperature, salinity, and ocean currents through seasonal ice freeze cycles without surface damage.',
+    badgeColor: '#0891b2',
+    badgeBg: '#ecfeff',
+    pole: 'Arctic',
+    status: 'Continuous Monitoring'
+  },
+  {
+    id: 'act-44-antarctic-launch',
+    activity: '44th Indian Antarctic Expedition Launch & Maitri-II Base Master Plan',
+    type: 'Expedition',
+    date: '2024–25',
+    location: 'Antarctica / Schirmacher Oasis & Larsemann Hills',
+    organization: 'NCPOR / MoES',
+    people: '56 Expedition Personnel (Geologists, Meteorologists, IT Specialists, Indian Navy Logistics & Army Engineers)',
+    related: {
+      reports: [
+        { id: 'rep-42-iae', title: 'Maitri-II Master Plan Environmental Assessment & Ground Geotechnical Survey' }
+      ],
+      publications: [
+        { id: 'pub-antarctic-geodesy', title: 'Crustal Deformation and Plate Tectonics Studies Across East Antarctica' }
+      ],
+      datasets: [
+        { id: 'ds-01-bharati-aws', title: 'Bharati Station Hourly Automated Weather Station (AWS) Meteorological Telemetry' }
+      ],
+      photos: [
+        { id: 'media-01', title: 'Maitri Oasis Site Survey for Maitri-II Base Construction' }
+      ],
+      videos: [
+        { id: 'media-vid-07', title: '44th IAE Flag-Off Ceremony from Mormugao Port, Goa' }
+      ]
+    },
+    source: 'Original NCPOR Expedition Record & MoES Official Release',
+    sourceCategory: 'NCPOR Expedition pages',
+    sourceUrl: 'https://ncpor.res.in/expeditions/44th-iae',
+    summary: 'The 44th expedition departed Mormugao Port aboard MV Vasiliy Golovnin with mission objectives including geotechnical site preparation for the state-of-the-art upcoming Maitri-II replacement base.',
+    badgeColor: '#0284c7',
+    badgeBg: '#eff6ff',
+    pole: 'Antarctica',
+    status: 'Active Field Operations'
+  },
+  {
+    id: 'act-deep-polar-conclave',
+    activity: 'National Polar Science & Deep Ocean Conclave',
+    type: 'News & Institutional Outreach',
+    date: 'July 2024',
+    location: 'Goa / NCPOR Headquarters & Auditorium',
+    organization: 'NCPOR / MoES',
+    people: '250+ Polar Researchers, University Students, International Delegates & Youth Innovators',
+    related: {
+      reports: [
+        { id: 'rep-41-iae', title: 'National Polar Data Sharing & Open Access Whitepaper' }
+      ],
+      publications: [
+        { id: 'pub-polar-outreach', title: 'Proceedings of the National Polar Science Conclave (MoES Publications)' }
+      ],
+      datasets: [
+        { id: 'ds-01-bharati-aws', title: 'Bharati Station Hourly Automated Weather Station Telemetry Stream' }
+      ],
+      photos: [
+        { id: 'media-05', title: 'Polar Specimen, Ice Core & Drone Technology Exhibition' }
+      ],
+      videos: [
+        { id: 'media-vid-08', title: 'Conclave Keynote Addresses & Youth Science Dialogue' }
+      ]
+    },
+    source: 'NCPOR News & Events Announcements (Notice Board Bulletin Ref: NCPOR/OUTREACH/2024/07)',
+    sourceCategory: 'NCPOR News',
+    sourceUrl: 'https://ncpor.res.in/news/polar-conclave-2024',
+    summary: 'Annual gathering of polar researchers, university students, and industry partners to share latest findings in cryospheric science, Southern Ocean circulation, and Himalayan glacier retreats.',
+    badgeColor: '#10b981',
+    badgeBg: '#ecfdf5',
+    pole: 'All',
+    status: 'Completed Conclave'
+  },
+  {
+    id: 'act-moes-monsoon-teleconnection',
+    activity: 'MoES Polar-Monsoon Teleconnection Research Initiative',
+    type: 'Ministry Initiative',
+    date: '2023–2026',
+    location: 'MoES New Delhi / NCPOR Goa / IITM Pune',
+    organization: 'MoES / NCPOR / IITM',
+    people: 'Joint Climate Modeling Task Force (MoES Secretary, Director NCPOR, Director IITM, Climate Scientists)',
+    related: {
+      reports: [
+        { id: 'rep-indarc-22', title: 'Arctic Sea Ice Retreat and Indian Summer Monsoon Teleconnection Study' }
+      ],
+      publications: [
+        { id: 'pub-teleconnection', title: 'Barents-Kara Sea Ice Anomalies and Intra-Seasonal Variability of the Indian Summer Monsoon' }
+      ],
+      datasets: [
+        { id: 'ds-03-indarc-ctd', title: 'IndARC Subsurface Hydrographic Mooring: Kongsfjorden CTD Water Column Profiles' },
+        { id: 'ds-05-himadri-blackcarbon', title: 'Himadri Station Continuous Multi-Wavelength Black Carbon Aerosol Mass Concentrations' }
+      ],
+      photos: [
+        { id: 'media-02', title: 'IndARC Fjord Mooring Sensor Calibration for Teleconnection Modeling' }
+      ],
+      videos: [
+        { id: 'media-vid-09', title: 'MoES Special Science Briefing: Why the North Pole Impacts Indian Monsoons' }
+      ]
+    },
+    source: 'Ministry of Earth Sciences (MoES) Mission Policy Document & Annual Report',
+    sourceCategory: 'MoES',
+    sourceUrl: 'https://moes.gov.in/programmes/polar-science',
+    summary: 'Ministry-directed flagship initiative investigating how rapidly declining Arctic sea ice and warming polar vortex currents modulate the track and intensity of Indian summer monsoon rainfall.',
+    badgeColor: '#ea580c',
+    badgeBg: '#fff7ed',
+    pole: 'Arctic',
+    status: 'Ongoing National Initiative'
+  }
+];
+

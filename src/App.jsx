@@ -5,6 +5,7 @@ import { PolarExplorerMap } from './components/PolarExplorerMap';
 import { DatasetsHub } from './components/DatasetsHub';
 import { AskPolarAI } from './components/AskPolarAI';
 import { ExpeditionReplay } from './components/ExpeditionReplay';
+import { InstitutionalActivities } from './components/InstitutionalActivities';
 import { ExplainResearch } from './components/ExplainResearch';
 import { OutreachHub } from './components/OutreachHub';
 import { EditorialQueue } from './components/EditorialQueue';
@@ -218,18 +219,10 @@ export default function App() {
           </div>
         )}
 
-        {/* VIEW 6: EXPEDITION REPLAY (Ship Journey Tracker: 45th Indian Antarctic Expedition) */}
+        {/* VIEW 6: INSTITUTIONAL ACTIVITIES & EXPEDITIONS (Structured Records & Ship Journey Tracker) */}
         {activeTab === 'expeditions' && (
           <div className="main-wrapper" style={{ padding: '0 24px', margin: '28px auto 0' }}>
-            <div style={{ marginBottom: '20px' }}>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0f172a', margin: '0 0 6px 0' }}>
-                Ship Journey Tracker: 45th Indian Antarctic Expedition
-              </h2>
-              <p style={{ fontSize: '0.85rem', color: '#64748b', margin: 0 }}>
-                Track the expedition ship's journey from Goa across the Southern Ocean to India's Antarctic stations.
-              </p>
-            </div>
-            <ExpeditionReplay onNavigate={handleNavigate} />
+            <InstitutionalActivities onNavigate={handleNavigate} />
           </div>
         )}
 
@@ -270,7 +263,7 @@ export default function App() {
         {/* VIEW 10: MEDIA VAULT (Photos & Videos with EXIF Data) */}
         {activeTab === 'media' && (
           <div style={{ width: '100%', maxWidth: 1600, margin: '0 auto', padding: '24px 28px' }}>
-            <MediaVault />
+            <MediaVault onNavigate={handleNavigate} />
           </div>
         )}
 

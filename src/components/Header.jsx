@@ -75,8 +75,8 @@ export function Header({ activeTab, setActiveTab, onOpenGapMatrix }) {
     },
     { 
       id: 'expeditions', 
-      label: 'Voyages', 
-      desc: 'Track expedition ships from India to Antarctica', 
+      label: 'Activities & Voyages', 
+      desc: 'Official NCPOR & MoES expeditions, milestones, and ship journeys', 
       icon: Navigation 
     },
     { 
