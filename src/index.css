@@ -482,6 +482,17 @@ button:focus-visible, input:focus-visible, select:focus-visible {
 }
 
 /* ── Hero & Command Center Responsive ── */
+.hero-viewport-container {
+  position: relative;
+  min-height: 860px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  background: #040d1a;
+  padding-top: 40px;
+}
+
 .hero-content-wrapper {
   position: relative;
   z-index: 2;
@@ -493,6 +504,26 @@ button:focus-visible, input:focus-visible, select:focus-visible {
   width: 100%;
   margin: 0 auto;
   padding: 0 52px 52px;
+}
+
+.hero-split-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+}
+
+.hero-headline-block {
+  max-width: 660px;
+  flex: 1;
+}
+
+.hero-weather-col {
+  flex-shrink: 0;
+  width: 430px;
+  max-width: 100%;
+  animation: fadeIn 0.35s ease;
 }
 
 .hero-bento-grid {
@@ -626,6 +657,23 @@ button:focus-visible, input:focus-visible, select:focus-visible {
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+/* ── Medium Screen Breakpoint (max-width: 1180px) ── */
+@media (max-width: 1180px) {
+  .hero-viewport-container {
+    min-height: auto;
+    padding-top: 32px;
+  }
+  .hero-split-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+  .hero-weather-col {
+    width: 100%;
+    max-width: 520px;
+  }
 }
 
 /* ── Tablet Breakpoints (max-width: 1024px) ── */

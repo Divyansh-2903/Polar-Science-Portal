@@ -20,6 +20,7 @@ import {
   Activity
 } from 'lucide-react';
 import { quickActions } from '../data/portalData';
+import { PolarWeatherWidget } from './PolarWeatherWidget';
 
 export function PolarCommandCenter({ onNavigate }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -144,14 +145,9 @@ export function PolarCommandCenter({ onNavigate }) {
       {/* ════════════════════════════════════════
           HERO — Full-Screen Polar Station Image
          ════════════════════════════════════════ */}
-      <div style={{
-        position: 'relative',
+      <div className="hero-viewport-container" style={{
         width: '100%',
         minHeight: 'calc(100vh - 60px)',
-        overflow: 'hidden',
-        background: '#071525',
-        display: 'flex',
-        flexDirection: 'column',
         color: '#ffffff'
       }}>
         
@@ -181,95 +177,105 @@ export function PolarCommandCenter({ onNavigate }) {
         {/* Hero Content — anchored to bottom-left */}
         <div className="hero-content-wrapper">
 
-          {/* Headline block */}
-          <div style={{ maxWidth: '720px' }}>
+          {/* Upper Hero Split: Left Headline + Right Live Weather Widget */}
+          <div className="hero-split-row">
 
-            <h1 style={{
-              fontSize: 'clamp(2.6rem, 4.8vw, 4rem)',
-              fontWeight: 800,
-              color: '#ffffff',
-              lineHeight: 1.08,
-              letterSpacing: '-0.03em',
-              marginBottom: '16px',
-              textShadow: '0 3px 24px rgba(0,0,0,0.55)'
-            }}>
-              Exploring Today<br />
-              <span style={{
-                background: 'linear-gradient(90deg, #7dd3fc 0%, #38bdf8 60%, #bae6fd 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
+            {/* Headline block */}
+            <div className="hero-headline-block">
+
+              <h1 style={{
+                fontSize: 'clamp(2.4rem, 4.2vw, 3.8rem)',
+                fontWeight: 800,
+                color: '#ffffff',
+                lineHeight: 1.08,
+                letterSpacing: '-0.03em',
+                marginBottom: '16px',
+                textShadow: '0 3px 24px rgba(0,0,0,0.55)'
               }}>
-                for a Greener Tomorrow
-              </span>
-            </h1>
+                Exploring Today<br />
+                <span style={{
+                  background: 'linear-gradient(90deg, #7dd3fc 0%, #38bdf8 60%, #bae6fd 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}>
+                  for a Greener Tomorrow
+                </span>
+              </h1>
 
-            <p style={{
-              fontSize: '1.05rem',
-              color: '#cbd5e1',
-              lineHeight: 1.65,
-              marginBottom: '28px',
-              maxWidth: '560px',
-              textShadow: '0 1px 8px rgba(0,0,0,0.45)'
-            }}>
-              India's integrated gateway to polar science — connecting research, datasets,
-              expeditions, and outreach across{' '}
-              <strong style={{ color: '#f0f9ff' }}>Antarctica, the Arctic, and the Himalayas</strong>.
-            </p>
+              <p style={{
+                fontSize: '1.02rem',
+                color: '#cbd5e1',
+                lineHeight: 1.62,
+                marginBottom: '26px',
+                maxWidth: '560px',
+                textShadow: '0 1px 8px rgba(0,0,0,0.45)'
+              }}>
+                India's integrated gateway to polar science — connecting research, datasets,
+                expeditions, and outreach across{' '}
+                <strong style={{ color: '#f0f9ff' }}>Antarctica, the Arctic, and the Himalayas</strong>.
+              </p>
 
-            {/* Search bar */}
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (searchQuery.trim()) onNavigate('ai');
-              }}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                background: 'rgba(255,255,255,0.97)',
-                borderRadius: '12px',
-                padding: '6px 6px 6px 20px',
-                boxShadow: '0 20px 60px rgba(0,0,0,0.45)',
-                maxWidth: '540px',
-                width: '100%',
-              }}
-            >
-              <Search size={18} color="#64748b" style={{ marginRight: '10px', flexShrink: 0 }} />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search research, datasets, expeditions, stations..."
-                style={{
-                  border: 'none',
-                  outline: 'none',
-                  flex: 1,
-                  fontSize: '0.9rem',
-                  color: '#0f172a',
-                  background: 'transparent',
-                  fontFamily: 'var(--font-body)'
+              {/* Search bar */}
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  if (searchQuery.trim()) onNavigate('ai');
                 }}
-              />
-              <button
-                type="submit"
                 style={{
-                  background: '#1e6ef5',
-                  color: '#ffffff',
-                  padding: '9px 20px',
-                  borderRadius: '8px',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '6px',
-                  fontSize: '0.84rem',
-                  fontWeight: 700,
-                  whiteSpace: 'nowrap',
-                  boxShadow: '0 4px 14px rgba(30,110,245,0.45)'
+                  background: 'rgba(255,255,255,0.97)',
+                  borderRadius: '12px',
+                  padding: '6px 6px 6px 20px',
+                  boxShadow: '0 20px 60px rgba(0,0,0,0.45)',
+                  maxWidth: '540px',
+                  width: '100%',
                 }}
               >
-                Ask AI
-                <ArrowRight size={16} />
-              </button>
-            </form>
+                <Search size={18} color="#64748b" style={{ marginRight: '10px', flexShrink: 0 }} />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search research, datasets, expeditions, stations..."
+                  style={{
+                    border: 'none',
+                    outline: 'none',
+                    flex: 1,
+                    fontSize: '0.9rem',
+                    color: '#0f172a',
+                    background: 'transparent',
+                    fontFamily: 'var(--font-body)'
+                  }}
+                />
+                <button
+                  type="submit"
+                  style={{
+                    background: '#1e6ef5',
+                    color: '#ffffff',
+                    padding: '9px 20px',
+                    borderRadius: '8px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontSize: '0.84rem',
+                    fontWeight: 700,
+                    whiteSpace: 'nowrap',
+                    boxShadow: '0 4px 14px rgba(30,110,245,0.45)'
+                  }}
+                >
+                  Ask AI
+                  <ArrowRight size={16} />
+                </button>
+              </form>
+            </div>
+
+            {/* Right Side: Live Weather at Indian Polar Stations Widget */}
+            <div className="hero-weather-col">
+              <PolarWeatherWidget onNavigate={onNavigate} />
+            </div>
+
           </div>
 
           {/* Quick-action bento row */}
