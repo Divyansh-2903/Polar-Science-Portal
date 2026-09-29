@@ -131,7 +131,7 @@ export function Header({ activeTab, setActiveTab, onOpenGapMatrix }) {
         >
           <img 
             src="/polaris-logo.png" 
-            alt="Polaris Logo" 
+            alt="Polar Vidya Logo" 
             style={{
               width: '38px',
               height: '38px',
@@ -150,7 +150,7 @@ export function Header({ activeTab, setActiveTab, onOpenGapMatrix }) {
             letterSpacing: '-0.035em',
             lineHeight: 1
           }}>
-            Polaris
+            Polar Vidya
           </span>
         </div>
 

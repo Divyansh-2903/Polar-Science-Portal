@@ -1,9 +1,9 @@
 <!-- prettier-ignore -->
 <div align="center">
 
-<img src="./public/polaris-logo.png" alt="Polaris Logo" width="110" height="110" style="border-radius: 50%;" />
+<img src="./public/polaris-logo.png" alt="Polar Vidya Logo" width="110" height="110" style="border-radius: 50%;" />
 
-# Polaris: Polar Science Portal
+# Polar Vidya
 
 **Integrated Polar Science Outreach, Knowledge Repository and Media Dissemination Platform**
 
@@ -27,10 +27,10 @@
 
 India's Polar Research program spans over four decades of scientific expeditions across Earth's Three Poles: **Antarctica** (South Pole), the **Arctic** (North Pole), and the **Himalayas** (the Third Pole). While valuable expedition reports, atmospheric datasets, satellite telemetry, and field photography exist, these assets have historically remained locked in siloed archives and dense academic monographs.
 
-**Polaris** is an integrated knowledge repository, interactive data visualization engine, and science dissemination platform. It transforms complex polar science into accessible, verifiable public outreach through interactive exploration, in-browser data plotting, and evidence-grounded AI with mandatory scientist review.
+**Polar Vidya** is an integrated knowledge repository, interactive data visualization engine, and science dissemination platform. It transforms complex polar science into accessible, verifiable public outreach through interactive exploration, in-browser data plotting, and evidence-grounded AI with mandatory scientist review.
 
 > [!NOTE]
-> **Evidence-Grounded Principle**: Polaris enforces strict citation locking. Every AI-generated student explainer, press release, or social thread is anchored to verified paragraph and table offsets in official expedition monographs and reports, eliminating freeform hallucinations.
+> **Evidence-Grounded Principle**: Polar Vidya enforces strict citation locking. Every AI-generated student explainer, press release, or social thread is anchored to verified paragraph and table offsets in official expedition monographs and reports, eliminating freeform hallucinations.
 
 ---
 
@@ -73,7 +73,7 @@ India's Polar Research program spans over four decades of scientific expeditions
 
 ## Polar Stations & Scope
 
-Polaris indexes operational data, historical logs, and environmental telemetry across India's active and historic polar facilities:
+Polar Vidya indexes operational data, historical logs, and environmental telemetry across India's active and historic polar facilities:
 
 | Region | Station / Observatory | Location | Coordinates | Established | Primary Research Domains |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -179,7 +179,7 @@ npm run lint
 ## Repository Structure
 
 ```text
-Polar-Science-Portal/
+Polar-Vidya/
 ├── public/
 │   ├── polaris-logo.png          # Portal identity badge
 │   ├── hero-polar-station.jpg    # Polar station expedition photography

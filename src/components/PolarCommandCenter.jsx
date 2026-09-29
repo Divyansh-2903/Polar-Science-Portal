@@ -613,7 +613,7 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
             }}>
               For more than 40 years, brave Indian researchers have explored the coldest places on Earth.
               But their discoveries, photos, and weather files were buried in hard-to-read reports and old computer drives.
-              <strong style={{ color: '#0f172a' }}> Polaris brings all of India's polar science together in plain, simple English</strong> —
+              <strong style={{ color: '#0f172a' }}> Polar Vidya brings all of India's polar science together in plain, simple English</strong> —
               making real expedition files easy to explore for school students, college researchers, journalists, and curious citizens alike.
             </p>
           </div>
@@ -795,7 +795,7 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                   <Layers size={16} color="#1e6ef5" />
                   <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#1e6ef5', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                    How Polaris Works
+                    How Polar Vidya Works
                   </span>
                 </div>
                 <h3 style={{
@@ -939,7 +939,7 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
             </div>
 
             {/* ════════════════════════════════════════
-                THE OLD WAY VS THE POLARIS WAY
+                THE OLD WAY VS THE POLAR VIDYA WAY
                ════════════════════════════════════════ */}
             <div style={{
               marginTop: '56px',
@@ -960,10 +960,10 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
                     marginBottom: '8px'
                   }}>
                     <Award size={13} />
-                    Why Polaris Wins for India
+                    Why Polar Vidya Wins for India
                   </div>
                   <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#ffffff', margin: 0, letterSpacing: '-0.02em' }}>
-                    The Old Way vs. The Polaris Way
+                    The Old Way vs. The Polar Vidya Way
                   </h3>
                 </div>
 
@@ -1032,7 +1032,7 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
                   </div>
                 </div>
 
-                {/* Polaris SIH Winning Edge */}
+                {/* Polar Vidya SIH Winning Edge */}
                 <div style={{
                   background: 'rgba(16, 185, 129, 0.06)',
                   border: '1px solid rgba(16, 185, 129, 0.35)',
@@ -1045,7 +1045,7 @@ export function PolarCommandCenter({ onNavigate, onOpenGapMatrix }) {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981' }} />
                     <span style={{ fontSize: '0.76rem', fontWeight: 800, color: '#34d399', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                      The Polaris Way (Simple & Connected)
+                      The Polar Vidya Way (Simple & Connected)
                     </span>
                   </div>
 

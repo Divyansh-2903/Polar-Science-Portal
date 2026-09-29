@@ -47,13 +47,13 @@ export function GapMatrixModal({ isOpen, onClose }) {
           <div>
             <div className="glass-pill" style={{ marginBottom: '8px' }}>
               <ShieldAlert size={14} color="var(--accent-orange)" aria-hidden="true" />
-              <span>Clear Comparison · The Old Way vs. The Polaris Way</span>
+              <span>Clear Comparison · The Old Way vs. The Polar Vidya Way</span>
             </div>
             <h2 id="gap-matrix-title" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.6rem)', fontWeight: 800, color: '#0f172a' }}>
-              How Polaris Upgrades India's Polar Web Portal
+              How Polar Vidya Upgrades India's Polar Web Portal
             </h2>
             <p style={{ maxWidth: 850, marginTop: '6px', fontSize: '0.9rem', color: '#475569' }}>
-              See how Polaris takes 40+ years of official Indian research and makes it easy to search, explore, and share in plain English.
+              See how Polar Vidya takes 40+ years of official Indian research and makes it easy to search, explore, and share in plain English.
             </p>
           </div>
 
@@ -92,7 +92,7 @@ export function GapMatrixModal({ isOpen, onClose }) {
                 <tr style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0' }}>
                   <th style={{ padding: '14px 18px', color: '#0f172a', fontWeight: 700 }}>Feature</th>
                   <th style={{ padding: '14px 18px', color: '#64748b', fontWeight: 600 }}>The Old Way (Legacy Websites)</th>
-                  <th style={{ padding: '14px 18px', color: '#1e6ef5', fontWeight: 700 }}>The Polaris Way (Modern & Accessible)</th>
+                  <th style={{ padding: '14px 18px', color: '#1e6ef5', fontWeight: 700 }}>The Polar Vidya Way (Modern & Accessible)</th>
                 </tr>
               </thead>
               <tbody>
@@ -126,7 +126,7 @@ export function GapMatrixModal({ isOpen, onClose }) {
         {/* The 6 Critical Gaps Breakdown */}
         <div>
           <h3 style={{ fontSize: '1.15rem', color: '#059669', fontWeight: 800, marginBottom: '14px' }}>
-            The 6 Big Challenges Polaris Solves
+            The 6 Big Challenges Polar Vidya Solves
           </h3>
 
           <div style={{

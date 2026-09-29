@@ -123,7 +123,7 @@ DUBLIN CORE METADATA TAGS:
 - dc:rights: CC-BY 4.0 Open Access (NCPOR / MoES)
 
 ========================================================================
-Exported from POLARIS · Indian Polar Science Portal
+Exported from Polar Vidya · Indian Polar Science Portal
 ========================================================================
 `;
 

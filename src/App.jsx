@@ -310,7 +310,7 @@ export default function App() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
               <img 
                 src="/polaris-logo.png" 
-                alt="Polaris Logo" 
+                alt="Polar Vidya Logo" 
                 style={{
                   width: '36px',
                   height: '36px',
@@ -328,7 +328,7 @@ export default function App() {
                 letterSpacing: '-0.025em',
                 fontWeight: 800
               }}>
-                Polaris
+                Polar Vidya
               </strong>
             </div>
             <p style={{ fontSize: '0.82rem', lineHeight: 1.7, color: '#64748b', maxWidth: '300px', marginBottom: '18px' }}>

@@ -1,4 +1,4 @@
-// Direct Benchmark & Gap Matrix comparing NCPOR / NPDC legacy system with Polaris Portal
+// Direct Benchmark & Gap Matrix comparing NCPOR / NPDC legacy system with Polar Vidya
 export const gapMatrix = [
   {
     id: 'search',
