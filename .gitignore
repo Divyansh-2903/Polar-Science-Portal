@@ -26,3 +26,16 @@ dist-ssr
 # Temporary archives
 *.zip
 *.tar.gz
+
+# Local Research, Problem Statements & Architecture (Private)
+PORTAL_MASTER_BLUEPRINT.md
+PS.md
+TECHNICAL_ARCHITECTURE.md
+polar_science_portal_sih_guide.md
+Polar Science Portal SIH Guide .2.pdf
+docs/
+design-system/
+design-templates/
+public/templates/
+WhatsApp*
+a656a99f-189f-4aba-8e05-c7e1362b30c6.jpeg
