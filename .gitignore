@@ -39,3 +39,5 @@ design-templates/
 public/templates/
 WhatsApp*
 a656a99f-189f-4aba-8e05-c7e1362b30c6.jpeg
+.agents/
+skills-lock.json
